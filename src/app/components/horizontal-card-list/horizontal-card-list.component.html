@@ -1,0 +1,42 @@
+<div class="horizontal-card-list-navigation">
+  <button 
+    mat-icon-button 
+    class="nav-arrow left-arrow" 
+    (click)="scrollLeft()"
+    [disabled]="currentIndex === 0">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  
+  <div class="horizontal-scroll-container">
+    <mat-card class="card" 
+      *ngFor="let item of visibleItems"
+      [routerLink]="['/project', item.ID]"
+      style="cursor: pointer;"
+      tabindex="0"
+      (keydown.enter)="goToProject(item)">
+      <img mat-card-image [src]="getImageUrl(item)" [alt]="getTitle(item)" *ngIf="showImage" />
+      <mat-card-title>{{ getTitle(item) }}</mat-card-title>
+      <mat-card-content>
+        <ng-container
+          *ngTemplateOutlet="contentTemplate; context: { $implicit: item }">
+        </ng-container>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  <button 
+    mat-icon-button 
+    class="nav-arrow right-arrow" 
+    (click)="scrollRight()"
+    [disabled]="currentIndex >= maxIndex">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>
+<div class="pagination-dots">
+  <span 
+    *ngFor="let dot of paginationDots; let i = index" 
+    class="dot" 
+    [class.active]="i === currentPage"
+    (click)="goToPage(i)">
+  </span>
+</div>

@@ -1,0 +1,81 @@
+<app-header></app-header>
+<div class="spacer"></div>
+<div class="page">
+  <header class="project-header">
+    <div class="header-content">
+      <h1>{{ project?.Title }}</h1>
+      <p class="tagline">{{ project?.Subtitle }}</p>
+      <div class="project-meta">
+        <div class="meta-item">
+          <h4>Role</h4>
+          <p>{{ project?.Roles }}</p>
+        </div>
+        <div class="meta-item">
+          <h4>Tools</h4>
+          <p>{{ project?.Tools }}</p>
+        </div>
+        <div class="meta-item">
+          <h4>Live Link</h4>
+          <p><a href="{{ project?.LiveLink }}">LiveLink</a></p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="project-main">
+    <section class="section hero-image">
+      <img src="assets/FrontendDev.png" alt="Project Hero Image" />
+    </section>
+
+    <section class="section overview">
+      <h2>Project Overview</h2>
+      <p>
+        This project is a comprehensive management platform designed to
+        streamline the core operations of a service-based business. It provides
+        a robust system for managing services, defining staff availability, and
+        handling customer appointments.
+      </p>
+    </section>
+
+    <section class="section process">
+      <h2>Features</h2>
+      <div class="process-step">
+        <h3>Service Management</h3>
+        <p>
+          Businesses can meticulously detail their offerings using the Service
+          model, including titles, descriptions, and tiered pricing plans. This
+          serves as the foundation of the platform, organizing and presenting
+          all available options to customers.
+        </p>
+      </div>
+      <div class="process-step">
+        <h3>Availability Management</h3>
+        <p>
+          The Availability model allows businesses to define when their services
+          are open to the public. This feature enables staff to set their
+          working hours, specific dates, and available time slots for particular
+          services, ensuring that the booking system accurately reflects
+          real-time capacity.
+        </p>
+      </div>
+      <div class="process-step">
+        <h3>Schedule Management</h3>
+        <p>
+          The Schedule model facilitates the final booking process. Customers
+          can select a service, choose from the available time slots, and
+          provide their contact information. This creates a detailed record of
+          each appointment, including the selected date, time, and services. The
+          system can then use this data to send confirmations and reminders,
+          ensuring a smooth and organized workflow for both the business and its
+          clients.
+        </p>
+      </div>
+    </section>
+
+    <section class="section call-to-action">
+      <h3>Thanks for reading!</h3>
+      <a routerLink="/projects" class="cta-button">Back to Projects</a>
+    </section>
+  </main>
+</div>
+<div class="spacer"></div>
+<app-footer></app-footer>

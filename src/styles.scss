@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@use "sass:color";
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #f4f4f9;
+}
+
+.container {
+  margin: auto;
+  padding: 0 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center horizontally
+  justify-content: center; // Center vertically if container has height
+}
+
+.page {
+  padding: 60px 0;
+  margin: 20px auto;
+}
+
+.spacer {
+  height: 32px; // Adjust spacing as needed
+  width: 100%;
+  display: block;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 15px 30px;
+  background: violet;
+  text-decoration: none;
+  border-radius: 5px;
+  color: black; /* The fill color of the text */
+  &:hover {
+    background: color.adjust(#007bff, $lightness: -10%);
+    cursor: pointer;
+  }
+}
