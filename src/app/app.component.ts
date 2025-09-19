@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +12,11 @@ import { RouterOutlet } from '@angular/router';
 
 export class AppComponent {
   title = 'jk-portfolio';
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
 }
