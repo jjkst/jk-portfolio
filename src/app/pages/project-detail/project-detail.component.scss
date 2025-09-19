@@ -1,9 +1,7 @@
 /* Header Section */
 .project-header {
-    background-color: #fff;
     padding: 40px 20px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
 }
 
 .header-content {
@@ -24,20 +22,22 @@
 
 .project-meta {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    flex-direction: column;
+    gap: 16px;
     flex-wrap: wrap;
 }
 
 .meta-item h4 {
     margin: 0;
     font-size: 1rem;
-    color: #000;
 }
 
 .meta-item p {
     margin: 5px 0 0;
     font-size: 0.9rem;
+    a {
+        text-decoration: none;
+    }
 }
 
 /* Main Content Sections */
@@ -49,8 +49,6 @@
 
 .hero-image img {
     width: 100%;
-    height: auto;
-    display: block;
     border-radius: 8px;
 }
 

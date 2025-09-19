@@ -4,7 +4,7 @@ FROM node:18-alpine AS build
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm ci
 
 COPY . .
 RUN npm run build --prod
@@ -20,9 +20,6 @@ COPY nginx.conf /etc/nginx/conf.d/
 
 # Copy the built files from the 'build' stage
 COPY --from=build /app/dist/jk-portfolio/browser /usr/share/nginx/html
-
-# Overwrite the default index.html with a custom one
-COPY /usr/share/nginx/html/index.csr.html /usr/share/nginx/html/index.html
 
 # Expose port 80
 EXPOSE 80

@@ -17,7 +17,7 @@ export class HorizontalCardListComponent<T extends { ID: number }> {
   @Input() contentTemplate!: TemplateRef<any>;
   @Input() getImageUrl: (item: T) => string = () => '';
   @Input() getTitle: (item: T) => string = () => '';
-  @Input() showImage: boolean = true; // New input to control image visibility
+  @Input() showImage: boolean = true; 
 
   currentIndex = 0;
   currentPage = 0;

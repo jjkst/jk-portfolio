@@ -31,9 +31,7 @@ export class ProjectsPageComponent implements OnInit {
             ID: product.ID,
             Title: product.Title,
             Type: product.Type,
-            Description: product.Description,
             FileName: product.FileName,
-            ProjectUrl: product.ProjectUrl
           })) || [];
       }
     } catch (error) {
