@@ -18,8 +18,8 @@ export const PROFILE: Profile = {
     assessment, and integrate pertinent scenarios into the regression suite.`,
     `Proficient in crafting automation scripts for a wide range of end-to-end and front-end
     user interface testing scenarios using various testing frameworks over the years. This
-    includes leveraging <strong>Jasmine/Cucumber test frameworks with
-    Typescript/JavaScript</strong> for Angular projects, as well as employing
+    includes leveraging Jasmine/Cucumber test frameworks with
+    Typescript/JavaScript for Angular projects, as well as employing
     WebdriverIO/Protractor/Selenium Web-driver. Additionally, for C# projects, I have
     extensive experience with Spec-flow, C#, and Selenium Web-driver`,
     'Strong experience in using playwright and cypress for e2e UI automation scripts.',
