@@ -7,7 +7,6 @@ import { PRODUCTS, Project } from '../models/project.modal';
   providedIn: 'root',
 })
 export class ProductService extends BaseService {
-  private readonly endpoint = '/projects';
 
   async getProjectIds(): Promise<HttpResponse<any[]>> {
     return new HttpResponse({ body: PRODUCTS.map(p => p.ID), status: 200 });

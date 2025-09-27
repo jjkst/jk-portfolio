@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { BaseService } from './base.service';
-import { PRODUCTS, Project } from '../models/project.modal';
 import { SKILLS } from '../models/skill.model';
 
 @Injectable({
