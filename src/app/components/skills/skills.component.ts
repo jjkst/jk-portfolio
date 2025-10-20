@@ -24,7 +24,7 @@ export class SkillsComponent implements OnInit {
       if (response.status === 200 && Array.isArray(response.body)) {
         this.skills =
           response.body.map((product) => ({
-            ID: product.ID,
+            Id: product.Id,
             Title: product.Title,
             Items: product.Items,
           })) || [];

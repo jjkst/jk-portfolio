@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HorizontalCardListComponent } from '../horizontal-card-list/horizontal-card-list.component';
 import { Project } from '../../models/project.modal';
 import { MaterialModule } from '../../material.module';
-import { ProductService } from '../../services/product.service';
+import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-projects',
@@ -15,7 +15,7 @@ export class ProjectsComponent implements OnInit {
   testprojects: Project[] = [];
   developmentprojects: Project[] = [];
 
-  constructor(private productService: ProductService) {}   
+  constructor(private projectService: ProjectService) {}   
 
   ngOnInit(): void {
     this.loadproducts();
@@ -23,11 +23,11 @@ export class ProjectsComponent implements OnInit {
 
   async loadproducts(): Promise<void> {
     try {
-      const response = await this.productService.getProjects();
+      const response = await this.projectService.getProjects();
       if (response.status === 200 && Array.isArray(response.body)) {
         let projects =
           response.body.map((product) => ({
-            ID: product.ID,
+            Id: product.Id,
             Title: product.Title,
             Type: product.Type,
             Description: product.Description,

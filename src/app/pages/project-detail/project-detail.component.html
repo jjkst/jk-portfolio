@@ -15,18 +15,25 @@
           <p>{{ project?.TechStack }}</p>
         </div>
         <div class="meta-item">
-          <h4>Project Url</h4>
-          <p><a href="{{ project?.ProjectUrl }}" target="_blank">{{project.FileName.split('.')[0]}}</a></p>
+          <h4>Github Url</h4>
+          <p>
+            <a href="{{ project?.Github }}" target="_blank">{{
+              project.FileName.split(".")[0]
+            }}</a>
+          </p>
+        </div>
+        <div class="meta-item">
+          <h4>Webpage</h4>
+          <p>
+            <a routerLink="{{ project?.Webpage }}">Features</a>
+          </p>
         </div>
       </div>
     </div>
   </header>
   <main class="project-main">
     <section class="section hero-image">
-      <img
-        src="assets/{{project.FileName}}"
-        alt="{{ project.Title }}"
-      />
+      <img src="assets/{{ project.FileName }}" alt="{{ project.Title }}" />
     </section>
 
     <section class="section overview">
@@ -41,15 +48,16 @@
       <div *ngFor="let feature of project?.Features">
         <div class="process-step">
           <h3>{{ feature.title }}</h3>
-          <p innerHTML= "{{ feature.Description }}">
-          </p>
+          <p innerHTML="{{ feature.Description }}"></p>
         </div>
       </div>
     </section>
 
     <section class="section call-to-action">
       <h3>Thanks for reading!</h3>
-      <a routerLink="/projects" class="cta-button">Back to Projects</a>
+      <button routerLink="/projects" class="cta-button">
+        Back to Projects
+      </button>
     </section>
   </main>
 </div>

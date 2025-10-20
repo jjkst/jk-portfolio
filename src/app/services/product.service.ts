@@ -1,22 +1,48 @@
 import { Injectable } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
+import { Service } from '../models/service.model';
 import { BaseService } from './base.service';
-import { PRODUCTS, Project } from '../models/project.modal';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductService extends BaseService {
+  private readonly endpoint = '/services';
 
-  async getProjectIds(): Promise<HttpResponse<any[]>> {
-    return new HttpResponse({ body: PRODUCTS.map(p => p.ID), status: 200 });
+  async getServices(): Promise<HttpResponse<any[]>> {
+    return await this.get<Service[]>(this.endpoint);
   }
 
-  async getProjects(): Promise<HttpResponse<any[]>> {
-    return new HttpResponse({ body: PRODUCTS, status: 200 });
+  async getRukuServices(): Promise<HttpResponse<any[]>> {
+    return await this.get<Service[]>('/rukuservices');
   }
 
-  async getProjectById(id: number): Promise<HttpResponse<any>> {
-    return new HttpResponse({ body: PRODUCTS.find(p => p.ID == id), status: 200 });
+  async getServicesById(id: number): Promise<HttpResponse<any>> {
+    return await this.get<Service>(`${this.endpoint}/${id}`);
+  }
+
+  async getRukuServicesById(id: number): Promise<HttpResponse<any>> {
+    return await this.get<Service>(`/rukuservices/${id}`);
+  }
+
+  // async getMockServices(): Promise<HttpResponse<Service[]>> {
+  //   return new HttpResponse({ body: MOCK_PRODUCTS, status: 200 });
+  // }
+
+  async addService(serviceData: Service): Promise<HttpResponse<Service>> {
+    return await this.post<Service>(this.endpoint, serviceData);
+  }
+
+  async updateService(id: number, serviceData: Service): Promise<HttpResponse<Service>> {
+    return await this.put<Service>(`${this.endpoint}/${id}`, serviceData);
+  }
+
+  async deleteService(id: number): Promise<HttpResponse<void>> {
+    return await this.delete<void>(`${this.endpoint}/${id}`);
+  }
+
+  validateServiceData(service: Service): boolean {
+    const requiredFields = ['Title', 'Description', 'Features', 'PricingPlans'];
+    return this.validateRequiredFields(service, requiredFields);
   }
 }

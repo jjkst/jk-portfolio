@@ -1,5 +1,5 @@
 export interface Project {
-  ID: number;
+  Id: number;
   Title: string;
   Subtitle?: string;
   Type: string;
@@ -8,12 +8,13 @@ export interface Project {
   Description?: string;
   Features?: { title: string; Description: string }[];
   FileName: string;
-  ProjectUrl?: string;
+  Github?: string;
+  Webpage?: string;
 }
 
 export const PRODUCTS: Project[] = [
   {
-    ID: 1,
+    Id: 1,
     Title: 'Playwright, Typescript and Cucumber framework',
     Subtitle: 'End to End UI Automation Test Suite',
     Type: 'Test Automation',
@@ -47,10 +48,10 @@ export const PRODUCTS: Project[] = [
       },
     ],
     FileName: 'TypescriptPlaywrightCucumber.png',
-    ProjectUrl: 'https://example.com/project1',
+    Github: 'https://example.com/project1',
   },
   {
-    ID: 2,
+    Id: 2,
     Title: 'Cypress and Typescript framework',
     Subtitle: 'End to End UI Automation Test Suite',
     Type: 'Test Automation',
@@ -84,10 +85,10 @@ export const PRODUCTS: Project[] = [
       },
     ],
     FileName: 'CypressTypescript.png',
-    ProjectUrl: 'https://example.com/project1',
+    Github: 'https://example.com/project1',
   },
   {
-    ID: 3,
+    Id: 3,
     Title: 'RestSharp, C# and Reqroll framework',
     Subtitle: 'API Integration Automation Test Suite',
     Type: 'Test Automation',
@@ -121,10 +122,10 @@ export const PRODUCTS: Project[] = [
       },
     ],
     FileName: 'RestSharpCSharpReqnRoll.png',
-    ProjectUrl: 'https://example.com/project2',
+    Github: 'https://example.com/project2',
   },
   {
-    ID: 4,
+    Id: 4,
     Title: 'Selenium, C# and Reqroll framework',
     Subtitle: 'End to End UI Automation Test Suite',
     Type: 'Test Automation',
@@ -158,10 +159,10 @@ export const PRODUCTS: Project[] = [
       },
     ],
     FileName: 'CSharpSeleniumReqnroll.png',
-    ProjectUrl: 'https://example.com/project1',
+    Github: 'https://example.com/project1',
   },
   {
-    ID: 5,
+    Id: 5,
     Title: 'Playwright, C# and Reqroll framework',
     Subtitle: 'End to End UI Automation Test Suite',
     Type: 'Test Automation',
@@ -195,10 +196,10 @@ export const PRODUCTS: Project[] = [
       },
     ],
     FileName: 'PlaywrightReqnRollCSharp.png',
-    ProjectUrl: 'https://github.com/jjkst/PlaywrightReqnRollCSharp',
+    Github: 'https://github.com/jjkst/PlaywrightReqnRollCSharp',
   },
   {
-    ID: 6,
+    Id: 6,
     Title: 'Web Application - Angular and Typescript',
     Subtitle: 'Service, Schedule and Appointment Management',
     Type: 'Development',
@@ -228,10 +229,11 @@ export const PRODUCTS: Project[] = [
       },
     ],
     FileName: 'FrontendDev.png',
-    ProjectUrl: 'https://example.com/project3',
+    Github: 'https://example.com/project3',
+    Webpage: '/features',
   },
   {
-    ID: 7,
+    Id: 7,
     Title: 'Api Development - .Net, Entity Framework and MySql',
     Subtitle: 'Api services for Service, Schedule and Appointment Management',
     Type: 'Development',
@@ -261,6 +263,6 @@ export const PRODUCTS: Project[] = [
       },
     ],
     FileName: 'BackendDev.png',
-    ProjectUrl: 'https://example.com/project3',
+    Github: 'https://example.com/project3',
   },
 ];

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,12 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
 export class AppComponent {
   title = 'jk-portfolio';
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    @Inject(PLATFORM_ID) private platformId: Object
+  ) {
     this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
+      if (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });

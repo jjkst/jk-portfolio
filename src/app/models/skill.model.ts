@@ -1,12 +1,12 @@
 export interface Skill {
-  ID: number;
+  Id: number;
   Title: string;
   Items: string[];
 }
 
 export const SKILLS: Skill[] = [
   {
-    ID: 1,
+    Id: 1,
     Title: 'UI Automation Test Frameworks',
     Items: [
       'Spec-flow/MsTest Framework with C# and Selenium Web-driver, Appium',
@@ -17,7 +17,7 @@ export const SKILLS: Skill[] = [
     ],
   },
   {
-    ID: 2,
+    Id: 2,
     Title: 'API Automation Test Framework',
     Items: [
       'Spec-flow/MsTest Framework with C# and RestSharp',
@@ -25,17 +25,17 @@ export const SKILLS: Skill[] = [
     ],
   },
   {
-    ID: 3,
+    Id: 3,
     Title: 'Languages',
     Items: ['C#, Typescript/JavaScript, Python, Java, SQL'],
   },
   {
-    ID: 4,
+    Id: 4,
     Title: 'Testing and Version control tools',
     Items: ['Azure DevOps, JIRA, Github and TFS'],
   },
   {
-    ID: 5,
+    Id: 5,
     Title: 'Cloud Services',
     Items: [
       'Browserstack, LambdaTest, Sauce Labs',
@@ -43,7 +43,7 @@ export const SKILLS: Skill[] = [
     ],
   },
   {
-    ID: 6,
+    Id: 6,
     Title: 'Databases',
     Items: ['SQL Server, DynamoDb, MangoDb, Oracle'],
   },

@@ -11,13 +11,16 @@ import { Router } from '@angular/router';
   templateUrl: './horizontal-card-list.component.html',
   styleUrls: ['./horizontal-card-list.component.scss']
 })
-export class HorizontalCardListComponent<T extends { ID: number }> {
+export class HorizontalCardListComponent<T extends { Id?: number | null }> {
   @Input() items: T[] = [];
   @Input() itemsPerPage = 3;
   @Input() contentTemplate!: TemplateRef<any>;
   @Input() getImageUrl: (item: T) => string = () => '';
   @Input() getTitle: (item: T) => string = () => '';
-  @Input() showImage: boolean = true; 
+  @Input() showImage: boolean = true;
+
+  @Output() edit = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<any>();
 
   currentIndex = 0;
   currentPage = 0;
@@ -61,6 +64,8 @@ export class HorizontalCardListComponent<T extends { ID: number }> {
   }
 
   goToProject(item: T) {
-    this.router.navigate(['/project', item.ID]);
+    if (item.Id) {
+      this.router.navigate(['/project', item.Id]);
+    }
   }
 }

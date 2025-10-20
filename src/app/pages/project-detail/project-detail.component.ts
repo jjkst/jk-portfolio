@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { FooterComponent } from '../../components/footer/footer.component';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { ProductService } from '../../services/product.service';
+import { ProjectService } from '../../services/project.service';
 import { NgFor, AsyncPipe, NgIf } from '@angular/common';
 import { Observable, switchMap, map } from 'rxjs';
 import { Project } from '../../models/project.modal';
@@ -18,17 +18,17 @@ export class ProjectDetailComponent implements OnInit {
 
   project$: Observable<Project> | undefined;
 
-  constructor(private router: Router, private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private router: Router, private projectService: ProjectService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.project$ = this.route?.params.pipe(
       switchMap(params => {
         const projectId = +params['id'];
-        return this.productService.getProjectById(projectId);
+        return this.projectService.getProjectById(projectId);
       }),
       map((response: any) => {
         return {
-          ID: response.body.ID,
+          Id: response.body.Id,
           Title: response.body.Title,
           Subtitle: response.body.Subtitle,
           Type: response.body.Type,
@@ -37,7 +37,8 @@ export class ProjectDetailComponent implements OnInit {
           Description: response.body.Description,
           Features: response.body.Features,
           FileName: response.body.FileName,
-          ProjectUrl: response.body.ProjectUrl
+          Github: response.body.Github,
+          Webpage: response.body.Webpage
         };
       })
     );

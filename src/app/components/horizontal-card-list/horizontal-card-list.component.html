@@ -10,7 +10,7 @@
   <div class="horizontal-scroll-container">
     <mat-card class="card" 
       *ngFor="let item of visibleItems"
-      [routerLink]="['/project', item.ID]"
+      [routerLink]="item.Id ? ['/project', item.Id] : null"
       style="cursor: pointer;"
       tabindex="0"
       (keydown.enter)="goToProject(item)">
