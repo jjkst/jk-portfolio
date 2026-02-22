@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { takeUntil } from 'rxjs';
 import { MaterialModule } from '../../material.module';
 import { HorizontalCardListComponent } from '../horizontal-card-list/horizontal-card-list.component';
 import { Schedule } from '../../models/schedule.model';
@@ -32,7 +33,7 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
   availableTimeSlots: string[] = [];
   availableServices: string[] = [];
   scheduledAppointments: Schedule[] = [];
-  formId = 0;
+  formId: number | null = null;
   formbuttonText = 'Add Schedule';
   submitted = false;
   
@@ -46,17 +47,10 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
     super();
   }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
     this.initializeForm();
-    await this.loadSchedules();
-
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
-      let product = navigation.extras.state['product'];
-      let plan = navigation.extras.state['plan'];
-    }
-    await this.loadAvailableDates();
     this.setupFormSubscriptions();
+    Promise.all([this.loadSchedules(), this.loadAvailableDates()]);
   }
 
   private initializeForm(): void {
@@ -73,12 +67,14 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
   private setupFormSubscriptions(): void {
     this.appointmentForm
       .get('SelectedDate')
-      ?.valueChanges.subscribe((date: Date | null) => {
+      ?.valueChanges.pipe(takeUntil(this.destroy$))
+      .subscribe((date: Date | null) => {
         this.onDateChange();
       });
     this.appointmentForm
       .get('Services')
-      ?.valueChanges.subscribe((services: string[]) => {
+      ?.valueChanges.pipe(takeUntil(this.destroy$))
+      .subscribe((services: string[]) => {
         this.onServiceChange();
       });
   }
@@ -262,7 +258,7 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
           );
           return;
         }
-        if (this.formId === 0) {
+        if (this.formId === null) {
           const response = await this.scheduleService.addSchedule(scheduleData);
           if (response.status === 200 || response.status === 201) {
             this.showToast('Schedule Added Successfully!', 'success');
@@ -271,6 +267,10 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
           }
         } else {
           const existingSchedule = this.scheduledAppointments[this.formId];
+          if (!existingSchedule) {
+            this.showToast('Schedule not found for update.', 'error');
+            return;
+          }
           const response = await this.scheduleService.updateSchedule(
             existingSchedule.Uid,
             scheduleData
@@ -296,9 +296,10 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
   }
 
   editSchedule(schedule: Schedule): void {
-    this.formId = this.scheduledAppointments.findIndex(
+    const index = this.scheduledAppointments.findIndex(
       (s) => s.Uid === schedule.Uid
     );
+    this.formId = index >= 0 ? index : null;
     const selectedServices = this.appointmentForm.get('Services')?.value || [];
     this.loadTimeSlots(schedule.SelectedDate, selectedServices);
     this.appointmentForm.patchValue({
@@ -359,7 +360,7 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
       control?.markAsPristine();
       control?.setErrors(null);
     });
-    this.formId = 0;
+    this.formId = null;
     this.formbuttonText = 'Add Schedule';
     this.availableTimeSlots = [];
   }

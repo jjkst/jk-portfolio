@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -10,7 +10,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export abstract class BaseComponent implements OnDestroy {
   loading = false;
   protected destroy$ = new Subject<void>();
-  protected snackBar: MatSnackBar = new MatSnackBar;
+  protected snackBar = inject(MatSnackBar);
   
   constructor() {}
 

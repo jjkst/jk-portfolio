@@ -19,7 +19,7 @@ export async function getProjectIds(): Promise<string[]> {
     const response = await projectService.getProjectIds();
     
     if (response?.status === 200 && Array.isArray(response.body)) {
-      return response.body.map(project => project.Id.toString());
+      return response.body.map(id => id.toString());
     }
     
     return [];

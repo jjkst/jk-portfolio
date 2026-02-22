@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -6,14 +6,13 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { Subject } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Availability } from '../../models/availability.model';
 import { Service } from '../../models/service.model';
 import { ProductService } from '../../services/product.service';
 import { AvailabilityService } from '../../services/availability.service';
 import { HorizontalCardListComponent } from '../horizontal-card-list/horizontal-card-list.component';
 import { MaterialModule } from '../../material.module';
+import { BaseComponent } from '../../base.component';
 
 @Component({
   selector: 'app-availability-manager',
@@ -27,10 +26,8 @@ import { MaterialModule } from '../../material.module';
   templateUrl: './availability-manager.component.html',
   styleUrls: ['./availability-manager.component.scss'],
 })
-export class AvailabilityManagerComponent implements OnInit, OnDestroy {
+export class AvailabilityManagerComponent extends BaseComponent implements OnInit {
   availabilityForm!: FormGroup;
-  loading = false;
-  private destroy$ = new Subject<void>();
 
   availabilities: Availability[] = [];
   formId = 0;
@@ -41,11 +38,12 @@ export class AvailabilityManagerComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private snackBar: MatSnackBar,
     private availabilityService: AvailabilityService,
     private productService: ProductService,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.allTimeslots = this.generateTimeslots('07:00', '19:00');
@@ -59,10 +57,7 @@ export class AvailabilityManagerComponent implements OnInit, OnDestroy {
     this.loadServices();
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
-  }
+
 
   generateTimeslots(start: string, end: string): string[] {
     const slots: string[] = [];
@@ -270,19 +265,7 @@ export class AvailabilityManagerComponent implements OnInit, OnDestroy {
     this.formbuttonText = 'Add Availability';
   }
 
-  private showToast(
-    message: string,
-    type: 'success' | 'error' | 'info' | 'warning'
-  ): void {
-    const duration = 3000; // 3 seconds
 
-    this.snackBar.open(message, 'Close', {
-      duration: duration,
-      horizontalPosition: 'center',
-      verticalPosition: 'top',
-      panelClass: [`toast-${type}`],
-    });
-  }
 
   getAvailabilityImageUrl(availability: Availability): string {
     return 'assets/ruku-logo.png';

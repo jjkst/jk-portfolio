@@ -32,7 +32,7 @@ export class ProjectsComponent implements OnInit {
             Type: product.Type,
             Description: product.Description,
             FileName: product.FileName,
-            ProjectUrl: product.ProjectUrl
+            Github: product.Github
           })) || [];
         this.testprojects = projects.filter(p => p.Type === 'Test Automation');
         this.developmentprojects = projects.filter(p => p.Type === 'Development');

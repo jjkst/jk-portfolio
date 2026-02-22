@@ -7,10 +7,6 @@
       <p class="tagline">{{ project?.Subtitle }}</p>
       <div class="project-meta">
         <div class="meta-item">
-          <h4>Role</h4>
-          <p>{{ project?.Roles }}</p>
-        </div>
-        <div class="meta-item">
           <h4>Tech Stack</h4>
           <p>{{ project?.TechStack }}</p>
         </div>
@@ -48,7 +44,7 @@
       <div *ngFor="let feature of project?.Features">
         <div class="process-step">
           <h3>{{ feature.title }}</h3>
-          <p innerHTML="{{ feature.Description }}"></p>
+          <p [innerHTML]="feature.Description"></p>
         </div>
       </div>
     </section>

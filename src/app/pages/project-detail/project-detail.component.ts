@@ -1,9 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { FooterComponent } from '../../components/footer/footer.component';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { NgFor, AsyncPipe, NgIf } from '@angular/common';
+import { HttpResponse } from '@angular/common/http';
 import { Observable, switchMap, map } from 'rxjs';
 import { Project } from '../../models/project.modal';
 
@@ -18,33 +19,30 @@ export class ProjectDetailComponent implements OnInit {
 
   project$: Observable<Project> | undefined;
 
-  constructor(private router: Router, private projectService: ProjectService, private route: ActivatedRoute) { }
+  constructor(private projectService: ProjectService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.project$ = this.route?.params.pipe(
+    this.project$ = this.route.params.pipe(
       switchMap(params => {
         const projectId = +params['id'];
         return this.projectService.getProjectById(projectId);
       }),
-      map((response: any) => {
+      map((response: HttpResponse<Project | undefined>) => {
+        const body = response.body;
         return {
-          Id: response.body.Id,
-          Title: response.body.Title,
-          Subtitle: response.body.Subtitle,
-          Type: response.body.Type,
-          Roles: response.body.Roles,
-          TechStack: response.body.TechStack,
-          Description: response.body.Description,
-          Features: response.body.Features,
-          FileName: response.body.FileName,
-          Github: response.body.Github,
-          Webpage: response.body.Webpage
-        };
+          Id: body?.Id ?? 0,
+          Title: body?.Title ?? '',
+          Subtitle: body?.Subtitle,
+          Type: body?.Type ?? '',
+          Roles: body?.Roles,
+          TechStack: body?.TechStack,
+          Description: body?.Description,
+          Features: body?.Features,
+          FileName: body?.FileName ?? '',
+          Github: body?.Github,
+          Webpage: body?.Webpage
+        } as Project;
       })
     );
-  }
-      
-  goToProject(projectId: number) {
-    this.router.navigate(['/project', projectId]);
   }
 }
