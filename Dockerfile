@@ -1,27 +1,19 @@
-# Stage 1: Build the Angular app
-FROM node:18-alpine AS build
-
-WORKDIR /app
-
-COPY package.json package-lock.json ./
-RUN npm ci
-
+# Stage 1: Build the Angular application
+FROM node:20 AS build
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
 COPY . .
-RUN npm run build --prod
 
-# Stage 2: Serve the app with Nginx
-FROM nginx:alpine AS production
+# This command builds the app for production.
+RUN npm run build -- --configuration production
 
-# Remove the default Nginx config
-RUN rm /etc/nginx/conf.d/default.conf
+# Stage 2: Serve the application with Nginx
+FROM nginx:alpine
 
-# Copy your custom configuration file to the container
-COPY nginx.conf /etc/nginx/conf.d/
+# Copy the built static files from the 'build' stage to the Nginx server directory.
+COPY --from=build /usr/src/app/dist/jk-portfolio /usr/share/nginx/html
 
-# Copy the built files from the 'build' stage
-COPY --from=build /app/dist/jk-portfolio/browser /usr/share/nginx/html
-
-# Expose port 80
+# Nginx will serve the index.html file by default.
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
