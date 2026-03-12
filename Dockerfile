@@ -1,19 +1,14 @@
 # Stage 1: Build the Angular application
-FROM node:20 AS build
-WORKDIR /usr/src/app
+FROM node:20-alpine AS build
+WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 COPY . .
-
-# This command builds the app for production.
 RUN npm run build -- --configuration production
 
-# Stage 2: Serve the application with Nginx
+# Stage 2: Serve with Nginx
 FROM nginx:alpine
-
-# Copy the built static files from the 'build' stage to the Nginx server directory.
-COPY --from=build /usr/src/app/dist/jk-portfolio /usr/share/nginx/html
-
-# Nginx will serve the index.html file by default.
+# Angular 19 with SSR outputs static files to browser/ subfolder
+COPY --from=build /app/dist/jk-portfolio/browser /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
