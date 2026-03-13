@@ -11,7 +11,7 @@ export class ImageUploadService extends BaseService {
   async uploadImage(file: File): Promise<HttpResponse<any>> {
     const formData = new FormData();
     formData.append('file', file);
-    formData.append('folder', '/Users/karthikjayaraman/code/ecommerce-app/public');
+    formData.append('folder', 'uploads');
     return await this.post<any>(this.endpoint, formData);
   }
 

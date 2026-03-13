@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080d0a"/>
+      <stop offset="40%" style="stop-color:#0e1520"/>
+      <stop offset="100%" style="stop-color:#0c0a18"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="18%" cy="80%" r="45%">
+      <stop offset="0%" style="stop-color:#2EAD33;stop-opacity:0.22"/>
+      <stop offset="100%" style="stop-color:#2EAD33;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="82%" cy="20%" r="40%">
+      <stop offset="0%" style="stop-color:#68217A;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#68217A;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow3" cx="50%" cy="55%" r="30%">
+      <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#FF6B35;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.04"/>
+    </pattern>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2EAD33"/>
+      <stop offset="50%" style="stop-color:#68217A"/>
+      <stop offset="100%" style="stop-color:#FF6B35"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#glow1)"/>
+  <rect width="1200" height="675" fill="url(#glow2)"/>
+  <rect width="1200" height="675" fill="url(#glow3)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <circle cx="95" cy="110" r="3" fill="#2EAD33" opacity="0.6"/>
+  <circle cx="1105" cy="85" r="2" fill="#68217A" opacity="0.5"/>
+  <circle cx="200" cy="590" r="4" fill="#FF6B35" opacity="0.4"/>
+  <circle cx="970" cy="550" r="3" fill="#2EAD33" opacity="0.3"/>
+  <rect x="65" y="290" width="40" height="40" rx="8" fill="none" stroke="#2EAD33" stroke-width="1" opacity="0.15" transform="rotate(12 85 310)"/>
+  <rect x="1075" y="430" width="50" height="50" rx="10" fill="none" stroke="#68217A" stroke-width="1" opacity="0.12" transform="rotate(-18 1100 455)"/>
+  <polygon points="1055,115 1075,155 1035,155" fill="none" stroke="#FF6B35" stroke-width="1" opacity="0.12"/>
+  <rect x="380" y="148" width="440" height="3" rx="1.5" fill="url(#accent)" opacity="0.6"/>
+  <g filter="url(#shadow)">
+    <g transform="translate(290, 185)">
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="#122015"/>
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.6"/>
+      <text x="70" y="84" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#2EAD33" text-anchor="middle">Pw</text>
+    </g>
+    <g transform="translate(470, 185)">
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="#1e1230"/>
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="none" stroke="#68217A" stroke-width="2" opacity="0.6"/>
+      <text x="70" y="86" font-family="Arial, sans-serif" font-size="58" font-weight="bold" fill="#b44dca" text-anchor="middle">C#</text>
+    </g>
+    <g transform="translate(650, 185)">
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="#201510"/>
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="none" stroke="#FF6B35" stroke-width="2" opacity="0.6"/>
+      <text x="70" y="62" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#FF6B35" text-anchor="middle">Reqn</text>
+      <text x="70" y="98" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#ffb088" text-anchor="middle">Roll</text>
+    </g>
+  </g>
+  <text x="600" y="415" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle">Playwright + C# + Reqnroll</text>
+  <text x="600" y="458" font-family="Arial, sans-serif" font-size="22" fill="#7a8ba8" text-anchor="middle">End to End UI Automation Test Suite</text>
+  <g transform="translate(260, 492)">
+    <rect x="0" y="0" width="110" height="36" rx="18" fill="#2EAD33" opacity="0.12" stroke="#2EAD33" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="55" y="23" font-family="Arial, sans-serif" font-size="13" fill="#2EAD33" text-anchor="middle">Playwright</text>
+  </g>
+  <g transform="translate(390, 492)">
+    <rect x="0" y="0" width="60" height="36" rx="18" fill="#68217A" opacity="0.15" stroke="#68217A" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="30" y="23" font-family="Arial, sans-serif" font-size="13" fill="#b44dca" text-anchor="middle">C#</text>
+  </g>
+  <g transform="translate(470, 492)">
+    <rect x="0" y="0" width="100" height="36" rx="18" fill="#FF6B35" opacity="0.12" stroke="#FF6B35" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="50" y="23" font-family="Arial, sans-serif" font-size="13" fill="#FF6B35" text-anchor="middle">Reqnroll</text>
+  </g>
+  <g transform="translate(590, 492)">
+    <rect x="0" y="0" width="80" height="36" rx="18" fill="#23D96C" opacity="0.1" stroke="#23D96C" stroke-width="1" stroke-opacity="0.25"/>
+    <text x="40" y="23" font-family="Arial, sans-serif" font-size="13" fill="#23D96C" text-anchor="middle">BDD</text>
+  </g>
+  <g transform="translate(690, 492)">
+    <rect x="0" y="0" width="130" height="36" rx="18" fill="#e8590c" opacity="0.1" stroke="#e8590c" stroke-width="1" stroke-opacity="0.25"/>
+    <text x="65" y="23" font-family="Arial, sans-serif" font-size="13" fill="#e8590c" text-anchor="middle">ExtentReports</text>
+  </g>
+  <rect x="200" y="562" width="800" height="1" fill="url(#accent)" opacity="0.15"/>
+</svg>

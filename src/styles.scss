@@ -9,6 +9,7 @@ body {
   color: #333;
   line-height: 1.6;
   background-color: #f4f4f9;
+  overflow-x: hidden;
 }
 
 .container {
@@ -17,13 +18,26 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center; // Center horizontally
-  justify-content: center; // Center vertically if container has height
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .page {
   padding: 60px 0;
   margin: 20px auto;
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 0;
+    margin: 10px auto;
+  }
+
+  .spacer {
+    height: 16px;
+  }
 }
 
 .spacer {

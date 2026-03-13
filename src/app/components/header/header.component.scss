@@ -94,27 +94,65 @@
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: transform 0.3s ease;
-    transform: translateY(-100%);
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-
-    &.open {
-        display: flex;
-        transform: translateY(0);
-    }
+    padding: 1rem;
+    padding-top: 4.5rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease;
 
     @media (max-width: 768px) {
         display: flex;
+    }
+
+    &.open {
+        transform: translateY(0);
+    }
+
+    .mobile-branding {
+        margin-bottom: 1rem;
+
+        .logo {
+            width: 60px;
+            height: auto;
+        }
+    }
+
+    .mobile-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+
+        li a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-style: italic;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.05);
+            }
+
+            &.active {
+                font-weight: bold;
+            }
+        }
     }
 }
 
 .hamburger {
     display: none;
     position: fixed;
-    top: 1.2rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
     width: 2.5rem;
     height: 2.5rem;
     z-index: 1100;
@@ -122,15 +160,29 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #333;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem;
 
     span {
         display: block;
-        height: 4px;
-        width: 28px;
+        height: 3px;
+        width: 22px;
         background: #fff;
-        margin: 5px 0;
+        margin: 3px 0;
         border-radius: 2px;
         transition: all 0.3s;
+    }
+
+    &.open span:nth-child(1) {
+        transform: rotate(45deg) translate(4px, 4px);
+    }
+    &.open span:nth-child(2) {
+        opacity: 0;
+    }
+    &.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(4px, -4px);
     }
 
     @media (max-width: 768px) {

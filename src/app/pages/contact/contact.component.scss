@@ -1,6 +1,7 @@
 .contact-container {
     max-width: 960px;
     margin: 0 auto;
+    padding: 0 16px;
 }
 
 .title-section{
@@ -52,6 +53,11 @@
 
     .half-width {
       flex: 1;
+    }
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 0;
     }
   }
 

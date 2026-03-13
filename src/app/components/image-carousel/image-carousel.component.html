@@ -1,0 +1,47 @@
+<div class="carousel">
+  <div class="carousel-viewport" (click)="openLightbox()">
+    <img
+      [src]="'assets/' + images[currentIndex]"
+      [alt]="alt + ' screenshot ' + (currentIndex + 1)"
+      class="carousel-image" />
+  </div>
+
+  <button *ngIf="hasMultiple" class="carousel-btn prev" (click)="prev()" aria-label="Previous image">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button *ngIf="hasMultiple" class="carousel-btn next" (click)="next()" aria-label="Next image">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+
+  <div *ngIf="hasMultiple" class="carousel-dots">
+    <button
+      *ngFor="let img of images; let i = index"
+      class="dot"
+      [ngClass]="{ active: i === currentIndex }"
+      (click)="goTo(i)"
+      [attr.aria-label]="'Go to screenshot ' + (i + 1)">
+    </button>
+  </div>
+
+  <div *ngIf="hasMultiple" class="carousel-counter">
+    {{ currentIndex + 1 }} / {{ images.length }}
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div *ngIf="lightboxOpen" class="lightbox" (click)="closeLightbox()">
+  <div class="lightbox-content" (click)="$event.stopPropagation()">
+    <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close lightbox">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <img
+      [src]="'assets/' + images[currentIndex]"
+      [alt]="alt + ' screenshot ' + (currentIndex + 1)" />
+    <button *ngIf="hasMultiple" class="lightbox-btn prev" (click)="prev()" aria-label="Previous">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    <button *ngIf="hasMultiple" class="lightbox-btn next" (click)="next()" aria-label="Next">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+  </div>
+</div>

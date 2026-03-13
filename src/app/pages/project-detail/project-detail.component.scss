@@ -48,9 +48,15 @@
   padding: 0 20px;
 }
 
+.hero-image {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
 .hero-image img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 /* Process Section */

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#080d14"/>
+      <stop offset="40%" style="stop-color:#0c1a1f"/>
+      <stop offset="100%" style="stop-color:#091520"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="25%" cy="75%" r="45%">
+      <stop offset="0%" style="stop-color:#04C38E;stop-opacity:0.22"/>
+      <stop offset="100%" style="stop-color:#04C38E;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="75%" cy="25%" r="45%">
+      <stop offset="0%" style="stop-color:#3178C6;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#3178C6;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.04"/>
+    </pattern>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#04C38E"/>
+      <stop offset="100%" style="stop-color:#3178C6"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#glow1)"/>
+  <rect width="1200" height="675" fill="url(#glow2)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <circle cx="90" cy="100" r="3" fill="#04C38E" opacity="0.6"/>
+  <circle cx="1110" cy="90" r="2" fill="#3178C6" opacity="0.5"/>
+  <circle cx="180" cy="580" r="4" fill="#04C38E" opacity="0.4"/>
+  <circle cx="1000" cy="570" r="3" fill="#3178C6" opacity="0.3"/>
+  <rect x="70" y="280" width="40" height="40" rx="8" fill="none" stroke="#04C38E" stroke-width="1" opacity="0.12" transform="rotate(20 90 300)"/>
+  <rect x="1070" y="450" width="50" height="50" rx="10" fill="none" stroke="#3178C6" stroke-width="1" opacity="0.1" transform="rotate(-15 1095 475)"/>
+  <polygon points="1060,120 1080,160 1040,160" fill="none" stroke="#04C38E" stroke-width="1" opacity="0.12"/>
+  <polygon points="130,500 150,540 110,540" fill="none" stroke="#3178C6" stroke-width="1" opacity="0.1"/>
+  <rect x="460" y="148" width="280" height="3" rx="1.5" fill="url(#accent)" opacity="0.6"/>
+  <g filter="url(#shadow)">
+    <g transform="translate(390, 185)">
+      <rect x="0" y="0" width="140" height="140" rx="70" fill="#0d1a1a"/>
+      <circle cx="70" cy="70" r="69" fill="none" stroke="#04C38E" stroke-width="3" opacity="0.7"/>
+      <text x="70" y="85" font-family="Arial, sans-serif" font-size="58" font-weight="bold" fill="#04C38E" text-anchor="middle">Cy</text>
+    </g>
+    <g transform="translate(600, 190)">
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="#12223a"/>
+      <rect x="0" y="0" width="140" height="130" rx="22" fill="none" stroke="#3178C6" stroke-width="2" opacity="0.6"/>
+      <text x="70" y="82" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#3178C6" text-anchor="middle">TS</text>
+    </g>
+  </g>
+  <text x="600" y="420" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#ffffff" text-anchor="middle">Cypress + TypeScript</text>
+  <text x="600" y="462" font-family="Arial, sans-serif" font-size="22" fill="#7a8ba8" text-anchor="middle">End to End UI Automation Test Suite</text>
+  <g transform="translate(330, 496)">
+    <rect x="0" y="0" width="100" height="36" rx="18" fill="#04C38E" opacity="0.12" stroke="#04C38E" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="50" y="23" font-family="Arial, sans-serif" font-size="13" fill="#04C38E" text-anchor="middle">Cypress</text>
+  </g>
+  <g transform="translate(450, 496)">
+    <rect x="0" y="0" width="110" height="36" rx="18" fill="#3178C6" opacity="0.12" stroke="#3178C6" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="55" y="23" font-family="Arial, sans-serif" font-size="13" fill="#3178C6" text-anchor="middle">TypeScript</text>
+  </g>
+  <g transform="translate(580, 496)">
+    <rect x="0" y="0" width="110" height="36" rx="18" fill="#23D96C" opacity="0.12" stroke="#23D96C" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="55" y="23" font-family="Arial, sans-serif" font-size="13" fill="#23D96C" text-anchor="middle">Cucumber</text>
+  </g>
+  <g transform="translate(710, 496)">
+    <rect x="0" y="0" width="80" height="36" rx="18" fill="#F7DF1E" opacity="0.1" stroke="#F7DF1E" stroke-width="1" stroke-opacity="0.25"/>
+    <text x="40" y="23" font-family="Arial, sans-serif" font-size="13" fill="#F7DF1E" text-anchor="middle">BDD</text>
+  </g>
+  <rect x="200" y="565" width="800" height="1" fill="url(#accent)" opacity="0.15"/>
+</svg>

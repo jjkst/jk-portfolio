@@ -1,4 +1,23 @@
+<!-- Hamburger Button (visible on mobile) -->
+<button class="hamburger" [class.open]="isMenuOpen" (click)="toggleMenu()" aria-label="Toggle menu">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
 <!-- Mobile Nav -->
+<nav class="mobile-nav" [class.open]="isMenuOpen">
+  <div class="mobile-branding">
+    <a routerLink="/" (click)="closeMenu()">
+      <img src="ruku-logo-250.png" alt="jk-portfolio" class="logo" />
+    </a>
+  </div>
+  <ul class="mobile-menu">
+    <li><a routerLink="/projects" routerLinkActive="active" (click)="closeMenu()">Projects</a></li>
+    <li><a routerLink="/about" routerLinkActive="active" (click)="closeMenu()">About</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMenu()">Contact</a></li>
+  </ul>
+</nav>
 
 <!-- Desktop Nav -->
 <div class="desktop-nav">

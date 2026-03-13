@@ -7,11 +7,12 @@ import { NgFor, AsyncPipe, NgIf } from '@angular/common';
 import { HttpResponse } from '@angular/common/http';
 import { Observable, switchMap, map } from 'rxjs';
 import { Project } from '../../models/project.modal';
+import { ImageCarouselComponent } from '../../components/image-carousel/image-carousel.component';
 
 
 @Component({
   selector: 'app-project-detail',
-  imports: [HeaderComponent, FooterComponent, RouterLink, NgFor, NgIf, AsyncPipe],
+  imports: [HeaderComponent, FooterComponent, RouterLink, NgFor, NgIf, AsyncPipe, ImageCarouselComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
@@ -39,6 +40,7 @@ export class ProjectDetailComponent implements OnInit {
           Description: body?.Description,
           Features: body?.Features,
           FileName: body?.FileName ?? '',
+          Screenshots: body?.Screenshots,
           Github: body?.Github,
           Webpage: body?.Webpage
         } as Project;

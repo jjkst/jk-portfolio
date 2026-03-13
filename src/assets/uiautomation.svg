@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0e1a"/>
+      <stop offset="40%" style="stop-color:#0f1428"/>
+      <stop offset="100%" style="stop-color:#0c1020"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </radialGradient>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.03"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <rect width="1200" height="675" fill="url(#glow1)"/>
+  <rect width="1200" height="675" fill="url(#grid)"/>
+  <!-- Browser mockup -->
+  <rect x="150" y="80" width="900" height="520" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <rect x="150" y="80" width="900" height="40" rx="12" fill="#334155"/>
+  <rect x="150" y="108" width="900" height="12" fill="#334155"/>
+  <circle cx="178" cy="100" r="7" fill="#ef4444"/>
+  <circle cx="202" cy="100" r="7" fill="#f59e0b"/>
+  <circle cx="226" cy="100" r="7" fill="#22c55e"/>
+  <rect x="310" y="90" width="500" height="22" rx="11" fill="#1e293b"/>
+  <text x="560" y="106" font-family="Arial, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">https://app.example.com/dashboard</text>
+  <!-- Content -->
+  <rect x="180" y="140" width="220" height="22" rx="4" fill="#7c3aed" opacity="0.6"/>
+  <rect x="180" y="178" width="840" height="12" rx="3" fill="#334155"/>
+  <rect x="180" y="200" width="780" height="12" rx="3" fill="#334155"/>
+  <!-- Cards -->
+  <rect x="180" y="235" width="260" height="150" rx="8" fill="#131c2e" stroke="#7c3aed" stroke-width="1.5" opacity="0.9"/>
+  <rect x="200" y="255" width="100" height="14" rx="3" fill="#7c3aed" opacity="0.5"/>
+  <rect x="200" y="281" width="220" height="10" rx="2" fill="#475569"/>
+  <rect x="200" y="301" width="190" height="10" rx="2" fill="#475569"/>
+  <rect x="200" y="340" width="80" height="28" rx="14" fill="#7c3aed" opacity="0.25" stroke="#7c3aed" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="460" y="235" width="260" height="150" rx="8" fill="#131c2e" stroke="#22c55e" stroke-width="1.5" opacity="0.9"/>
+  <rect x="480" y="255" width="100" height="14" rx="3" fill="#22c55e" opacity="0.5"/>
+  <rect x="480" y="281" width="220" height="10" rx="2" fill="#475569"/>
+  <rect x="480" y="301" width="190" height="10" rx="2" fill="#475569"/>
+  <rect x="480" y="340" width="80" height="28" rx="14" fill="#22c55e" opacity="0.25" stroke="#22c55e" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="740" y="235" width="260" height="150" rx="8" fill="#131c2e" stroke="#3b82f6" stroke-width="1.5" opacity="0.9"/>
+  <rect x="760" y="255" width="100" height="14" rx="3" fill="#3b82f6" opacity="0.5"/>
+  <rect x="760" y="281" width="220" height="10" rx="2" fill="#475569"/>
+  <rect x="760" y="301" width="190" height="10" rx="2" fill="#475569"/>
+  <rect x="760" y="340" width="80" height="28" rx="14" fill="#3b82f6" opacity="0.25" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.4"/>
+  <!-- Table -->
+  <rect x="180" y="410" width="840" height="1" fill="#334155"/>
+  <rect x="180" y="420" width="840" height="35" rx="4" fill="#7c3aed" opacity="0.04"/>
+  <rect x="200" y="432" width="120" height="10" rx="2" fill="#475569"/>
+  <rect x="400" y="432" width="80" height="10" rx="2" fill="#475569"/>
+  <rect x="560" y="432" width="100" height="10" rx="2" fill="#475569"/>
+  <rect x="800" y="428" width="60" height="20" rx="10" fill="#22c55e" opacity="0.2"/>
+  <rect x="180" y="462" width="840" height="35" rx="4" fill="transparent"/>
+  <rect x="200" y="474" width="140" height="10" rx="2" fill="#475569"/>
+  <rect x="400" y="474" width="90" height="10" rx="2" fill="#475569"/>
+  <rect x="560" y="474" width="80" height="10" rx="2" fill="#475569"/>
+  <rect x="800" y="470" width="60" height="20" rx="10" fill="#f59e0b" opacity="0.2"/>
+  <rect x="180" y="504" width="840" height="35" rx="4" fill="#7c3aed" opacity="0.04"/>
+  <rect x="200" y="516" width="110" height="10" rx="2" fill="#475569"/>
+  <rect x="400" y="516" width="70" height="10" rx="2" fill="#475569"/>
+  <rect x="560" y="516" width="110" height="10" rx="2" fill="#475569"/>
+  <rect x="800" y="512" width="60" height="20" rx="10" fill="#22c55e" opacity="0.2"/>
+  <!-- Test cursor -->
+  <polygon points="750,350 750,380 762,370" fill="#22c55e" opacity="0.9"/>
+  <text x="600" y="640" font-family="Arial, sans-serif" font-size="18" fill="#546080" text-anchor="middle">UI Automation Testing</text>
+</svg>

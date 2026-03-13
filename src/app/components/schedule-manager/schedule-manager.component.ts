@@ -91,8 +91,8 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
             SelectedDate: schedule.SelectedDate,
             Services: schedule.Services,
             Timeslots: schedule.Timeslots,
-            Uid: '',
-            Notes: schedule.Note,
+            Uid: schedule.Uid,
+            Note: schedule.Note,
           })) || [];
       }
     } catch (error) {
@@ -236,62 +236,58 @@ export class ScheduleManagerComponent extends BaseComponent implements OnInit, O
   async onSubmit(): Promise<void> {
     this.submitted = true;
     if (this.appointmentForm.invalid) {
-      return;
-    }
-    if (this.appointmentForm.valid) {
-      this.loading = true;
-      try {
-        const formValue = this.appointmentForm.value;
-        const scheduleData: Schedule = {
-          ContactName: formValue.ContactName,
-          SelectedDate: formValue.SelectedDate,
-          Services: formValue.Services,
-          Timeslots: formValue.Timeslots, // now an array
-          Note: formValue.Note || '',
-          Uid: formValue.Uid || this.generateUid(),
-        };
-        if (!this.scheduleService.validateScheduleData(scheduleData)) {
-          console.log('scedule data: ', scheduleData);
-          this.showToast(
-            'Please fill in all required fields correctly.',
-            'error'
-          );
-          return;
-        }
-        if (this.formId === null) {
-          const response = await this.scheduleService.addSchedule(scheduleData);
-          if (response.status === 200 || response.status === 201) {
-            this.showToast('Schedule Added Successfully!', 'success');
-          } else {
-            this.showToast('Error Adding Schedule', 'error');
-          }
-        } else {
-          const existingSchedule = this.scheduledAppointments[this.formId];
-          if (!existingSchedule) {
-            this.showToast('Schedule not found for update.', 'error');
-            return;
-          }
-          const response = await this.scheduleService.updateSchedule(
-            existingSchedule.Uid,
-            scheduleData
-          );
-          if (response.status === 200) {
-            this.showToast('Schedule Updated Successfully!', 'success');
-          } else {
-            this.showToast('Error Updating Schedule', 'error');
-          }
-        }
-        this.resetForm();
-        this.loadSchedules();
-      } catch (error) {
-        console.error('Error adding/updating schedule:', error);
-        this.showToast('Error Adding/Updating Schedule', 'error');
-      } finally {
-        this.loading = false;
-      }
-    } else {
       this.appointmentForm.markAllAsTouched();
       this.showToast('Please fill in all required fields correctly.', 'error');
+      return;
+    }
+    this.loading = true;
+    try {
+      const formValue = this.appointmentForm.value;
+      const scheduleData: Schedule = {
+        ContactName: formValue.ContactName,
+        SelectedDate: formValue.SelectedDate,
+        Services: formValue.Services,
+        Timeslots: formValue.Timeslots,
+        Note: formValue.Note || '',
+        Uid: formValue.Uid || this.generateUid(),
+      };
+      if (!this.scheduleService.validateScheduleData(scheduleData)) {
+        this.showToast(
+          'Please fill in all required fields correctly.',
+          'error'
+        );
+        return;
+      }
+      if (this.formId === null) {
+        const response = await this.scheduleService.addSchedule(scheduleData);
+        if (response.status === 200 || response.status === 201) {
+          this.showToast('Schedule Added Successfully!', 'success');
+        } else {
+          this.showToast('Error Adding Schedule', 'error');
+        }
+      } else {
+        const existingSchedule = this.scheduledAppointments[this.formId];
+        if (!existingSchedule) {
+          this.showToast('Schedule not found for update.', 'error');
+          return;
+        }
+        const response = await this.scheduleService.updateSchedule(
+          existingSchedule.Uid,
+          scheduleData
+        );
+        if (response.status === 200) {
+          this.showToast('Schedule Updated Successfully!', 'success');
+        } else {
+          this.showToast('Error Updating Schedule', 'error');
+        }
+      }
+      this.resetForm();
+      this.loadSchedules();
+    } catch (error) {
+      console.error('Error adding/updating schedule:', error);
+      this.showToast('Error Adding/Updating Schedule', 'error');
+    } finally {
+      this.loading = false;
     }
   }
 

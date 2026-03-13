@@ -27,11 +27,14 @@
       </div>
     </div>
   </header>
-  <main class="project-main">
-    <section class="section hero-image">
-      <img src="assets/{{ project.FileName }}" alt="{{ project.Title }}" />
-    </section>
+  <section class="hero-image">
+    <app-image-carousel
+      [images]="project.Screenshots && project.Screenshots.length ? project.Screenshots : [project.FileName]"
+      [alt]="project.Title">
+    </app-image-carousel>
+  </section>
 
+  <main class="project-main">
     <section class="section overview">
       <h2>Project Overview</h2>
       <p>

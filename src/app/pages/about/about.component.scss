@@ -15,7 +15,7 @@ ul {
 ul.summary-list {
   list-style-type: circle;
   font-size: medium;
-  width: 80%;
+  width: min(80%, 100%);
   margin: 0 auto;
 
   li {
@@ -115,8 +115,38 @@ a {
 }
 
 
-/* Responsive adjustments for bio section */
-@media (min-width: 768px) {
+/* Mobile-first: stack vertically by default */
+.bio-section {
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .bio-section {
+    padding: 24px 16px;
+    transform: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  .bio-image {
+    width: 140px;
+    height: 140px;
+  }
+
+  .main-heading {
+    font-size: 1.8rem;
+  }
+
+  .cta-section {
+    padding: 20px 10px;
+  }
+}
+
+/* Desktop: side-by-side layout */
+@media (min-width: 769px) {
   .bio-section {
     flex-direction: row;
     text-align: left;

@@ -38,17 +38,17 @@
 .horizontal-scroll-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: nowrap;
   gap: 1rem;
   overflow: hidden;
-  max-width: 100%;
   flex: 1;
+  min-width: 0;
 }
 
 .card {
-  min-width: 400px;
-  max-width: 400px;
-  flex: 0 0 400px;
-  height: 500px;
+  flex: 1 1 0;
+  min-width: 0;
+  height: auto;
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -146,5 +146,18 @@
     &.active {
       background-color: #3f51b5;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 0 0 80vw;
+    min-width: 0;
+    height: auto;
+  }
+
+  .nav-arrow {
+    width: 32px;
+    height: 32px;
   }
 }

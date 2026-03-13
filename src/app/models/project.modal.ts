@@ -8,6 +8,7 @@ export interface Project {
   Description?: string;
   Features?: { title: string; Description: string }[];
   FileName: string;
+  Screenshots?: string[];
   Github?: string;
   Webpage?: string;
 }
@@ -47,7 +48,8 @@ export const PRODUCTS: Project[] = [
           test outcomes, execution times, and any failures.`,
       },
     ],
-    FileName: 'TypescriptPlaywrightCucumber.png',
+    FileName: 'TypescriptPlaywrightCucumber.svg',
+    Screenshots: ['TypescriptPlaywrightCucumber.svg', 'uiautomation.svg'],
     Github: 'https://example.com/project1',
   },
   {
@@ -84,7 +86,8 @@ export const PRODUCTS: Project[] = [
           test outcomes, execution times, and any failures.`,
       },
     ],
-    FileName: 'CypressTypescript.png',
+    FileName: 'CypressTypescript.svg',
+    Screenshots: ['CypressTypescript.svg', 'uiautomation.svg'],
     Github: 'https://example.com/project1',
   },
   {
@@ -121,7 +124,8 @@ export const PRODUCTS: Project[] = [
           test outcomes, execution times, and any failures.`,
       },
     ],
-    FileName: 'RestSharpCSharpReqnRoll.png',
+    FileName: 'RestSharpCSharpReqnRoll.svg',
+    Screenshots: ['RestSharpCSharpReqnRoll.svg', 'uiautomation.svg'],
     Github: 'https://example.com/project2',
   },
   {
@@ -158,7 +162,8 @@ export const PRODUCTS: Project[] = [
           test outcomes, execution times, and any failures.`,
       },
     ],
-    FileName: 'CSharpSeleniumReqnroll.png',
+    FileName: 'CSharpSeleniumReqnroll.svg',
+    Screenshots: ['CSharpSeleniumReqnroll.svg', 'uiautomation.svg'],
     Github: 'https://example.com/project1',
   },
   {
@@ -195,7 +200,8 @@ export const PRODUCTS: Project[] = [
           test outcomes, execution times, and any failures.`,
       },
     ],
-    FileName: 'PlaywrightReqnRollCSharp.png',
+    FileName: 'PlaywrightReqnRollCSharp.svg',
+    Screenshots: ['PlaywrightReqnRollCSharp.svg', 'uiautomation.svg'],
     Github: 'https://github.com/jjkst/PlaywrightReqnRollCSharp',
   },
   {
@@ -228,7 +234,8 @@ export const PRODUCTS: Project[] = [
         Description: `The Schedule model facilitates the final booking process. Customers can select a service, choose from the available time slots, and provide their contact information. This creates a detailed record of each appointment, including the selected date, time, and services. The system can then use this data to send confirmations and reminders, ensuring a smooth and organized workflow for both the business and its clients.`,
       },
     ],
-    FileName: 'FrontendDev.png',
+    FileName: 'FrontendDev.svg',
+    Screenshots: ['FrontendDev.svg', 'ruku-website.svg'],
     Github: 'https://example.com/project3',
     Webpage: '/features',
   },
@@ -262,7 +269,8 @@ export const PRODUCTS: Project[] = [
         Description: `The Schedule model facilitates the final booking process. Customers can select a service, choose from the available time slots, and provide their contact information. This creates a detailed record of each appointment, including the selected date, time, and services. The system can then use this data to send confirmations and reminders, ensuring a smooth and organized workflow for both the business and its clients.`,
       },
     ],
-    FileName: 'BackendDev.png',
+    FileName: 'BackendDev.svg',
+    Screenshots: ['BackendDev.svg', 'ruku-api.svg'],
     Github: 'https://example.com/project3',
   },
 ];

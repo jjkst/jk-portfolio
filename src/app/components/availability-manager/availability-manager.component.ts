@@ -179,7 +179,6 @@ export class AvailabilityManagerComponent extends BaseComponent implements OnIni
         console.error('Error adding Availability:', error);
       } finally {
         this.loading = false;
-        this.availabilityForm.reset();
       }
     } else {
       this.availabilityForm.markAllAsTouched();
@@ -287,11 +286,10 @@ export class AvailabilityManagerComponent extends BaseComponent implements OnIni
       if (response.status === 200 && Array.isArray(response.body)) {
         this.allServices =
           response.body.map((service) => ({
-            Id: service.id,
-            Title: service.title,
-            Description: service.description,
-            Price: service.price,
-            FileName: service.fileName,
+            Id: service.Id,
+            Title: service.Title,
+            Description: service.Description,
+            FileName: service.FileName,
           })) || [];
       }
     } catch (error) {
