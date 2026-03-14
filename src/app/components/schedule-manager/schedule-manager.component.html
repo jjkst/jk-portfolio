@@ -10,6 +10,7 @@
     [getImageUrl]="getScheduleImageUrl"
     [getTitle]="getScheduleTitle"
     [showImage]="false"
+    [showActions]="canManage"
     (edit)="editSchedule($event)"
     (delete)="deleteSchedule($event)">
   </app-horizontal-card-list>

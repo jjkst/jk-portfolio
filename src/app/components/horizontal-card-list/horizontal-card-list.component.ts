@@ -18,6 +18,7 @@ export class HorizontalCardListComponent<T extends { Id?: number | null }> {
   @Input() getImageUrl: (item: T) => string = () => '';
   @Input() getTitle: (item: T) => string = () => '';
   @Input() showImage: boolean = true;
+  @Input() showActions: boolean = true;
 
   @Output() edit = new EventEmitter<any>();
   @Output() delete = new EventEmitter<any>();
@@ -67,5 +68,15 @@ export class HorizontalCardListComponent<T extends { Id?: number | null }> {
     if (item.Id) {
       this.router.navigate(['/project', item.Id]);
     }
+  }
+
+  onEdit(item: T, event: Event): void {
+    event.stopPropagation();
+    this.edit.emit(item);
+  }
+
+  onDelete(item: T, event: Event): void {
+    event.stopPropagation();
+    this.delete.emit(item);
   }
 }

@@ -21,6 +21,24 @@
           *ngTemplateOutlet="contentTemplate; context: { $implicit: item }">
         </ng-container>
       </mat-card-content>
+      <div class="card-actions" *ngIf="showActions && (edit.observed || delete.observed)">
+        <button
+          *ngIf="edit.observed"
+          mat-raised-button
+          class="action-btn edit-btn"
+          (click)="onEdit(item, $event)"
+          type="button">
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+        <button
+          *ngIf="delete.observed"
+          mat-raised-button
+          class="action-btn delete-btn"
+          (click)="onDelete(item, $event)"
+          type="button">
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+      </div>
     </mat-card>
   </div>
   
