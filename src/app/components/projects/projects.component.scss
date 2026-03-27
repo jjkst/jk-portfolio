@@ -1,6 +1,150 @@
-  // Add your SCSS styles for the projects component below
-  
-  .app-horizontal-card-list {
-    // Example style
-    margin: 1rem 0;
+.projects-section {
+  .container {
+    max-width: min(1100px, 95vw);
+    width: 100%;
   }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-text);
+      margin: 0 0 8px;
+    }
+  }
+
+  .section-subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.project-category {
+  margin-bottom: 40px;
+
+  ::ng-deep {
+    .horizontal-card-list-navigation {
+      min-height: 320px;
+      align-items: center;
+    }
+
+    .nav-arrow {
+      width: 32px !important;
+      height: 32px !important;
+
+      mat-icon {
+        font-size: 20px !important;
+        width: 20px !important;
+        height: 20px !important;
+      }
+    }
+
+    .horizontal-scroll-container {
+      min-height: 300px;
+    }
+
+    .card {
+      min-height: 180px;
+      min-width: 320px;
+      padding: 0 !important;
+      overflow: hidden;
+      display: flex !important;
+      flex-direction: column !important;
+
+      img[mat-card-image] {
+        width: 100% !important;
+        flex: 1 !important;
+        object-fit: cover !important;
+        margin: 0 !important;
+      }
+
+      mat-card-content,
+      mat-card-title,
+      .card-actions {
+        display: none !important;
+      }
+    }
+  }
+}
+
+.category-header {
+  margin-bottom: 16px;
+  text-align: center;
+
+  h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 4px;
+  }
+
+  .category-description {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+}
+
+.projects-cta {
+  text-align: center;
+  padding-top: 8px;
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 8px 4px;
+  transition: color 0.2s, gap 0.2s;
+
+  .material-icons {
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    color: var(--color-primary-dark);
+
+    .material-icons {
+      transform: translateX(4px);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .project-category ::ng-deep {
+    .card {
+      min-width: 250px;
+      min-height: 200px;
+    }
+
+    .horizontal-card-list-navigation {
+      min-height: 220px;
+    }
+
+    .horizontal-scroll-container {
+      min-height: 200px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .project-category ::ng-deep {
+    .card {
+      min-width: 80vw;
+      min-height: 180px;
+    }
+  }
+}

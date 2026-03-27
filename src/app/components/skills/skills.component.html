@@ -1,15 +1,20 @@
 <section class="skills-section">
   <div class="container">
-    <h2>My Skills</h2>
-    <div class="skills-grid">
-      <div *ngFor="let section of skills">
-        <div class="skill-item">
-          <h3>{{ section.Title }}</h3>
-          <ul>
-            <li *ngFor="let skill of section.Items">{{ skill }}</li>
-          </ul>
-        </div>
+    <div class="section-header">
+      <h2>Core Expertise</h2>
+      <p class="section-subtitle">The tools and technologies I use to deliver quality software end-to-end</p>
+    </div>
+    <div class="skills-chips">
+      <div class="skill-chip" *ngFor="let section of skills">
+        <h3>{{ section.Title }}</h3>
+        <p>{{ section.Items.join(' · ') }}</p>
       </div>
+    </div>
+    <div class="skills-cta">
+      <a routerLink="/about" fragment="skills" class="view-all-link">
+        View Full Skill Set
+        <span class="material-icons">arrow_forward</span>
+      </a>
     </div>
   </div>
 </section>

@@ -1,82 +1,135 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0e0410"/>
-      <stop offset="40%" style="stop-color:#140a1e"/>
-      <stop offset="100%" style="stop-color:#0e1020"/>
+      <stop offset="0%" style="stop-color:#1a0818"/>
+      <stop offset="50%" style="stop-color:#280e25"/>
+      <stop offset="100%" style="stop-color:#200a20"/>
     </linearGradient>
-    <radialGradient id="glow1" cx="20%" cy="80%" r="45%">
-      <stop offset="0%" style="stop-color:#DD0031;stop-opacity:0.2"/>
-      <stop offset="100%" style="stop-color:#DD0031;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="glow2" cx="80%" cy="20%" r="40%">
-      <stop offset="0%" style="stop-color:#3178C6;stop-opacity:0.18"/>
-      <stop offset="100%" style="stop-color:#3178C6;stop-opacity:0"/>
-    </radialGradient>
-    <radialGradient id="glow3" cx="50%" cy="50%" r="30%">
-      <stop offset="0%" style="stop-color:#339933;stop-opacity:0.1"/>
-      <stop offset="100%" style="stop-color:#339933;stop-opacity:0"/>
-    </radialGradient>
-    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.04"/>
-    </pattern>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#DD0031"/>
       <stop offset="50%" style="stop-color:#3178C6"/>
       <stop offset="100%" style="stop-color:#339933"/>
     </linearGradient>
     <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.4"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
   </defs>
+
+  <!-- Dark base -->
   <rect width="1200" height="675" fill="url(#bg)"/>
-  <rect width="1200" height="675" fill="url(#glow1)"/>
-  <rect width="1200" height="675" fill="url(#glow2)"/>
-  <rect width="1200" height="675" fill="url(#glow3)"/>
-  <rect width="1200" height="675" fill="url(#grid)"/>
-  <circle cx="100" cy="120" r="3" fill="#DD0031" opacity="0.6"/>
-  <circle cx="1100" cy="90" r="2" fill="#3178C6" opacity="0.5"/>
-  <circle cx="180" cy="580" r="4" fill="#339933" opacity="0.4"/>
-  <circle cx="990" cy="560" r="3" fill="#DD0031" opacity="0.3"/>
-  <rect x="60" y="270" width="40" height="40" rx="8" fill="none" stroke="#DD0031" stroke-width="1" opacity="0.15" transform="rotate(20 80 290)"/>
-  <rect x="1085" y="450" width="50" height="50" rx="10" fill="none" stroke="#3178C6" stroke-width="1" opacity="0.12" transform="rotate(-15 1110 475)"/>
-  <polygon points="1050,120 1070,160 1030,160" fill="none" stroke="#339933" stroke-width="1" opacity="0.12"/>
-  <rect x="400" y="138" width="400" height="3" rx="1.5" fill="url(#accent)" opacity="0.6"/>
+
+  <!-- Circuit board grid -->
+  <g stroke="#5a2858" stroke-width="0.5" opacity="0.4">
+    <!-- Horizontal lines -->
+    <line x1="0" y1="112" x2="1200" y2="112"/>
+    <line x1="0" y1="225" x2="1200" y2="225"/>
+    <line x1="0" y1="337" x2="1200" y2="337"/>
+    <line x1="0" y1="450" x2="1200" y2="450"/>
+    <line x1="0" y1="562" x2="1200" y2="562"/>
+    <!-- Vertical lines -->
+    <line x1="200" y1="0" x2="200" y2="675"/>
+    <line x1="400" y1="0" x2="400" y2="675"/>
+    <line x1="600" y1="0" x2="600" y2="675"/>
+    <line x1="800" y1="0" x2="800" y2="675"/>
+    <line x1="1000" y1="0" x2="1000" y2="675"/>
+  </g>
+
+  <!-- Circuit traces - glowing paths -->
+  <g fill="none" stroke-width="1.5" opacity="0.3" filter="url(#neonGlow)">
+    <!-- Left trace -->
+    <path d="M 0,280 H 180 L 220,280 L 220,260 H 280" stroke="#DD0031"/>
+    <circle cx="180" cy="280" r="3" fill="#DD0031"/>
+    <!-- Right trace -->
+    <path d="M 1200,280 H 1020 L 980,280 L 980,260 H 900" stroke="#339933"/>
+    <circle cx="1020" cy="280" r="3" fill="#339933"/>
+    <!-- Top trace -->
+    <path d="M 600,0 V 100 L 590,120 V 200" stroke="#ff40a0"/>
+    <circle cx="600" cy="100" r="3" fill="#ff40a0"/>
+    <!-- Bottom left -->
+    <path d="M 100,675 V 560 L 150,520 H 310" stroke="#DD0031"/>
+    <circle cx="150" cy="520" r="3" fill="#DD0031"/>
+    <!-- Bottom right -->
+    <path d="M 1100,675 V 560 L 1050,520 H 890" stroke="#ff40a0"/>
+    <circle cx="1050" cy="520" r="3" fill="#ff40a0"/>
+    <!-- Cross traces -->
+    <path d="M 280,380 V 430 H 310" stroke="#DD0031" opacity="0.5"/>
+    <path d="M 900,380 V 430 H 870" stroke="#339933" opacity="0.5"/>
+  </g>
+
+  <!-- Circuit nodes (solder points) -->
+  <g fill="none" stroke-width="1" opacity="0.2">
+    <circle cx="200" cy="112" r="5" stroke="#DD0031"/>
+    <circle cx="400" cy="225" r="5" stroke="#ff40a0"/>
+    <circle cx="800" cy="225" r="5" stroke="#ff40a0"/>
+    <circle cx="1000" cy="112" r="5" stroke="#339933"/>
+    <circle cx="200" cy="450" r="5" stroke="#DD0031"/>
+    <circle cx="600" cy="562" r="5" stroke="#ff40a0"/>
+    <circle cx="1000" cy="450" r="5" stroke="#339933"/>
+    <rect x="395" y="107" width="10" height="10" rx="1" stroke="#DD0031" opacity="0.15"/>
+    <rect x="795" y="107" width="10" height="10" rx="1" stroke="#339933" opacity="0.15"/>
+  </g>
+
+  <!-- Scanning line effect -->
+  <rect x="0" y="330" width="1200" height="1" fill="#ff40a0" opacity="0.08"/>
+  <rect x="0" y="332" width="1200" height="3" fill="#ff40a0" opacity="0.03"/>
+
+  <!-- HEX data decoration -->
+  <text x="30" y="30" font-family="Consolas, monospace" font-size="9" fill="#5a2858" opacity="0.5">0xDD00 0x3131 0x78C6</text>
+  <text x="1000" y="660" font-family="Consolas, monospace" font-size="9" fill="#5a2858" opacity="0.5">SYS.READY // v3.1.0</text>
+  <text x="30" y="660" font-family="Consolas, monospace" font-size="9" fill="#5a2858" opacity="0.5">FRAMEWORK.INIT</text>
+
+  <!-- Logo boxes - 3 logos -->
   <g filter="url(#shadow)">
-    <!-- Angular shield -->
-    <g transform="translate(315, 178)">
-      <polygon points="65,4 126,28 117,108 65,138 13,108 4,28" fill="#1e0a12" stroke="#DD0031" stroke-width="2" opacity="0.8"/>
-      <text x="65" y="88" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#DD0031" text-anchor="middle">A</text>
+    <g transform="translate(280, 200)">
+      <rect x="0" y="0" width="160" height="160" rx="8" fill="#1a0810"/>
+      <polygon points="80,5 152,32 142,125 80,158 18,125 8,32" fill="none" stroke="#DD0031" stroke-width="2" opacity="0.8"/>
+      <!-- Corner brackets -->
+      <path d="M 4,25 V 4 H 25" fill="none" stroke="#DD0031" stroke-width="2" opacity="0.5"/>
+      <path d="M 135,4 H 156 V 25" fill="none" stroke="#DD0031" stroke-width="2" opacity="0.5"/>
+      <path d="M 156,135 V 156 H 135" fill="none" stroke="#DD0031" stroke-width="2" opacity="0.5"/>
+      <path d="M 25,156 H 4 V 135" fill="none" stroke="#DD0031" stroke-width="2" opacity="0.5"/>
+      <text x="80" y="98" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#DD0031" text-anchor="middle">A</text>
     </g>
-    <g transform="translate(480, 185)">
-      <rect x="0" y="0" width="140" height="130" rx="22" fill="#12223a"/>
-      <rect x="0" y="0" width="140" height="130" rx="22" fill="none" stroke="#3178C6" stroke-width="2" opacity="0.6"/>
-      <text x="70" y="84" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#3178C6" text-anchor="middle">TS</text>
+    <g transform="translate(510, 200)">
+      <rect x="0" y="0" width="160" height="160" rx="8" fill="#0a1220"/>
+      <rect x="0" y="0" width="160" height="160" rx="8" fill="none" stroke="#3178C6" stroke-width="2" opacity="0.8"/>
+      <path d="M 4,25 V 4 H 25" fill="none" stroke="#3178C6" stroke-width="2" opacity="0.5"/>
+      <path d="M 135,4 H 156 V 25" fill="none" stroke="#3178C6" stroke-width="2" opacity="0.5"/>
+      <path d="M 156,135 V 156 H 135" fill="none" stroke="#3178C6" stroke-width="2" opacity="0.5"/>
+      <path d="M 25,156 H 4 V 135" fill="none" stroke="#3178C6" stroke-width="2" opacity="0.5"/>
+      <text x="80" y="98" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#3178C6" text-anchor="middle">TS</text>
     </g>
-    <g transform="translate(660, 185)">
-      <rect x="0" y="0" width="140" height="130" rx="22" fill="#0e2010"/>
-      <rect x="0" y="0" width="140" height="130" rx="22" fill="none" stroke="#339933" stroke-width="2" opacity="0.6"/>
-      <text x="70" y="60" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#339933" text-anchor="middle">Node</text>
-      <text x="70" y="95" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#66cc66" text-anchor="middle">.js</text>
+    <g transform="translate(740, 200)">
+      <rect x="0" y="0" width="160" height="160" rx="8" fill="#081a0a"/>
+      <rect x="0" y="0" width="160" height="160" rx="8" fill="none" stroke="#339933" stroke-width="2" opacity="0.8"/>
+      <path d="M 4,25 V 4 H 25" fill="none" stroke="#339933" stroke-width="2" opacity="0.5"/>
+      <path d="M 135,4 H 156 V 25" fill="none" stroke="#339933" stroke-width="2" opacity="0.5"/>
+      <path d="M 156,135 V 156 H 135" fill="none" stroke="#339933" stroke-width="2" opacity="0.5"/>
+      <path d="M 25,156 H 4 V 135" fill="none" stroke="#339933" stroke-width="2" opacity="0.5"/>
+      <text x="80" y="75" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#339933" text-anchor="middle">Node</text>
+      <text x="80" y="115" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#66cc66" text-anchor="middle">.js</text>
     </g>
   </g>
-  <text x="600" y="418" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffffff" text-anchor="middle">Angular + TypeScript + Node.js</text>
-  <text x="600" y="460" font-family="Arial, sans-serif" font-size="22" fill="#7a8ba8" text-anchor="middle">Service, Schedule and Appointment Management</text>
-  <g transform="translate(290, 495)">
-    <rect x="0" y="0" width="95" height="36" rx="18" fill="#DD0031" opacity="0.12" stroke="#DD0031" stroke-width="1" stroke-opacity="0.3"/>
-    <text x="47" y="23" font-family="Arial, sans-serif" font-size="13" fill="#DD0031" text-anchor="middle">Angular</text>
+
+  <!-- Tech tags -->
+  <g transform="translate(250, 430)">
+    <rect x="0" y="0" width="100" height="36" rx="4" fill="#DD0031" opacity="0.08" stroke="#DD0031" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="50" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#DD0031" text-anchor="middle">Angular</text>
   </g>
-  <g transform="translate(405, 495)">
-    <rect x="0" y="0" width="110" height="36" rx="18" fill="#3178C6" opacity="0.12" stroke="#3178C6" stroke-width="1" stroke-opacity="0.3"/>
-    <text x="55" y="23" font-family="Arial, sans-serif" font-size="13" fill="#3178C6" text-anchor="middle">TypeScript</text>
+  <g transform="translate(370, 430)">
+    <rect x="0" y="0" width="120" height="36" rx="4" fill="#3178C6" opacity="0.08" stroke="#3178C6" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="60" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#3178C6" text-anchor="middle">TypeScript</text>
   </g>
-  <g transform="translate(535, 495)">
-    <rect x="0" y="0" width="90" height="36" rx="18" fill="#339933" opacity="0.12" stroke="#339933" stroke-width="1" stroke-opacity="0.3"/>
-    <text x="45" y="23" font-family="Arial, sans-serif" font-size="13" fill="#339933" text-anchor="middle">Node.js</text>
+  <g transform="translate(510, 430)">
+    <rect x="0" y="0" width="100" height="36" rx="4" fill="#339933" opacity="0.08" stroke="#339933" stroke-width="1" stroke-opacity="0.4"/>
+    <text x="50" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#339933" text-anchor="middle">Node.js</text>
   </g>
-  <g transform="translate(645, 495)">
-    <rect x="0" y="0" width="120" height="36" rx="18" fill="#764ABC" opacity="0.1" stroke="#764ABC" stroke-width="1" stroke-opacity="0.25"/>
-    <text x="60" y="23" font-family="Arial, sans-serif" font-size="13" fill="#764ABC" text-anchor="middle">Material UI</text>
+  <g transform="translate(630, 430)">
+    <rect x="0" y="0" width="130" height="36" rx="4" fill="#764ABC" opacity="0.06" stroke="#764ABC" stroke-width="1" stroke-opacity="0.3"/>
+    <text x="65" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#764ABC" text-anchor="middle">Material UI</text>
   </g>
-  <rect x="200" y="565" width="800" height="1" fill="url(#accent)" opacity="0.15"/>
 </svg>

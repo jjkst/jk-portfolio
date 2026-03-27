@@ -1,15 +1,55 @@
 @use "sass:color";
 
+// ── Design Tokens ──────────────────────────────────────────
+:root {
+  // Primary
+  --color-primary: #6366f1;
+  --color-primary-dark: #4f46e5;
+  --color-primary-light: #a5b4fc;
+  --color-primary-50: #eef2ff;
+
+  // Accent
+  --color-accent: #ec4899;
+  --color-accent-dark: #db2777;
+
+  // Neutrals (Slate)
+  --color-text: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-dark: #0f172a;
+  --color-border: #e2e8f0;
+
+  // Status
+  --color-success: #10b981;
+  --color-error: #ef4444;
+
+  // Shadows
+  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.1), 0 4px 8px rgba(15, 23, 42, 0.06);
+
+  // Radius
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+}
+
+// ── Base ────────────────────────────────────────────────────
 html,
 body {
   height: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
-  color: #333;
+  color: var(--color-text);
   line-height: 1.6;
-  background-color: #f4f4f9;
+  background-color: var(--color-bg);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -41,30 +81,136 @@ body {
 }
 
 .spacer {
-  height: 32px; // Adjust spacing as needed
+  height: 32px;
   width: 100%;
   display: block;
 }
 
+// ── Scroll Animations ───────────────────────────────────────
+.animate-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+// Stagger children
+.animate-stagger {
+  .animate-visible {
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        transition-delay: #{$i * 0.08}s;
+      }
+    }
+  }
+}
+
+// ── CTA Button ──────────────────────────────────────────────
 .cta-button {
   display: inline-block;
   margin-top: 2rem;
-  padding: 15px 30px;
-  background: violet;
+  padding: 14px 32px;
+  background: var(--color-accent);
   text-decoration: none;
-  border-radius: 5px;
-  color: black; 
+  border-radius: 50px;
+  color: #fff;
   font-size: 1rem;
+  font-weight: 600;
   font-family: inherit;
   border: none;
-  &:hover, &:focus {
-    background: color.adjust(#007bff, $lightness: -10%);
+  letter-spacing: 0.02em;
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+
+  &:hover,
+  &:focus {
+    background: var(--color-accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.35);
     cursor: pointer;
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
 .cta-button:active,
 .cta-button:visited {
-  color: black;
+  color: #fff;
   text-decoration: none;
+}
+
+// ── CTA Outline Variant ─────────────────────────────────────
+.cta-outline {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+
+  &:hover,
+  &:focus {
+    background: var(--color-primary-50);
+    border-color: var(--color-primary-dark);
+    color: var(--color-primary-dark);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.18);
+    transform: translateY(-2px);
+  }
+
+  &:active,
+  &:visited {
+    color: var(--color-primary);
+  }
+}
+
+// ── Home CTA Strip ──────────────────────────────────────────
+.home-cta-strip {
+  text-align: center;
+  padding: 56px 20px;
+  background: linear-gradient(135deg, var(--color-primary-50) 0%, #f5f3ff 100%);
+  border-radius: var(--radius-xl);
+  max-width: 900px;
+  margin: 0 auto;
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 8px;
+  }
+
+  p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 8px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-cta-strip {
+    padding: 40px 16px;
+    border-radius: var(--radius-lg);
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .home-cta-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
-import { Project } from '../../models/project.modal';
+import { Project } from '../../models/project.model';
 import { Router } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../material.module';
+import { MaterialModule } from 'ruku-bookings';
 import { FooterComponent } from '../../components/footer/footer.component';
 
 @Component({

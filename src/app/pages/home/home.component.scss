@@ -1,0 +1,45 @@
+.about-blurb {
+  max-width: min(1100px, 95vw);
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 12px;
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0 0 16px;
+  }
+}
+
+.learn-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  .material-icons {
+    font-size: 18px;
+    transition: transform 0.2s;
+  }
+
+  &:hover {
+    color: var(--color-primary-dark);
+
+    .material-icons {
+      transform: translateX(4px);
+    }
+  }
+}

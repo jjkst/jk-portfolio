@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HorizontalCardListComponent } from '../horizontal-card-list/horizontal-card-list.component';
-import { Project } from '../../models/project.modal';
-import { MaterialModule } from '../../material.module';
+import { RouterLink } from '@angular/router';
+import { Project } from '../../models/project.model';
+import { HorizontalCardListComponent, MaterialModule } from 'ruku-bookings';
 import { ProjectService } from '../../services/project.service';
 
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule, HorizontalCardListComponent, MaterialModule],
+  imports: [CommonModule, RouterLink, HorizontalCardListComponent, MaterialModule],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
 })
@@ -30,7 +30,6 @@ export class ProjectsComponent implements OnInit {
             Id: product.Id,
             Title: product.Title,
             Type: product.Type,
-            Description: product.Description,
             FileName: product.FileName,
             Github: product.Github
           })) || [];

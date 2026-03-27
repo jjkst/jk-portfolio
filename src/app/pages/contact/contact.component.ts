@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
-import { MaterialModule } from '../../material.module';
+import { MaterialModule } from 'ruku-bookings';
 import { EmailService } from '../../services/email.service';
 import { Contact } from '../../models/contact.model';
 import { HeaderComponent } from '../../components/header/header.component';
@@ -67,11 +67,15 @@ export class ContactComponent implements OnInit {
         if (response.status === 200 || response.status === 201) {
           this.successMessage = 'Your message has been sent successfully!';
         } else {
-          this.errorMessage = 'Sorry error sending email reported to the support team.'
+          this.errorMessage = 'Unable to send your message right now. Please try again later.';
           console.error('Error sending email:', response);
         }
-      } catch (error) {
-        this.errorMessage = 'Sorry error sending email reported to the support team.'
+      } catch (error: any) {
+        if (error?.status === 0 || error?.statusText === 'Unknown Error') {
+          this.errorMessage = 'Contact form is temporarily unavailable. Please reach out directly via email.';
+        } else {
+          this.errorMessage = 'Unable to send your message right now. Please try again later.';
+        }
         console.error('Error sending email:', error);
       } finally {
         this.loading = false;

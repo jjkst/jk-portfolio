@@ -6,6 +6,9 @@
 /out-tsc
 /bazel-out
 
+# Library symlinks
+/lib
+
 # Node
 /node_modules
 npm-debug.log
@@ -22,7 +25,7 @@ yarn-error.log
 
 # Visual Studio Code
 .claude
-Claude.md
+CLAUDE.md
 .vscode
 .history/*
 

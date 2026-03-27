@@ -1,95 +1,287 @@
-/* Header Section */
-.project-header {
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.header-content {
+.hero-banner {
   max-width: 900px;
-  margin: auto;
-}
+  margin: 0 auto;
+  padding: 0 20px;
 
-.project-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.tagline {
-  font-style: italic;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.project-meta {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  align-items: center; 
-  justify-content: center;
-  .meta-item {
-    h4 {
-      margin: 0;
-      font-size: 1rem;
-    }
-    p {
-      margin: 3px 0 0;
-      font-size: 0.9rem;
-      a {
-        text-decoration: none;
-      }
-    }
+  .hero-image {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 }
 
-/* Main Content Sections */
-.project-main {
+.project-header {
   max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 24px 20px;
+  text-align: center;
+
+  h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 6px;
+  }
+
+  .subtitle {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 16px;
+  }
 }
 
-.hero-image {
-  max-width: 900px;
-  margin: 0 auto 40px;
-  padding: 0 20px;
+.meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.hero-image img {
-  width: 100%;
-  border-radius: 12px;
-}
-
-/* Process Section */
-.process-step {
-  margin-bottom: 25px;
-}
-
-.image-gallery {
+.tech-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-top: 15px;
+  gap: 6px;
+  justify-content: center;
+
+  .chip {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: var(--color-primary-50, #ede9fe);
+    color: var(--color-primary, #7c3aed);
+    border: 1px solid var(--color-primary-light, #c4b5fd);
+  }
 }
 
-.image-gallery img {
-  flex: 1 1 45%; /* Allows images to be responsive */
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
+.actions {
+  display: flex;
+  gap: 8px;
+
+  .github-btn,
+  .webpage-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .github-btn {
+    background: #24292e;
+    color: #fff;
+
+    &:hover {
+      background: #1b1f23;
+    }
+  }
+
+  .webpage-btn {
+    background: var(--color-primary);
+    color: #fff;
+
+    &:hover {
+      background: var(--color-primary-dark);
+    }
+  }
 }
 
-/* Call to Action & Footer */
+.project-main {
+  max-width: 900px;
+  margin: 24px auto 40px;
+  padding: 0 20px;
+}
+
+.readme-section {
+  margin-bottom: 32px;
+}
+
+.readme-card {
+  border: 1px solid var(--color-border, #d1d5db);
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  background: var(--color-surface, #fff);
+}
+
+.readme-body {
+  padding: 32px;
+
+  ::ng-deep {
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: var(--color-text);
+      border-bottom: 1px solid #eee;
+      padding-bottom: 6px;
+    }
+
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.25rem; border-bottom: none; }
+
+    p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      margin: 0 0 14px;
+    }
+
+    ul, ol {
+      padding-left: 24px;
+      margin: 0 0 14px;
+
+      li {
+        margin-bottom: 6px;
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--color-text-secondary);
+      }
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 0.85em;
+      font-family: 'Fira Code', 'Consolas', monospace;
+    }
+
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 0 0 16px;
+
+      code {
+        background: none;
+        padding: 0;
+        color: inherit;
+        font-size: 0.85rem;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 16px;
+
+      th, td {
+        padding: 8px 12px;
+        border: 1px solid var(--color-border, #d1d5db);
+        text-align: left;
+      }
+
+      th {
+        background: #f6f8fa;
+        font-weight: 600;
+      }
+    }
+
+    blockquote {
+      border-left: 4px solid var(--color-primary-light, #c4b5fd);
+      margin: 0 0 16px;
+      padding: 8px 16px;
+      color: var(--color-text-secondary);
+      background: #f9fafb;
+      border-radius: 0 4px 4px 0;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--color-border, #d1d5db);
+      margin: 24px 0;
+    }
+  }
+}
+
+.readme-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e5e7eb;
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  p {
+    margin-top: 12px;
+    color: var(--color-text-secondary);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.readme-unavailable {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--color-text-secondary);
+}
+
 .call-to-action {
   text-align: center;
+  padding: 16px 0;
 }
 
-/* Responsive adjustments */
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:hover {
+    background: var(--color-primary-dark);
+  }
+}
+
 @media (max-width: 768px) {
   .project-header h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
-  .project-meta {
+
+  .meta-row {
     flex-direction: column;
-    gap: 10px;
+  }
+
+  .readme-body {
+    padding: 16px;
   }
 }

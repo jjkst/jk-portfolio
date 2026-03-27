@@ -8,7 +8,7 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { SkillsComponent } from '../../components/skills/skills.component';
 import { ProfileService } from '../../services/profile.service';
-import { Profile } from '../../models/profile.modal';
+import { Profile } from '../../models/profile.model';
 import { NgFor } from '@angular/common';
 import { FileDownloadService } from '../../services/file-download.service';
 import saveAs from 'file-saver';
@@ -35,13 +35,8 @@ export class AboutComponent implements OnInit {
   async loadprofile(): Promise<void> {
     try {
       const response = await this.profileService.getProfile();
-      if (response.status === 200) {
-        this.profile = {
-          Title: response.body.Title,
-          Description: response.body.Description,
-          SummaryTitle: response.body.SummaryTitle,
-          Summary: response.body.Summary,
-        };
+      if (response.status === 200 && response.body) {
+        this.profile = response.body;
       }
     } catch (error) {
       console.error('Error loading profile:', error);

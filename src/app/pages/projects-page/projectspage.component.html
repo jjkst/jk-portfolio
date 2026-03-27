@@ -1,6 +1,10 @@
 <app-header></app-header>
 <div class="spacer"></div>
 <div class="page">
+  <div class="page-header">
+    <h1>Projects</h1>
+    <p>A collection of my development and test automation work</p>
+  </div>
   <div class="card-grid">
     <mat-card
       *ngFor="let project of projects"
@@ -11,7 +15,6 @@
         src="assets/{{ project.FileName }}"
         alt="{{ project.Title }}"
       />
-      <mat-card-title>{{ project.Title }}</mat-card-title>
     </mat-card>
   </div>
 </div>

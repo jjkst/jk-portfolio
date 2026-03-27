@@ -1,27 +1,50 @@
 <section class="projects-section">
   <div class="container">
-    <h2>My Projects</h2>
-    <h3>Test Automation</h3>
-    <app-horizontal-card-list
-      [items]="testprojects"
-      [itemsPerPage]="3"
-      [contentTemplate]="projectContentTemplate"
-      [getImageUrl]="getProjectImageUrl"
-      [getTitle]="getProjectTitle"
-      [showImage]="true"
-    >
-    </app-horizontal-card-list>
+    <div class="section-header">
+      <h2>Featured Projects</h2>
+      <p class="section-subtitle">Real-world examples of my development and testing work</p>
+    </div>
 
-    <h3>Development</h3>
-    <app-horizontal-card-list
-      [items]="developmentprojects"
-      [itemsPerPage]="3"
-      [contentTemplate]="projectContentTemplate"
-      [getImageUrl]="getProjectImageUrl"
-      [getTitle]="getProjectTitle"
-      [showImage]="true"
-    >
-    </app-horizontal-card-list>
+    <div class="project-category">
+      <div class="category-header">
+        <h3>Test Automation</h3>
+        <p class="category-description">End-to-end UI and API automation frameworks built for reliability</p>
+      </div>
+      <app-horizontal-card-list
+        [items]="testprojects"
+        [itemsPerPage]="3"
+        [contentTemplate]="projectContentTemplate"
+        [getImageUrl]="getProjectImageUrl"
+        [getTitle]="getProjectTitle"
+        [showImage]="true"
+        [showTitle]="false"
+      >
+      </app-horizontal-card-list>
+    </div>
+
+    <div class="project-category">
+      <div class="category-header">
+        <h3>Development</h3>
+        <p class="category-description">Full-stack applications built with modern frameworks and best practices</p>
+      </div>
+      <app-horizontal-card-list
+        [items]="developmentprojects"
+        [itemsPerPage]="3"
+        [contentTemplate]="projectContentTemplate"
+        [getImageUrl]="getProjectImageUrl"
+        [getTitle]="getProjectTitle"
+        [showImage]="true"
+        [showTitle]="false"
+      >
+      </app-horizontal-card-list>
+    </div>
+
+    <div class="projects-cta">
+      <a routerLink="/projects" class="view-all-link">
+        View All Projects
+        <span class="material-icons">arrow_forward</span>
+      </a>
+    </div>
 
     <ng-template #projectContentTemplate let-project>
     </ng-template>

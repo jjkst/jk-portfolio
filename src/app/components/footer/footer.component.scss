@@ -1,8 +1,8 @@
 .footer {
-  background: black;
-  color: #ecf0f1;
-  padding: 40px 0 0 0;
-  font-family: 'Montserrat', sans-serif;
+  background: var(--color-dark);
+  color: #cbd5e1; // Slate 300
+  padding: 48px 0 0 0;
+  font-family: "Inter", sans-serif;
   width: 100%;
 }
 
@@ -28,11 +28,11 @@
 .company-info .logo p {
   margin: 0;
   font-size: 1rem;
-  color: #bdc3c7;
+  color: #94a3b8; // Slate 400
 }
 .company-info .description {
   margin-top: 10px;
-  color: #bdc3c7;
+  color: #94a3b8;
   font-size: 1rem;
 }
 
@@ -48,12 +48,12 @@
   margin-bottom: 8px;
 }
 .quick-links a {
-  color: #bdc3c7;
+  color: #94a3b8;
   text-decoration: none;
   transition: color 0.2s;
 }
 .quick-links a:hover {
-  color: #3498db;
+  color: var(--color-primary-light);
 }
 
 .footer-section h4 {
@@ -71,11 +71,11 @@
 }
 .contact-item .material-icons {
   margin-right: 8px;
-  color: #3498db;
+  color: var(--color-primary-light);
   font-size: 1.2em;
 }
 .contact-item a, .contact-item span {
-  color: #ecf0f1;
+  color: #cbd5e1;
   text-decoration: none;
   font-size: 1rem;
 }
@@ -86,20 +86,21 @@
   margin-top: 10px;
 }
 .social-link {
-  color: #ecf0f1;
+  color: #94a3b8;
   font-size: 1.5rem;
-  transition: color 0.3s;
+  transition: color 0.25s, transform 0.25s;
 }
 .social-link:hover {
-  color: #3498db;
+  color: var(--color-primary-light);
+  transform: translateY(-2px);
 }
 
 .footer-bottom {
-  background: black;
-  color: #bdc3c7;
+  background: rgba(0, 0, 0, 0.2);
+  color: #64748b; // Slate 500
   text-align: center;
   padding: 18px 10px 10px 10px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,14 +110,14 @@
   margin-top: 8px;
 }
 .footer-bottom-links a {
-  color: #bdc3c7;
+  color: #64748b;
   margin: 0 10px;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   transition: color 0.2s;
 }
 .footer-bottom-links a:hover {
-  color: #3498db;
+  color: var(--color-primary-light);
   cursor: pointer;
 }
 

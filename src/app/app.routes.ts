@@ -4,11 +4,6 @@ import { ProjectsPageComponent } from './pages/projects-page/projectspage.compon
 import { AboutComponent } from './pages/about/about.component';
 import { ProjectDetailComponent } from './pages/project-detail/project-detail.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { FeatureComponent } from './pages/feature/feature.component';
-import { AvailabilityManagerComponent } from './components/availability-manager/availability-manager.component';
-import { ServiceManagerComponent } from './components/service-manager/service-manager.component';
-import { ScheduleManagerComponent } from './components/schedule-manager/schedule-manager.component';
-
 import { ProjectService } from './services/project.service';
 import { inject } from '@angular/core';
 
@@ -34,13 +29,6 @@ export const routes: Routes = [
   { path: 'projects', component: ProjectsPageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: 'features', component: FeatureComponent,
-    children: [
-      { path: '', redirectTo: 'service-manager', pathMatch: 'full' },
-      { path: 'service-manager', component: ServiceManagerComponent },
-      { path: 'availability-manager', component: AvailabilityManagerComponent },
-      { path: 'schedule-manager', component: ScheduleManagerComponent }
-    ] },
   { path: 'project/:id', component: ProjectDetailComponent,
     data: {
       prerender: true,

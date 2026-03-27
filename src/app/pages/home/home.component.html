@@ -3,9 +3,40 @@
 <div class="home-page">
   <app-hero></app-hero>
   <div class="spacer"></div>
-  <app-skills></app-skills>
+  <div appAnimateOnScroll>
+    <app-projects></app-projects>
+  </div>
   <div class="spacer"></div>
-  <app-projects></app-projects>
+
+  <!-- About Me blurb -->
+  <section class="about-blurb" appAnimateOnScroll>
+    <h2>A Bit About Me</h2>
+    <p>
+      I'm a Software QA Automation Engineer and Full-Stack Developer with over 10 years of experience.
+      I specialize in building robust test automation frameworks and scalable web applications —
+      from Angular frontends to .NET APIs.
+    </p>
+    <a routerLink="/about" class="learn-more-link">
+      Read more about my background
+      <span class="material-icons">arrow_forward</span>
+    </a>
+  </section>
+  <div class="spacer"></div>
+
+  <div appAnimateOnScroll>
+    <app-skills></app-skills>
+  </div>
+  <div class="spacer"></div>
+
+  <!-- Final CTA strip -->
+  <section class="home-cta-strip" appAnimateOnScroll>
+    <h2>Let's Build Something Together</h2>
+    <p>Looking for a quality-focused engineer who can develop and test? Let's talk about your next project.</p>
+    <div class="home-cta-actions">
+      <a routerLink="/about" class="cta-button cta-outline">More About Me</a>
+      <a routerLink="/contact" class="cta-button">Get in Touch</a>
+    </div>
+  </section>
 </div>
 
 <div class="spacer"></div>

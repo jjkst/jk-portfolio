@@ -17,11 +17,6 @@ export abstract class BaseComponent implements OnDestroy {
 
   constructor() {}
 
-  /**
-   * Whether the current user can manage (edit/delete) items.
-   * In dev mode: always true.
-   * In prod mode: true only if the user has an auth token (admin/owner).
-   */
   get canManage(): boolean {
     if (!environment.production) {
       return true;

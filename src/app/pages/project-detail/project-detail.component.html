@@ -1,62 +1,59 @@
 <app-header></app-header>
 <div class="spacer"></div>
 <div *ngIf="project$ | async as project" class="page">
+
+  <section class="hero-banner">
+    <img [src]="'assets/' + project.FileName" [alt]="project.Title" class="hero-image" />
+  </section>
+
   <header class="project-header">
-    <div class="header-content">
-      <h1>{{ project?.Title }}</h1>
-      <p class="tagline">{{ project?.Subtitle }}</p>
-      <div class="project-meta">
-        <div class="meta-item">
-          <h4>Tech Stack</h4>
-          <p>{{ project?.TechStack }}</p>
-        </div>
-        <div class="meta-item">
-          <h4>Github Url</h4>
-          <p>
-            <a href="{{ project?.Github }}" target="_blank">{{
-              project.FileName.split(".")[0]
-            }}</a>
-          </p>
-        </div>
-        <div class="meta-item">
-          <h4>Webpage</h4>
-          <p>
-            <a routerLink="{{ project?.Webpage }}">Features</a>
-          </p>
-        </div>
+    <h1>{{ project.Title }}</h1>
+    <p class="subtitle" *ngIf="project.Subtitle">{{ project.Subtitle }}</p>
+
+    <div class="meta-row">
+      <div class="tech-chips" *ngIf="project.TechStack">
+        <span class="chip" *ngFor="let tech of project.TechStack!.split(', ')">{{ tech }}</span>
+      </div>
+      <div class="actions">
+        <a *ngIf="project.Github && project.Github.includes('github.com')"
+           [href]="project.Github"
+           target="_blank"
+           rel="noopener"
+           class="github-btn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          View on GitHub
+        </a>
+        <a *ngIf="project.Webpage"
+           href="{{project.Webpage}}"
+           target="_blank"
+           rel="noopener"
+           class="webpage-btn">
+          Live Demo
+        </a>
       </div>
     </div>
   </header>
-  <section class="hero-image">
-    <app-image-carousel
-      [images]="project.Screenshots && project.Screenshots.length ? project.Screenshots : [project.FileName]"
-      [alt]="project.Title">
-    </app-image-carousel>
-  </section>
 
   <main class="project-main">
-    <section class="section overview">
-      <h2>Project Overview</h2>
-      <p>
-        {{ project?.Description }}
-      </p>
-    </section>
-
-    <section class="section process">
-      <h2>Features</h2>
-      <div *ngFor="let feature of project?.Features">
-        <div class="process-step">
-          <h3>{{ feature.title }}</h3>
-          <p [innerHTML]="feature.Description"></p>
+    <section class="readme-section">
+      <div class="readme-card">
+        <div class="readme-body">
+          <div *ngIf="readmeLoading" class="readme-loading">
+            <div class="spinner"></div>
+            <p>Loading README...</p>
+          </div>
+          <markdown *ngIf="readmeContent && !readmeLoading" [data]="readmeContent"></markdown>
+          <div *ngIf="readmeError && !readmeLoading" class="readme-unavailable">
+            <p>README not available for this project.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section call-to-action">
-      <h3>Thanks for reading!</h3>
-      <button routerLink="/projects" class="cta-button">
-        Back to Projects
-      </button>
+    <section class="call-to-action">
+      <button routerLink="/projects" class="cta-button">Back to Projects</button>
     </section>
   </main>
 </div>

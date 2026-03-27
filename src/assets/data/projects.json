@@ -1,0 +1,79 @@
+[
+  {
+    "Id": 1,
+    "Title": "Playwright, Typescript and Cucumber framework",
+    "Subtitle": "End to End UI Automation Test Suite",
+    "Type": "Test Automation",
+    "TechStack": "Playwright, Typescript, Cucumber, BDD",
+    "FileName": "TypescriptPlaywrightCucumber.svg",
+    "Github": "https://github.com/jjkst/playwright-typescript-bdd",
+    "readmeExcludeSections": ["Table of Contents", "Tech Stack", "Test Scenarios Covered", "Using Playwright Agents under Claude", "Prerequisites", "Configuration"]
+  },
+  {
+    "Id": 2,
+    "Title": "Playwright and Python framework",
+    "Subtitle": "End to End UI Automation Test Suite",
+    "Type": "Test Automation",
+    "TechStack": "Playwright, Python, Pytest",
+    "FileName": "PlaywrightPython.svg",
+    "Github": "https://github.com/jjkst/playwright-python-bdd",
+        "readmeExcludeSections": ["Table of Contents", "Tech Stack", "Test Scenarios Covered", "Using Playwright Agents under Claude", "Prerequisites", "Configuration"]
+  
+  },
+  {
+    "Id": 3,
+    "Title": "Playwright, C# and Reqnroll framework",
+    "Subtitle": "End to End UI Automation Test Suite",
+    "Type": "Test Automation",
+    "TechStack": "Playwright, C#, Reqnroll, BDD, ExtentReports, NLog",
+    "FileName": "PlaywrightReqnRollCSharp.svg",
+    "Github": "https://github.com/jjkst/PlaywrightReqnRollCSharp",
+    "readmeExcludeSections": ["Table of Contents", "Tech Stack", "Test Scenarios Covered", "Using Playwright Agents under Claude", "Prerequisites", "Configuration"]
+  },
+  {
+    "Id": 4,
+    "Title": "RestSharp, C# and Reqnroll framework",
+    "Subtitle": "API Integration Automation Test Suite",
+    "Type": "Test Automation",
+    "TechStack": "RestSharp, C#, Reqnroll, BDD",
+    "FileName": "RestSharpCSharpReqnRoll.svg",
+    "Github": "https://github.com/jjkst/RestSharpReqnrollCSharp"
+  },
+  {
+    "Id": 5,
+    "Title": "Cypress and Typescript framework",
+    "Subtitle": "End to End UI Automation Test Suite",
+    "Type": "Test Automation",
+    "TechStack": "Cypress, Typescript, Cucumber, BDD",
+    "FileName": "CypressTypescript.svg",
+    "Github": "https://github.com/jjkst/CypressTypescriptFramework"
+  },
+  {
+    "Id": 6,
+    "Title": "Selenium, C# and Reqnroll framework",
+    "Subtitle": "End to End UI Automation Test Suite",
+    "Type": "Test Automation",
+    "TechStack": "Selenium, C#, Reqnroll, BDD",
+    "FileName": "CSharpSeleniumReqnroll.svg",
+    "Github": "https://github.com/jjkst/SeleniumReqnrollCSharp"
+  },
+  {
+    "Id": 7,
+    "Title": "Web Application - Angular and Typescript",
+    "Subtitle": "Service, Schedule and Appointment Management",
+    "Type": "Development",
+    "TechStack": "Angular, Typescript, Node.js",
+    "FileName": "FrontendDev.svg",
+    "Github": "https://github.com/jjkst/jk-portfolio",
+    "Webpage": "http://localhost:59885/"
+  },
+  {
+    "Id": 8,
+    "Title": "Api Development - .Net, Entity Framework and MySql",
+    "Subtitle": "Api services for Service, Schedule and Appointment Management",
+    "Type": "Development",
+    "TechStack": ".Net, Entity Framework, MySql",
+    "FileName": "BackendDev.svg",
+    "Github": "https://github.com/jjkst/APICSharpEntityFrameworkMySql"
+  }
+]

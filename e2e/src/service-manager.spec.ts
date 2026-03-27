@@ -24,7 +24,7 @@ const mockServices = [
 ];
 
 async function setupMocks(page: Page, services = mockServices) {
-  await page.route(`${API}/rukuservices`, (route) => {
+  await page.route(`${API}/publicservices`, (route) => {
     if (route.request().method() === 'GET') {
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(services) });
     }

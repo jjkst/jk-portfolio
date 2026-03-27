@@ -11,8 +11,7 @@ import { filter } from 'rxjs';
   template: `
     <router-outlet></router-outlet>
   `
-  })
-
+})
 export class AppComponent {
   title = 'jk-portfolio';
   private destroyRef = inject(DestroyRef);
@@ -26,8 +25,23 @@ export class AppComponent {
         filter(event => event instanceof NavigationEnd),
         takeUntilDestroyed(this.destroyRef)
       )
-      .subscribe(() => {
-        if (isPlatformBrowser(this.platformId)) {
+      .subscribe((event) => {
+        if (!isPlatformBrowser(this.platformId)) return;
+
+        const navEnd = event as NavigationEnd;
+        const url = navEnd.urlAfterRedirects;
+        const fragmentIndex = url.indexOf('#');
+
+        if (fragmentIndex !== -1) {
+          const fragment = url.substring(fragmentIndex + 1);
+          // Delay to ensure DOM is rendered
+          setTimeout(() => {
+            const el = document.getElementById(fragment);
+            if (el) {
+              el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        } else {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       });
