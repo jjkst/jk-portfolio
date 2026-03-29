@@ -45,14 +45,14 @@ jk-portfolio/
 │       │   └── skill.model.ts
 │       └── base.component.ts             # Abstract base (toasts, cleanup, canManage)
 ├── lib/
-│   └── ruku-bookings/                    # Symlink -> frontend-angular/dist/ruku-bookings
+│   └── ruku-bookings/                    # Symlink -> ruku-features/dist/ruku-bookings
 ├── environment.ts                        # Dev config (apiBaseUrl, OAuth keys)
 └── e2e/                                  # Playwright E2E tests
 ```
 
 ## ruku-bookings Library
 
-Booking/scheduling components and services are consumed from the `ruku-bookings` library (built in the `frontend-angular` workspace). This project does NOT duplicate booking code locally.
+Booking/scheduling components and services are consumed from the `ruku-bookings` library (built in the `ruku-features` workspace). This project does NOT duplicate booking code locally.
 
 **Imported from ruku-bookings:**
 - **Components**: HeaderComponent (configurable nav), FooterComponent, HorizontalCardListComponent, ServiceManager, AvailabilityManager, ScheduleManager
@@ -98,18 +98,18 @@ Booking/scheduling components and services are consumed from the `ruku-bookings`
 
 - Node.js 20+
 - npm 9+
-- `ruku-bookings` library built (from `frontend-angular` workspace)
+- `ruku-bookings` library built (from `ruku-features` workspace)
 
 ### Setup
 
 ```bash
-# 1. Build the library first (in frontend-angular workspace)
-cd ../frontend-angular
+# 1. Build the library first (in ruku-features workspace)
+cd ../ruku-features
 npm run build
 
 # 2. Install dependencies (resolves lib/ruku-bookings symlink)
 cd ../jk-portfolio
-npm install
+npm install --legacy-peer-deps
 
 # 3. Start development server
 npm start
@@ -119,11 +119,11 @@ Navigate to `http://localhost:4200/`.
 
 ### Updating ruku-bookings Library Changes
 
-After making changes to the `ruku-bookings` library in the `frontend-angular` workspace:
+After making changes to the `ruku-bookings` library in the `ruku-features` workspace:
 
 ```bash
 # 1. Rebuild the library
-cd ../frontend-angular
+cd ../ruku-features
 ng build ruku-bookings
 
 # 2. In jk-portfolio, clear Angular cache and restart
@@ -166,7 +166,7 @@ docker build -t jk-portfolio .
 docker run -p 80:80 jk-portfolio
 ```
 
-> **Note:** The standalone Dockerfile requires the `ruku-bookings` library to be pre-built in `lib/ruku-bookings/`. The symlink to `../frontend-angular/dist/ruku-bookings` does not resolve inside Docker's build context.
+> **Note:** The standalone Dockerfile requires the `ruku-bookings` library to be pre-built in `lib/ruku-bookings/`. The symlink to `../ruku-features/dist/ruku-bookings` does not resolve inside Docker's build context.
 
 ### Full-Stack Deployment
 
