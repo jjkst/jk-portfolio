@@ -159,8 +159,17 @@ npm run e2e:headed
 
 ## Docker
 
+### Standalone (requires pre-built ruku-bookings in lib/)
+
 ```bash
-# Build and run
 docker build -t jk-portfolio .
 docker run -p 80:80 jk-portfolio
 ```
+
+> **Note:** The standalone Dockerfile requires the `ruku-bookings` library to be pre-built in `lib/ruku-bookings/`. The symlink to `../frontend-angular/dist/ruku-bookings` does not resolve inside Docker's build context.
+
+### Full-Stack Deployment
+
+For deploying the complete stack (frontend + API + database + SSL), see the **[jk-portfolio-deploy](https://github.com/jjkst/jk-portfolio-deploy)** project.
+
+The deploy project includes a multi-stage Dockerfile that builds the `ruku-bookings` library from source, then builds this app — no symlinks or pre-built artifacts needed.

@@ -46,7 +46,7 @@
     "Type": "Test Automation",
     "TechStack": "Cypress, Typescript, Cucumber, BDD",
     "FileName": "CypressTypescript.svg",
-    "Github": "https://github.com/jjkst/CypressTypescriptFramework"
+    "Github": "https://github.com/jjkst/e2e-cypress"
   },
   {
     "Id": 6,
