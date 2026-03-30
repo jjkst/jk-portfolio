@@ -10,7 +10,7 @@ export class FileDownloadService {
 
   downloadFile(): Promise<HttpResponse<Blob>> {
     return lastValueFrom(
-      this.http.get('assets/StaffAutomationQualityEngineer.pdf', {
+      this.http.get('assets/StaffSDET_TestArchitect.pdf', {
         responseType: 'blob',
         observe: 'response',
       })

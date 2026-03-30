@@ -30,7 +30,7 @@ describe('FileDownloadService', () => {
     const mockBlob = new Blob(['PDF content'], { type: 'application/pdf' });
     const promise = service.downloadFile();
 
-    const req = httpTesting.expectOne('assets/StaffAutomationQualityEngineer.pdf');
+    const req = httpTesting.expectOne('assets/StaffSDET_TestArchitect.pdf');
     expect(req.request.method).toBe('GET');
     expect(req.request.responseType).toBe('blob');
     req.flush(mockBlob);

@@ -1,44 +1,84 @@
 [
   {
     "Id": 1,
-    "Title": "UI Automation Test Frameworks",
+    "Title": "UI Automation Frameworks",
     "Items": [
-      "Spec-flow/MsTest Framework with C# and Selenium Web-driver, Appium",
-      "Cucumber test frameworks with Typescript/JavaScript and WebdriverIO",
-      "Cucumber framework with Java + Selenium webdriver",
-      "Playwright with Typescript/JavaScript",
-      "Cypress with TypeScript"
+      "Playwright with Reqnroll(BDD/Gherkin) —.NET 9",
+      "Playwright with TypeScript — Angular E2E",
+      "Cypress with TypeScript",
+      "WebdriverIO with Cucumber and TypeScript",
+      "Selenium WebDriver with SpecFlow/MSTest and C#",
+      "Selenium WebDriver with Cucumber and Java",
+      "Appium with TypeScript/C# — iOS and Android (hybrid and native)"
     ]
   },
   {
     "Id": 2,
-    "Title": "API Automation Test Framework",
+    "Title": "API & Performance Testing",
     "Items": [
-      "Spec-flow/MsTest Framework with C# and RestSharp",
-      "Postman Collections with Newman"
+      "RestSharp with SpecFlow/MSTest and C#",
+      "Postman Collections with Newman",
+      "JMeter with Azure Load Testing — performance, load and benchmarking",
+      "JMeter — backend data seeding and test data generation"
     ]
   },
   {
     "Id": 3,
-    "Title": "Languages",
-    "Items": ["C#, Typescript/JavaScript, Python, Java, SQL"]
+    "Title": "AI & Automation Innovation",
+    "Items": [
+      "Claude AI agents for autonomous test planning, generation and healing",
+      "MCP (Model Context Protocol) integration with Playwright"
+    ]
   },
   {
     "Id": 4,
-    "Title": "Testing and Version control tools",
-    "Items": ["Azure DevOps, JIRA, Github and TFS"]
+    "Title": "Full-Stack Development",
+    "Items": [
+      "Angular 19 with TypeScript, SCSS and Angular Material",
+      "Server-Side Rendering (SSR) with Express and Angular SSR",
+      "RESTful API design and JWT authentication",
+      "Docker multi-stage builds and Nginx configuration"
+    ]
   },
   {
     "Id": 5,
-    "Title": "Cloud Services",
+    "Title": "Languages",
     "Items": [
-      "Browserstack, LambdaTest, Sauce Labs",
-      "AWS (Lambda, EC2, SQS), Azure Pipeline, CircleCI"
+      "TypeScript / JavaScript",
+      "C#",
+      "Python",
+      "Java",
+      "SQL"
     ]
   },
   {
     "Id": 6,
+    "Title": "Cloud & Infrastructure",
+    "Items": [
+      "AWS — Lambda (Python), EC2, ECS, ECR, SQS, DynamoDB",
+      "Azure DevOps, Azure Pipelines, Azure Load Testing, Azure Cloud",
+      "CircleCI — CI/CD pipeline design and YAML scripting",
+      "Docker and Nginx — containerized deployment",
+      "BrowserStack, Sauce Labs, LambdaTest — cross-browser and cross-platform"
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Test Management & Version Control",
+    "Items": [
+      "Azure DevOps (ADO) — test plans, work items, pipelines",
+      "JIRA — agile project and defect tracking",
+      "GitHub, TFS, ALM — version control, code review and release management"
+    ]
+  },
+  {
+    "Id": 8,
     "Title": "Databases",
-    "Items": ["SQL Server, DynamoDb, MangoDb, Oracle"]
+    "Items": [
+      "SQL Server — complex queries, data validation, ETL testing",
+      "Oracle",
+      "DynamoDB",
+      "MongoDB"
+    ]
   }
 ]

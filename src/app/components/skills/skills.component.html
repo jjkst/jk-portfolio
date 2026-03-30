@@ -2,12 +2,16 @@
   <div class="container">
     <div class="section-header">
       <h2>Core Expertise</h2>
-      <p class="section-subtitle">The tools and technologies I use to deliver quality software end-to-end</p>
+      <p class="section-subtitle">
+        The tools and technologies I use to deliver quality software end-to-end
+      </p>
     </div>
     <div class="skills-chips">
       <div class="skill-chip" *ngFor="let section of skills">
         <h3>{{ section.Title }}</h3>
-        <p>{{ section.Items.join(' · ') }}</p>
+        <ul>
+          <li *ngFor="let item of section.Items">{{ item }}</li>
+        </ul>
       </div>
     </div>
     <div class="skills-cta">

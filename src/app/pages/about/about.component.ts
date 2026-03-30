@@ -12,6 +12,8 @@ import { Profile } from '../../models/profile.model';
 import { NgFor } from '@angular/common';
 import { FileDownloadService } from '../../services/file-download.service';
 import saveAs from 'file-saver';
+import { filter, Subscription } from 'rxjs';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -22,14 +24,28 @@ import saveAs from 'file-saver';
 })
 export class AboutComponent implements OnInit {
   profile: Profile | undefined;
+  routerSub: Subscription | undefined;
 
   constructor(
     private profileService: ProfileService,
-    private downloadService: FileDownloadService
+    private downloadService: FileDownloadService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
-  ngOnInit(): void {
+ngOnInit(): void {
+  this.loadprofile();
+
+  this.routerSub = this.router.events.pipe(
+    filter(event => event instanceof NavigationEnd),
+    filter(() => this.router.url === '/about')
+  ).subscribe(() => {
     this.loadprofile();
+  });
+}
+
+  ngOnDestroy(): void {
+    this.routerSub?.unsubscribe();
   }
 
   async loadprofile(): Promise<void> {
