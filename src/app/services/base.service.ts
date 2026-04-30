@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs';
 import { catchError, throwError } from 'rxjs';
 import { environment } from '../../../environment';
@@ -9,10 +9,42 @@ export abstract class BaseService {
   protected http = inject(HttpClient);
   protected readonly apiBaseUrl = environment.apiBaseUrl;
 
+  private async getToken(): Promise<string> {
+    const response = await fetch(`${this.apiBaseUrl}auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        Email: process.env['AUTH_EMAIL'],
+        UID: process.env['AUTH_UID']
+      })
+    });
+  
+    const data = await response.json();
+    console.log('Response:', data);
+    console.log('Token:', data.token);
+  
+    return data.token; 
+  }
+
+  private async getAuthHeaders(extraHeaders?: HttpHeaders): Promise<HttpHeaders> {
+    const token = await this.getToken();
+    let headers = extraHeaders ?? new HttpHeaders({ 'Content-Type': 'application/json' });
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`);
+    }
+    return headers;
+  }
+
   protected async get<T>(endpoint: string, options?: any): Promise<HttpResponse<T>> {
     try {
       const response = await lastValueFrom(
-        this.http.get<T>(`${this.apiBaseUrl}${endpoint}`, { observe: 'response', ...options }).pipe(catchError(this.handleError))
+        this.http.get<T>(`${this.apiBaseUrl}${endpoint}`, {
+          observe: 'response',
+          ...options,
+          headers: this.getAuthHeaders(options?.headers)  // ✅
+        }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('GET', endpoint, response.status); return response; }
       throw new Error('Invalid response type');
@@ -22,7 +54,11 @@ export abstract class BaseService {
   protected async post<T>(endpoint: string, data: any, options?: any): Promise<HttpResponse<T>> {
     try {
       const response = await lastValueFrom(
-        this.http.post<T>(`${this.apiBaseUrl}${endpoint}`, data, { observe: 'response', ...options }).pipe(catchError(this.handleError))
+        this.http.post<T>(`${this.apiBaseUrl}${endpoint}`, data, {
+          observe: 'response',
+          ...options,
+          headers: this.getAuthHeaders(options?.headers)  // ✅
+        }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('POST', endpoint, response.status); return response; }
       throw new Error('Invalid response type');
@@ -32,7 +68,11 @@ export abstract class BaseService {
   protected async put<T>(endpoint: string, data: any, options?: any): Promise<HttpResponse<T>> {
     try {
       const response = await lastValueFrom(
-        this.http.put<T>(`${this.apiBaseUrl}${endpoint}`, data, { observe: 'response', ...options }).pipe(catchError(this.handleError))
+        this.http.put<T>(`${this.apiBaseUrl}${endpoint}`, data, {
+          observe: 'response',
+          ...options,
+          headers: this.getAuthHeaders(options?.headers)  // ✅
+        }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('PUT', endpoint, response.status); return response; }
       throw new Error('Invalid response type');
@@ -42,7 +82,11 @@ export abstract class BaseService {
   protected async delete<T>(endpoint: string, options?: any): Promise<HttpResponse<T>> {
     try {
       const response = await lastValueFrom(
-        this.http.delete<T>(`${this.apiBaseUrl}${endpoint}`, { observe: 'response', ...options }).pipe(catchError(this.handleError))
+        this.http.delete<T>(`${this.apiBaseUrl}${endpoint}`, {
+          observe: 'response',
+          ...options,
+          headers: this.getAuthHeaders(options?.headers)  // ✅
+        }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('DELETE', endpoint, response.status); return response; }
       throw new Error('Invalid response type');
