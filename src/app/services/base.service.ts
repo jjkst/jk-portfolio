@@ -16,8 +16,8 @@ export abstract class BaseService {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        Email: process.env['AUTH_EMAIL'],
-        UID: process.env['AUTH_UID']
+        Email: process.env['ADMIN_EMAIL'],
+        UID: process.env['ADMIN_UID']
       })
     });
   
@@ -43,7 +43,7 @@ export abstract class BaseService {
         this.http.get<T>(`${this.apiBaseUrl}${endpoint}`, {
           observe: 'response',
           ...options,
-          headers: this.getAuthHeaders(options?.headers)  // ✅
+          headers: this.getAuthHeaders(options?.headers)
         }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('GET', endpoint, response.status); return response; }
@@ -57,7 +57,7 @@ export abstract class BaseService {
         this.http.post<T>(`${this.apiBaseUrl}${endpoint}`, data, {
           observe: 'response',
           ...options,
-          headers: this.getAuthHeaders(options?.headers)  // ✅
+          headers: this.getAuthHeaders(options?.headers)
         }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('POST', endpoint, response.status); return response; }
@@ -71,7 +71,7 @@ export abstract class BaseService {
         this.http.put<T>(`${this.apiBaseUrl}${endpoint}`, data, {
           observe: 'response',
           ...options,
-          headers: this.getAuthHeaders(options?.headers)  // ✅
+          headers: this.getAuthHeaders(options?.headers)
         }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('PUT', endpoint, response.status); return response; }
@@ -85,7 +85,7 @@ export abstract class BaseService {
         this.http.delete<T>(`${this.apiBaseUrl}${endpoint}`, {
           observe: 'response',
           ...options,
-          headers: this.getAuthHeaders(options?.headers)  // ✅
+          headers: this.getAuthHeaders(options?.headers)
         }).pipe(catchError(this.handleError))
       );
       if (response instanceof HttpResponse) { this.logResponse('DELETE', endpoint, response.status); return response; }
