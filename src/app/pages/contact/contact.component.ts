@@ -45,44 +45,46 @@ export class ContactComponent implements OnInit {
   async onSubmit(): Promise<void> {
     this.successMessage = '';
     this.errorMessage = '';
-    if (this.contactForm.valid) {
-      this.loading = true;
-
-      try {
-        const formValue = this.contactForm.value;
-        const contactData: Contact = {
-          FirstName: formValue.firstName,
-          LastName: formValue.lastName,
-          Email: formValue.email,
-          PhoneNumber: formValue.phoneNumber,
-          Questions: formValue.questions
-        };
-
-        // Validate data before submission
-        if (!this.emailService.validateContactData(contactData)) {
-          throw new Error('Please fill in all required fields correctly.');
-        }
-
-        const response = await this.emailService.sendEmail(contactData);
-        if (response.status === 200 || response.status === 201) {
-          this.successMessage = 'Your message has been sent successfully!';
-        } else {
-          this.errorMessage = 'Unable to send your message right now. Please try again later.';
-          console.error('Error sending email:', response);
-        }
-      } catch (error: any) {
-        if (error?.status === 0 || error?.statusText === 'Unknown Error') {
-          this.errorMessage = 'Contact form is temporarily unavailable. Please reach out directly via email.';
-        } else {
-          this.errorMessage = 'Unable to send your message right now. Please try again later.';
-        }
-        console.error('Error sending email:', error);
-      } finally {
-        this.loading = false;
-      }
-    } else {
+    if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
       this.errorMessage = 'Please fill in all required fields correctly.';
+      return;
+    }
+
+    this.loading = true;
+    try {
+      const formValue = this.contactForm.value;
+      const contactData: Contact = {
+        FirstName: formValue.firstName,
+        LastName: formValue.lastName,
+        Email: formValue.email,
+        PhoneNumber: formValue.phoneNumber,
+        Questions: formValue.questions
+      };
+      // Validate data before submission
+      if (!this.emailService.validateContactData(contactData)) {
+        throw new Error('Please fill in all required fields correctly.');
+      }
+      const response = await this.emailService.sendEmail(contactData);
+      if (response.status === 200 || response.status === 201) {
+        this.successMessage = 'Your message has been sent successfully!';
+        this.contactForm.reset();
+      } else {
+        this.errorMessage = 'Unable to send your message right now. Please try again later.';
+        console.error('Error sending email:', response);
+      }
+      this.loading = false;
+    } 
+    catch (error: any) {
+      if (error?.status === 0 || error?.statusText === 'Unknown Error') {
+        this.errorMessage = 'Contact form is temporarily unavailable. Please reach out directly via email.';
+      } else {
+        this.errorMessage = 'Unable to send your message right now. Please try again later.';
+      }
+        console.error('Error sending email:', error);
+    } 
+    finally {
+        this.loading = false;
     }
   }
 }
