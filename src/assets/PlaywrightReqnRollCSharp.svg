@@ -1,139 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+<svg width="100%" viewBox="0 0 690 410" role="img" xmlns="http://www.w3.org/2000/svg" style="">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Project image: Playwright, C#, RequirementRoll</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">A dramatic stage-themed banner representing a test automation project using Playwright, C#, and RequirementRoll</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0a1528"/>
-      <stop offset="50%" style="stop-color:#122040"/>
-      <stop offset="100%" style="stop-color:#0e1830"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2EAD33"/>
-      <stop offset="50%" style="stop-color:#b44dca"/>
-      <stop offset="100%" style="stop-color:#FF6B35"/>
-    </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
-    </filter>
-    <filter id="neonGlow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <clipPath id="stage-clip">
+      <rect x="0" y="0" width="680" height="400" rx="16"/>
+    </clipPath>
   </defs>
 
-  <!-- Dark base -->
-  <rect width="1200" height="675" fill="url(#bg)"/>
+  <!-- Background: dark stage -->
+  <rect x="0" y="0" width="680" height="400" rx="16" fill="#0d0d14" style="fill:rgb(13, 13, 20);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Circuit board grid -->
-  <g stroke="#2a4070" stroke-width="0.5" opacity="0.4">
-    <!-- Horizontal lines -->
-    <line x1="0" y1="112" x2="1200" y2="112"/>
-    <line x1="0" y1="225" x2="1200" y2="225"/>
-    <line x1="0" y1="337" x2="1200" y2="337"/>
-    <line x1="0" y1="450" x2="1200" y2="450"/>
-    <line x1="0" y1="562" x2="1200" y2="562"/>
-    <!-- Vertical lines -->
-    <line x1="200" y1="0" x2="200" y2="675"/>
-    <line x1="400" y1="0" x2="400" y2="675"/>
-    <line x1="600" y1="0" x2="600" y2="675"/>
-    <line x1="800" y1="0" x2="800" y2="675"/>
-    <line x1="1000" y1="0" x2="1000" y2="675"/>
-  </g>
+  <!-- Stage floor glow -->
+  <ellipse cx="340" cy="360" rx="260" ry="28" fill="#6c3fff" opacity="0.18" style="fill:rgb(108, 63, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.18;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Circuit traces - glowing paths -->
-  <g fill="none" stroke-width="1.5" opacity="0.3" filter="url(#neonGlow)">
-    <!-- Left trace -->
-    <path d="M 0,280 H 180 L 220,280 L 220,260 H 280" stroke="#2EAD33"/>
-    <circle cx="180" cy="280" r="3" fill="#2EAD33"/>
-    <!-- Right trace -->
-    <path d="M 1200,280 H 1020 L 980,280 L 980,260 H 900" stroke="#FF6B35"/>
-    <circle cx="1020" cy="280" r="3" fill="#FF6B35"/>
-    <!-- Top trace -->
-    <path d="M 600,0 V 100 L 590,120 V 200" stroke="#4090ff"/>
-    <circle cx="600" cy="100" r="3" fill="#4090ff"/>
-    <!-- Bottom left -->
-    <path d="M 100,675 V 560 L 150,520 H 310" stroke="#2EAD33"/>
-    <circle cx="150" cy="520" r="3" fill="#2EAD33"/>
-    <!-- Bottom right -->
-    <path d="M 1100,675 V 560 L 1050,520 H 890" stroke="#4090ff"/>
-    <circle cx="1050" cy="520" r="3" fill="#4090ff"/>
-    <!-- Cross traces -->
-    <path d="M 280,380 V 430 H 310" stroke="#2EAD33" opacity="0.5"/>
-    <path d="M 900,380 V 430 H 870" stroke="#FF6B35" opacity="0.5"/>
-  </g>
+  <!-- Curtain left -->
+  <path d="M0,0 Q48,60 32,140 Q20,220 44,300 Q56,360 40,400 L0,400 Z" fill="#7c1a2e" opacity="0.92" style="fill:rgb(124, 26, 46);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.92;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M0,0 Q28,80 16,160 Q8,240 24,320 Q32,370 20,400 L0,400 Z" fill="#5a1220" opacity="0.7" style="fill:rgb(90, 18, 32);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Curtain right -->
+  <path d="M680,0 Q632,60 648,140 Q660,220 636,300 Q624,360 640,400 L680,400 Z" fill="#7c1a2e" opacity="0.92" style="fill:rgb(124, 26, 46);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.92;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <path d="M680,0 Q652,80 664,160 Q672,240 656,320 Q648,370 660,400 L680,400 Z" fill="#5a1220" opacity="0.7" style="fill:rgb(90, 18, 32);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Circuit nodes (solder points) -->
-  <g fill="none" stroke-width="1" opacity="0.2">
-    <circle cx="200" cy="112" r="5" stroke="#2EAD33"/>
-    <circle cx="400" cy="225" r="5" stroke="#4090ff"/>
-    <circle cx="800" cy="225" r="5" stroke="#4090ff"/>
-    <circle cx="1000" cy="112" r="5" stroke="#FF6B35"/>
-    <circle cx="200" cy="450" r="5" stroke="#2EAD33"/>
-    <circle cx="600" cy="562" r="5" stroke="#4090ff"/>
-    <circle cx="1000" cy="450" r="5" stroke="#FF6B35"/>
-    <rect x="395" y="107" width="10" height="10" rx="1" stroke="#2EAD33" opacity="0.15"/>
-    <rect x="795" y="107" width="10" height="10" rx="1" stroke="#FF6B35" opacity="0.15"/>
-  </g>
+  <!-- Stage lights top (spotlights) -->
+  <ellipse cx="180" cy="0" rx="80" ry="10" fill="#fff" opacity="0.07" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.07;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="140,0 220,0 260,130 100,130" fill="#fffbe6" opacity="0.06" style="fill:rgb(255, 251, 230);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.06;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="340" cy="0" rx="80" ry="10" fill="#fff" opacity="0.07" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.07;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="300,0 380,0 420,130 260,130" fill="#fffbe6" opacity="0.06" style="fill:rgb(255, 251, 230);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.06;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="500" cy="0" rx="80" ry="10" fill="#fff" opacity="0.07" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.07;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <polygon points="460,0 540,0 580,130 420,130" fill="#fffbe6" opacity="0.06" style="fill:rgb(255, 251, 230);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.06;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Scanning line effect -->
-  <rect x="0" y="330" width="1200" height="1" fill="#4090ff" opacity="0.08"/>
-  <rect x="0" y="332" width="1200" height="3" fill="#4090ff" opacity="0.03"/>
+  <!-- Spotlight bulb icons top -->
+  <rect x="163" y="6" width="34" height="10" rx="4" fill="#fff" opacity="0.18" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.18;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="323" y="6" width="34" height="10" rx="4" fill="#fff" opacity="0.18" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.18;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="483" y="6" width="34" height="10" rx="4" fill="#fff" opacity="0.18" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.18;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- HEX data decoration -->
-  <text x="30" y="30" font-family="Consolas, monospace" font-size="9" fill="#2a4070" opacity="0.5">0x5077 0xAD33 0xFF6B</text>
-  <text x="1000" y="660" font-family="Consolas, monospace" font-size="9" fill="#2a4070" opacity="0.5">SYS.READY // v3.1.0</text>
-  <text x="30" y="660" font-family="Consolas, monospace" font-size="9" fill="#2a4070" opacity="0.5">FRAMEWORK.INIT</text>
+  <!-- Star dots -->
+  <circle cx="88" cy="40" r="1.5" fill="#fff" opacity="0.3" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="108" cy="68" r="1" fill="#fff" opacity="0.2" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="580" cy="38" r="1.5" fill="#fff" opacity="0.3" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="564" cy="72" r="1" fill="#fff" opacity="0.2" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.2;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="22" r="1" fill="#fff" opacity="0.25" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Logo boxes - 3 logos -->
-  <g filter="url(#shadow)">
-    <g transform="translate(280, 200)">
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="#0a1a10"/>
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.8"/>
-      <!-- Corner brackets -->
-      <path d="M 4,25 V 4 H 25" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <path d="M 135,4 H 156 V 25" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <path d="M 156,135 V 156 H 135" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <path d="M 25,156 H 4 V 135" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <text x="80" y="98" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#2EAD33" text-anchor="middle">Pw</text>
-    </g>
-    <g transform="translate(510, 200)">
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="#1a0e25"/>
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="none" stroke="#b44dca" stroke-width="2" opacity="0.8"/>
-      <path d="M 4,25 V 4 H 25" fill="none" stroke="#b44dca" stroke-width="2" opacity="0.5"/>
-      <path d="M 135,4 H 156 V 25" fill="none" stroke="#b44dca" stroke-width="2" opacity="0.5"/>
-      <path d="M 156,135 V 156 H 135" fill="none" stroke="#b44dca" stroke-width="2" opacity="0.5"/>
-      <path d="M 25,156 H 4 V 135" fill="none" stroke="#b44dca" stroke-width="2" opacity="0.5"/>
-      <text x="80" y="98" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#b44dca" text-anchor="middle">C#</text>
-    </g>
-    <g transform="translate(740, 200)">
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="#1a1008"/>
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="none" stroke="#FF6B35" stroke-width="2" opacity="0.8"/>
-      <path d="M 4,25 V 4 H 25" fill="none" stroke="#FF6B35" stroke-width="2" opacity="0.5"/>
-      <path d="M 135,4 H 156 V 25" fill="none" stroke="#FF6B35" stroke-width="2" opacity="0.5"/>
-      <path d="M 156,135 V 156 H 135" fill="none" stroke="#FF6B35" stroke-width="2" opacity="0.5"/>
-      <path d="M 25,156 H 4 V 135" fill="none" stroke="#FF6B35" stroke-width="2" opacity="0.5"/>
-      <text x="80" y="75" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#FF6B35" text-anchor="middle">Reqn</text>
-      <text x="80" y="115" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#ffb088" text-anchor="middle">Roll</text>
-    </g>
+  <!-- Main title: project name area -->
+  <!-- Top label: "TEST AUTOMATION PROJECT" small caps feel -->
+  <text x="340" y="80" text-anchor="middle" font-family="'Georgia', serif" font-size="11" font-weight="400" fill="#b8a0ff" opacity="0.75" letter-spacing="4" style="fill:rgb(184, 160, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.75;font-family:Georgia, serif;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">TEST AUTOMATION PROJECT</text>
+
+  <!-- Big dramatic title -->
+  <text x="340" y="148" text-anchor="middle" font-family="'Georgia', serif" font-size="52" font-weight="700" fill="#ffffff" opacity="0.97" letter-spacing="-1" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.97;font-family:Georgia, serif;font-size:52px;font-weight:700;text-anchor:middle;dominant-baseline:auto">RequirementRoll</text>
+
+  <!-- Subtitle divider line -->
+  <line x1="160" y1="162" x2="280" y2="162" stroke="#6c3fff" stroke-width="0.8" opacity="0.6" style="fill:rgb(0, 0, 0);stroke:rgb(108, 63, 255);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="340" cy="162" r="3" fill="#8b5cf6" opacity="0.8" style="fill:rgb(139, 92, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="400" y1="162" x2="520" y2="162" stroke="#6c3fff" stroke-width="0.8" opacity="0.6" style="fill:rgb(0, 0, 0);stroke:rgb(108, 63, 255);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Tech stack pills row -->
+  <!-- Playwright pill -->
+  <rect x="136" y="186" width="120" height="36" rx="18" fill="#1a1a2e" stroke="#45d483" stroke-width="1.2" opacity="0.95" style="fill:rgb(26, 26, 46);stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.95;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Playwright icon: P with circle -->
+  <circle cx="166" cy="204" r="9" fill="none" stroke="#45d483" stroke-width="1.5" style="fill:none;stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="165" y="208" text-anchor="middle" font-family="'Georgia', serif" font-size="11" font-weight="700" fill="#45d483" style="fill:rgb(69, 212, 131);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">P</text>
+  <text x="206" y="208" text-anchor="middle" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="#45d483" letter-spacing="0.5" style="fill:rgb(69, 212, 131);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:600;text-anchor:middle;dominant-baseline:auto">Playwright</text>
+
+  <!-- C# pill -->
+  <rect x="280" y="186" width="120" height="36" rx="18" fill="#1a1a2e" stroke="#9b59f7" stroke-width="1.2" opacity="0.95" style="fill:rgb(26, 26, 46);stroke:rgb(155, 89, 247);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.95;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- C# sharp symbol -->
+  <text x="310" y="209" text-anchor="middle" font-family="'Georgia', serif" font-size="14" font-weight="700" fill="#9b59f7" style="fill:rgb(155, 89, 247);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:14px;font-weight:700;text-anchor:middle;dominant-baseline:auto">C#</text>
+  <text x="356" y="209" text-anchor="middle" font-family="'Arial', sans-serif" font-size="12" font-weight="600" fill="#9b59f7" letter-spacing="0.5" style="fill:rgb(155, 89, 247);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:600;text-anchor:middle;dominant-baseline:auto">.NET</text>
+
+  <!-- RequirementRoll pill -->
+  <rect x="424" y="186" width="120" height="36" rx="18" fill="#1a1a2e" stroke="#f4a200" stroke-width="1.2" opacity="0.95" style="fill:rgb(26, 26, 46);stroke:rgb(244, 162, 0);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.95;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- RR icon: scroll -->
+  <text x="454" y="209" text-anchor="middle" font-family="'Georgia', serif" font-size="14" font-weight="700" fill="#f4a200" style="fill:rgb(244, 162, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Georgia, serif;font-size:14px;font-weight:700;text-anchor:middle;dominant-baseline:auto">≡</text>
+  <text x="494" y="209" text-anchor="middle" font-family="'Arial', sans-serif" font-size="11" font-weight="600" fill="#f4a200" letter-spacing="0.3" style="fill:rgb(244, 162, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:11px;font-weight:600;text-anchor:middle;dominant-baseline:auto">Req. Roll</text>
+
+  <!-- Decorative script line below pills -->
+  <text x="340" y="258" text-anchor="middle" font-family="'Georgia', serif" font-size="13" font-style="italic" fill="#c4b0ff" opacity="0.65" style="fill:rgb(196, 176, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.65;font-family:Georgia, serif;font-size:13px;font-weight:400;font-style:italic;text-anchor:middle;dominant-baseline:auto">automate · validate · deliver</text>
+
+  <!-- Stage floor plank lines -->
+  <line x1="40" y1="340" x2="640" y2="340" stroke="#2a1a44" stroke-width="1" opacity="0.6" style="fill:rgb(0, 0, 0);stroke:rgb(42, 26, 68);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.6;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="40" y1="354" x2="640" y2="354" stroke="#2a1a44" stroke-width="0.7" opacity="0.4" style="fill:rgb(0, 0, 0);stroke:rgb(42, 26, 68);color:rgb(255, 255, 255);stroke-width:0.7px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.4;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="40" y1="368" x2="640" y2="368" stroke="#2a1a44" stroke-width="0.5" opacity="0.3" style="fill:rgb(0, 0, 0);stroke:rgb(42, 26, 68);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.3;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Left decorative mask (comedy/test pass) -->
+  <g transform="translate(80,280)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <ellipse cx="0" cy="0" rx="22" ry="26" fill="#1e1e32" stroke="#45d483" stroke-width="1" style="fill:rgb(30, 30, 50);stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <ellipse cx="-7" cy="-6" rx="5" ry="6" fill="none" stroke="#45d483" stroke-width="1" style="fill:none;stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <ellipse cx="7" cy="-6" rx="5" ry="6" fill="none" stroke="#45d483" stroke-width="1" style="fill:none;stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <path d="M-9,8 Q0,16 9,8" fill="none" stroke="#45d483" stroke-width="1.2" stroke-linecap="round" style="fill:none;stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
   </g>
 
-  <!-- Tech tags -->
-  <g transform="translate(225, 430)">
-    <rect x="0" y="0" width="120" height="36" rx="4" fill="#2EAD33" opacity="0.08" stroke="#2EAD33" stroke-width="1" stroke-opacity="0.4"/>
-    <text x="60" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#2EAD33" text-anchor="middle">Playwright</text>
+  <!-- Right decorative mask (tragedy/test fail) -->
+  <g transform="translate(600,280)" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">
+    <ellipse cx="0" cy="0" rx="22" ry="26" fill="#1e1e32" stroke="#f4a200" stroke-width="1" style="fill:rgb(30, 30, 50);stroke:rgb(244, 162, 0);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <ellipse cx="-7" cy="-6" rx="5" ry="6" fill="none" stroke="#f4a200" stroke-width="1" style="fill:none;stroke:rgb(244, 162, 0);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <ellipse cx="7" cy="-6" rx="5" ry="6" fill="none" stroke="#f4a200" stroke-width="1" style="fill:none;stroke:rgb(244, 162, 0);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+    <path d="M-9,10 Q0,4 9,10" fill="none" stroke="#f4a200" stroke-width="1.2" stroke-linecap="round" style="fill:none;stroke:rgb(244, 162, 0);color:rgb(255, 255, 255);stroke-width:1.2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
   </g>
-  <g transform="translate(365, 430)">
-    <rect x="0" y="0" width="70" height="36" rx="4" fill="#b44dca" opacity="0.08" stroke="#b44dca" stroke-width="1" stroke-opacity="0.4"/>
-    <text x="35" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#b44dca" text-anchor="middle">C#</text>
-  </g>
-  <g transform="translate(455, 430)">
-    <rect x="0" y="0" width="110" height="36" rx="4" fill="#FF6B35" opacity="0.08" stroke="#FF6B35" stroke-width="1" stroke-opacity="0.4"/>
-    <text x="55" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#FF6B35" text-anchor="middle">Reqnroll</text>
-  </g>
-  <g transform="translate(585, 430)">
-    <rect x="0" y="0" width="80" height="36" rx="4" fill="#23D96C" opacity="0.06" stroke="#23D96C" stroke-width="1" stroke-opacity="0.3"/>
-    <text x="40" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#23D96C" text-anchor="middle">BDD</text>
-  </g>
-  <g transform="translate(685, 430)">
-    <rect x="0" y="0" width="140" height="36" rx="4" fill="#e8590c" opacity="0.06" stroke="#e8590c" stroke-width="1" stroke-opacity="0.3"/>
-    <text x="70" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#e8590c" text-anchor="middle">ExtentReports</text>
-  </g>
+
+  <!-- Bottom tagline -->
+  <text x="340" y="390" text-anchor="middle" font-family="'Arial', sans-serif" font-size="10" font-weight="400" fill="#ffffff" opacity="0.22" letter-spacing="2" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.22;font-family:Arial, sans-serif;font-size:10px;font-weight:400;text-anchor:middle;dominant-baseline:auto">REQUIREMENTS · DRIVEN · BROWSER · TESTING</text>
 </svg>

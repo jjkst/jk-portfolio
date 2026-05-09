@@ -1,121 +1,262 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+<svg width="100%" viewBox="0 0 680 400" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Project image: Playwright and Python</title>
+  <desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">A split-screen terminal and browser themed banner for a project using Playwright and Python</desc>
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a3035"/>
-      <stop offset="50%" style="stop-color:#204045"/>
-      <stop offset="100%" style="stop-color:#1d3538"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#2EAD33"/>
-      <stop offset="50%" style="stop-color:#FFD43B"/>
-      <stop offset="100%" style="stop-color:#3776AB"/>
-    </linearGradient>
-    <filter id="shadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="10" flood-color="#000" flood-opacity="0.6"/>
-    </filter>
-    <filter id="neonGlow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
-      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
   </defs>
 
-  <!-- Dark base -->
-  <rect width="1200" height="675" fill="url(#bg)"/>
+  <!-- Background -->
+  <rect x="0" y="0" width="680" height="400" rx="16" fill="#0c0d12" style="fill:rgb(12, 13, 18);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Circuit board grid -->
-  <g stroke="#3d6870" stroke-width="0.5" opacity="0.4">
-    <!-- Horizontal lines -->
-    <line x1="0" y1="112" x2="1200" y2="112"/>
-    <line x1="0" y1="225" x2="1200" y2="225"/>
-    <line x1="0" y1="337" x2="1200" y2="337"/>
-    <line x1="0" y1="450" x2="1200" y2="450"/>
-    <line x1="0" y1="562" x2="1200" y2="562"/>
-    <!-- Vertical lines -->
-    <line x1="200" y1="0" x2="200" y2="675"/>
-    <line x1="400" y1="0" x2="400" y2="675"/>
-    <line x1="600" y1="0" x2="600" y2="675"/>
-    <line x1="800" y1="0" x2="800" y2="675"/>
-    <line x1="1000" y1="0" x2="1000" y2="675"/>
-  </g>
+  <!-- Subtle dual glow -->
+  <ellipse cx="180" cy="200" rx="200" ry="160" fill="#2d7dd2" opacity="0.04" style="fill:rgb(45, 125, 210);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.04;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <ellipse cx="500" cy="200" rx="200" ry="160" fill="#f7c948" opacity="0.04" style="fill:rgb(247, 201, 72);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.04;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Circuit traces - glowing paths -->
-  <g fill="none" stroke-width="1.5" opacity="0.3" filter="url(#neonGlow)">
-    <!-- Left trace -->
-    <path d="M 0,280 H 180 L 220,280 L 220,260 H 280" stroke="#2EAD33"/>
-    <circle cx="180" cy="280" r="3" fill="#2EAD33"/>
-    <!-- Right trace -->
-    <path d="M 1200,280 H 1020 L 980,280 L 980,260 H 900" stroke="#FFD43B"/>
-    <circle cx="1020" cy="280" r="3" fill="#FFD43B"/>
-    <!-- Top trace -->
-    <path d="M 600,0 V 100 L 590,120 V 200" stroke="#40e8b0"/>
-    <circle cx="600" cy="100" r="3" fill="#40e8b0"/>
-    <!-- Bottom left -->
-    <path d="M 100,675 V 560 L 150,520 H 310" stroke="#2EAD33"/>
-    <circle cx="150" cy="520" r="3" fill="#2EAD33"/>
-    <!-- Bottom right -->
-    <path d="M 1100,675 V 560 L 1050,520 H 890" stroke="#40e8b0"/>
-    <circle cx="1050" cy="520" r="3" fill="#40e8b0"/>
-    <!-- Cross traces -->
-    <path d="M 280,380 V 430 H 310" stroke="#2EAD33" opacity="0.5"/>
-    <path d="M 900,380 V 430 H 870" stroke="#FFD43B" opacity="0.5"/>
-  </g>
+  <!-- ── LEFT PANEL: Python code editor ── -->
+  <rect x="30" y="30" width="290" height="310" rx="12" fill="#13141a" stroke="#22252f" stroke-width="1" style="fill:rgb(19, 20, 26);stroke:rgb(34, 37, 47);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Editor title bar -->
+  <rect x="30" y="30" width="290" height="32" rx="12" fill="#1c1e26" style="fill:rgb(28, 30, 38);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="30" y="50" width="290" height="12" fill="#1c1e26" style="fill:rgb(28, 30, 38);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Traffic lights -->
+  <circle cx="52" cy="46" r="5" fill="#ff5f57" style="fill:rgb(255, 95, 87);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="68" cy="46" r="5" fill="#febc2e" style="fill:rgb(254, 188, 46);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="84" cy="46" r="5" fill="#28c840" style="fill:rgb(40, 200, 64);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- File tab -->
+  <rect x="100" y="38" width="110" height="18" rx="5" fill="#13141a" stroke="#22252f" stroke-width="0.7" style="fill:rgb(19, 20, 26);stroke:rgb(34, 37, 47);color:rgb(255, 255, 255);stroke-width:0.7px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="115" y="51" font-family="'Courier New', monospace" font-size="9" fill="#6a7a9a" style="fill:rgb(106, 122, 154);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_login.py</text>
 
-  <!-- Circuit nodes (solder points) -->
-  <g fill="none" stroke-width="1" opacity="0.2">
-    <circle cx="200" cy="112" r="5" stroke="#2EAD33"/>
-    <circle cx="400" cy="225" r="5" stroke="#40e8b0"/>
-    <circle cx="800" cy="225" r="5" stroke="#40e8b0"/>
-    <circle cx="1000" cy="112" r="5" stroke="#FFD43B"/>
-    <circle cx="200" cy="450" r="5" stroke="#2EAD33"/>
-    <circle cx="600" cy="562" r="5" stroke="#40e8b0"/>
-    <circle cx="1000" cy="450" r="5" stroke="#FFD43B"/>
-    <rect x="395" y="107" width="10" height="10" rx="1" stroke="#2EAD33" opacity="0.15"/>
-    <rect x="795" y="107" width="10" height="10" rx="1" stroke="#FFD43B" opacity="0.15"/>
-  </g>
+  <!-- Line numbers gutter -->
+  <rect x="30" y="62" width="28" height="278" fill="#111218" style="fill:rgb(17, 18, 24);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <line x1="58" y1="62" x2="58" y2="340" stroke="#22252f" stroke-width="0.6" style="fill:rgb(0, 0, 0);stroke:rgb(34, 37, 47);color:rgb(255, 255, 255);stroke-width:0.6px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Scanning line effect -->
-  <rect x="0" y="330" width="1200" height="1" fill="#40e8b0" opacity="0.08"/>
-  <rect x="0" y="332" width="1200" height="3" fill="#40e8b0" opacity="0.03"/>
+  <!-- Line numbers -->
+  <text x="46" y="82" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">1</text>
+  <text x="46" y="96" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">2</text>
+  <text x="46" y="110" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">3</text>
+  <text x="46" y="124" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">4</text>
+  <text x="46" y="138" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">5</text>
+  <text x="46" y="152" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">6</text>
+  <text x="46" y="166" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">7</text>
+  <text x="46" y="180" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">8</text>
+  <text x="46" y="194" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">9</text>
+  <text x="46" y="208" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">10</text>
+  <text x="46" y="222" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">11</text>
+  <text x="46" y="236" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">12</text>
+  <text x="46" y="250" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">13</text>
+  <text x="46" y="264" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">14</text>
+  <text x="46" y="278" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">15</text>
+  <text x="46" y="292" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">16</text>
+  <text x="46" y="306" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">17</text>
+  <text x="46" y="320" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e3450" style="fill:rgb(46, 52, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">18</text>
 
-  <!-- HEX data decoration -->
-  <text x="30" y="30" font-family="Consolas, monospace" font-size="9" fill="#3d6870" opacity="0.5">0x5079 0xAD33 0xFFD4</text>
-  <text x="1000" y="660" font-family="Consolas, monospace" font-size="9" fill="#3d6870" opacity="0.5">SYS.READY // v3.1.0</text>
-  <text x="30" y="660" font-family="Consolas, monospace" font-size="9" fill="#3d6870" opacity="0.5">FRAMEWORK.INIT</text>
+  <!-- Active line highlight (line 10) -->
+  <rect x="58" y="200" width="262" height="14" fill="#1e2235" opacity="0.8" style="fill:rgb(30, 34, 53);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 
-  <!-- Logo boxes - centered (2 logos) -->
-  <g filter="url(#shadow)">
-    <g transform="translate(420, 200)">
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="#0a1a10"/>
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.8"/>
-      <!-- Corner brackets -->
-      <path d="M 4,25 V 4 H 25" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <path d="M 135,4 H 156 V 25" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <path d="M 156,135 V 156 H 135" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <path d="M 25,156 H 4 V 135" fill="none" stroke="#2EAD33" stroke-width="2" opacity="0.5"/>
-      <text x="80" y="98" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#2EAD33" text-anchor="middle">Pw</text>
-    </g>
-    <g transform="translate(620, 200)">
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="#1a1a08"/>
-      <rect x="0" y="0" width="160" height="160" rx="8" fill="none" stroke="#FFD43B" stroke-width="2" opacity="0.8"/>
-      <path d="M 4,25 V 4 H 25" fill="none" stroke="#FFD43B" stroke-width="2" opacity="0.5"/>
-      <path d="M 135,4 H 156 V 25" fill="none" stroke="#FFD43B" stroke-width="2" opacity="0.5"/>
-      <path d="M 156,135 V 156 H 135" fill="none" stroke="#FFD43B" stroke-width="2" opacity="0.5"/>
-      <path d="M 25,156 H 4 V 135" fill="none" stroke="#FFD43B" stroke-width="2" opacity="0.5"/>
-      <text x="80" y="98" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#FFD43B" text-anchor="middle">Py</text>
-    </g>
-  </g>
+  <!-- Code content -->
+  <!-- Line 1: import -->
+  <text x="64" y="82" font-family="'Courier New', monospace" font-size="9" fill="#c792ea" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">import</text>
+  <text x="100" y="82" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">pytest</text>
 
-  <!-- Tech tags -->
-  <g transform="translate(345, 430)">
-    <rect x="0" y="0" width="120" height="36" rx="4" fill="#2EAD33" opacity="0.08" stroke="#2EAD33" stroke-width="1" stroke-opacity="0.4"/>
-    <text x="60" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#2EAD33" text-anchor="middle">Playwright</text>
-  </g>
-  <g transform="translate(485, 430)">
-    <rect x="0" y="0" width="100" height="36" rx="4" fill="#3776AB" opacity="0.08" stroke="#3776AB" stroke-width="1" stroke-opacity="0.4"/>
-    <text x="50" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#3776AB" text-anchor="middle">Python</text>
-  </g>
-  <g transform="translate(605, 430)">
-    <rect x="0" y="0" width="100" height="36" rx="4" fill="#FFD43B" opacity="0.06" stroke="#FFD43B" stroke-width="1" stroke-opacity="0.3"/>
-    <text x="50" y="24" font-family="Consolas, monospace" font-size="13" font-weight="500" fill="#FFD43B" text-anchor="middle">Pytest</text>
-  </g>
+  <!-- Line 2: from -->
+  <text x="64" y="96" font-family="'Courier New', monospace" font-size="9" fill="#c792ea" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">from</text>
+  <text x="90" y="96" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">playwright.sync_api</text>
+  <text x="214" y="96" font-family="'Courier New', monospace" font-size="9" fill="#c792ea" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">import</text>
+  <text x="250" y="96" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Page</text>
+
+  <!-- Line 3: blank -->
+
+  <!-- Line 4: decorator -->
+  <text x="64" y="124" font-family="'Courier New', monospace" font-size="9" fill="#f78c6c" style="fill:rgb(247, 140, 108);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">@pytest.mark.parametrize</text>
+
+  <!-- Line 5: params -->
+  <text x="64" y="138" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(</text>
+  <text x="70" y="138" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"url"</text>
+  <text x="94" y="138" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">, [</text>
+  <text x="112" y="138" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"/login"</text>
+  <text x="156" y="138" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">,</text>
+  <text x="162" y="138" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"/home"</text>
+  <text x="202" y="138" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">])</text>
+
+  <!-- Line 6: def -->
+  <text x="64" y="152" font-family="'Courier New', monospace" font-size="9" fill="#c792ea" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">def</text>
+  <text x="82" y="152" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_page_loads</text>
+  <text x="168" y="152" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(page:</text>
+  <text x="196" y="152" font-family="'Courier New', monospace" font-size="9" fill="#f78c6c" style="fill:rgb(247, 140, 108);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">Page</text>
+  <text x="216" y="152" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">, url):</text>
+
+  <!-- Line 7: goto -->
+  <text x="74" y="166" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">page.</text>
+  <text x="100" y="166" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">goto</text>
+  <text x="122" y="166" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(</text>
+  <text x="128" y="166" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">f"https://app{url}"</text>
+  <text x="232" y="166" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">)</text>
+
+  <!-- Line 8: fill -->
+  <text x="74" y="180" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">page.</text>
+  <text x="100" y="180" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">fill</text>
+  <text x="120" y="180" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(</text>
+  <text x="126" y="180" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"#email"</text>
+  <text x="174" y="180" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">,</text>
+  <text x="180" y="180" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"user@test.com"</text>
+  <text x="288" y="180" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">)</text>
+
+  <!-- Line 9: click -->
+  <text x="74" y="194" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">page.</text>
+  <text x="100" y="194" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">click</text>
+  <text x="124" y="194" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(</text>
+  <text x="130" y="194" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"button[type='submit']"</text>
+  <text x="290" y="194" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">)</text>
+
+  <!-- Line 10 active: expect -->
+  <text x="74" y="208" font-family="'Courier New', monospace" font-size="9" fill="#f78c6c" style="fill:rgb(247, 140, 108);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">expect</text>
+  <text x="106" y="208" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(page).</text>
+  <text x="142" y="208" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">to_have_url</text>
+  <text x="204" y="208" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(</text>
+  <text x="210" y="208" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"/dashboard"</text>
+  <text x="278" y="208" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">)</text>
+  <!-- cursor blink -->
+  <rect x="286" y="198" width="6" height="12" rx="1" fill="#82aaff" opacity="0.9" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.9;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Line 11 blank -->
+
+  <!-- Line 12: screenshot -->
+  <text x="74" y="236" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">page.</text>
+  <text x="100" y="236" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">screenshot</text>
+  <text x="154" y="236" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">(</text>
+  <text x="160" y="236" font-family="'Courier New', monospace" font-size="9" fill="#f78c6c" style="fill:rgb(247, 140, 108);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">path</text>
+  <text x="178" y="236" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">=</text>
+  <text x="184" y="236" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"result.png"</text>
+  <text x="248" y="236" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">)</text>
+
+  <!-- Line 13 blank -->
+
+  <!-- Line 14: comment -->
+  <text x="64" y="264" font-family="'Courier New', monospace" font-size="9" fill="#4a5a7a" style="fill:rgb(74, 90, 122);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto"># assert heading visible</text>
+
+  <!-- Line 15: assert -->
+  <text x="74" y="278" font-family="'Courier New', monospace" font-size="9" fill="#c792ea" style="fill:rgb(199, 146, 234);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">assert</text>
+  <text x="108" y="278" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">page.</text>
+  <text x="134" y="278" font-family="'Courier New', monospace" font-size="9" fill="#82aaff" style="fill:rgb(130, 170, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">title</text>
+  <text x="152" y="278" font-family="'Courier New', monospace" font-size="9" fill="#c8d0e0" style="fill:rgb(200, 208, 224);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">() ==</text>
+  <text x="178" y="278" font-family="'Courier New', monospace" font-size="9" fill="#c3e88d" style="fill:rgb(195, 232, 141);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">"Dashboard"</text>
+
+  <!-- ── RIGHT PANEL: Test runner output ── -->
+  <rect x="360" y="30" width="290" height="310" rx="12" fill="#0d1209" stroke="#1a2214" stroke-width="1" style="fill:rgb(13, 18, 9);stroke:rgb(26, 34, 20);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Terminal title bar -->
+  <rect x="360" y="30" width="290" height="32" rx="12" fill="#141a10" style="fill:rgb(20, 26, 16);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="360" y="50" width="290" height="12" fill="#141a10" style="fill:rgb(20, 26, 16);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="382" cy="46" r="5" fill="#ff5f57" style="fill:rgb(255, 95, 87);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="398" cy="46" r="5" fill="#febc2e" style="fill:rgb(254, 188, 46);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="414" cy="46" r="5" fill="#28c840" style="fill:rgb(40, 200, 64);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="505" y="51" text-anchor="middle" font-family="'Courier New', monospace" font-size="9" fill="#2e4a28" style="fill:rgb(46, 74, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">pytest — terminal</text>
+
+  <!-- Terminal body -->
+  <rect x="360" y="62" width="290" height="278" fill="#0a0d08" style="fill:rgb(10, 13, 8);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Terminal output -->
+  <text x="374" y="84" font-family="'Courier New', monospace" font-size="9" fill="#3a6a30" style="fill:rgb(58, 106, 48);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">❯ pytest tests/ -v --browser chromium</text>
+
+  <text x="374" y="100" font-family="'Courier New', monospace" font-size="9" fill="#2a4a24" style="fill:rgb(42, 74, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">═══════════════════════════════════</text>
+
+  <text x="374" y="116" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">platform</text>
+  <text x="414" y="116" font-family="'Courier New', monospace" font-size="9" fill="#3a5a34" style="fill:rgb(58, 90, 52);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">linux — Python 3.12.2</text>
+
+  <text x="374" y="130" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">pytest</text>
+  <text x="406" y="130" font-family="'Courier New', monospace" font-size="9" fill="#3a5a34" style="fill:rgb(58, 90, 52);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">8.1.0 · playwright 1.43</text>
+
+  <text x="374" y="144" font-family="'Courier New', monospace" font-size="9" fill="#2a4a24" style="fill:rgb(42, 74, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">═══════════════════════════════════</text>
+
+  <!-- Collecting -->
+  <text x="374" y="160" font-family="'Courier New', monospace" font-size="9" fill="#3a5a34" style="fill:rgb(58, 90, 52);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">collected</text>
+  <text x="420" y="160" font-family="'Courier New', monospace" font-size="9" fill="#f7c948" style="fill:rgb(247, 201, 72);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">6 items</text>
+
+  <text x="374" y="176" font-family="'Courier New', monospace" font-size="9" fill="#2a4a24" style="fill:rgb(42, 74, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">───────────────────────────────────</text>
+
+  <!-- Test results -->
+  <text x="374" y="192" font-family="'Courier New', monospace" font-size="9" fill="#3a5a70" style="fill:rgb(58, 90, 112);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">tests/test_login.py</text>
+
+  <text x="374" y="207" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">  PASSED</text>
+  <text x="414" y="207" font-family="'Courier New', monospace" font-size="9" fill="#5a7a50" style="fill:rgb(90, 122, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_page_loads[/login]</text>
+  <text x="592" y="207" font-family="'Courier New', monospace" font-size="9" fill="#2e4a28" style="fill:rgb(46, 74, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">0.8s</text>
+
+  <text x="374" y="221" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">  PASSED</text>
+  <text x="414" y="221" font-family="'Courier New', monospace" font-size="9" fill="#5a7a50" style="fill:rgb(90, 122, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_page_loads[/home]</text>
+  <text x="592" y="221" font-family="'Courier New', monospace" font-size="9" fill="#2e4a28" style="fill:rgb(46, 74, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">1.1s</text>
+
+  <text x="374" y="235" font-family="'Courier New', monospace" font-size="9" fill="#3a5a70" style="fill:rgb(58, 90, 112);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">tests/test_checkout.py</text>
+
+  <text x="374" y="249" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">  PASSED</text>
+  <text x="414" y="249" font-family="'Courier New', monospace" font-size="9" fill="#5a7a50" style="fill:rgb(90, 122, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_add_to_cart</text>
+  <text x="592" y="249" font-family="'Courier New', monospace" font-size="9" fill="#2e4a28" style="fill:rgb(46, 74, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">1.4s</text>
+
+  <text x="374" y="263" font-family="'Courier New', monospace" font-size="9" fill="#e05252" style="fill:rgb(224, 82, 82);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">  FAILED</text>
+  <text x="414" y="263" font-family="'Courier New', monospace" font-size="9" fill="#8a4040" style="fill:rgb(138, 64, 64);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_promo_code</text>
+  <text x="592" y="263" font-family="'Courier New', monospace" font-size="9" fill="#2e4a28" style="fill:rgb(46, 74, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">2.1s</text>
+
+  <text x="374" y="277" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">  PASSED</text>
+  <text x="414" y="277" font-family="'Courier New', monospace" font-size="9" fill="#5a7a50" style="fill:rgb(90, 122, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_checkout_flow</text>
+  <text x="592" y="277" font-family="'Courier New', monospace" font-size="9" fill="#2e4a28" style="fill:rgb(46, 74, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">1.9s</text>
+
+  <text x="374" y="291" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">  PASSED</text>
+  <text x="414" y="291" font-family="'Courier New', monospace" font-size="9" fill="#5a7a50" style="fill:rgb(90, 122, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">test_order_confirm</text>
+  <text x="592" y="291" font-family="'Courier New', monospace" font-size="9" fill="#2e4a28" style="fill:rgb(46, 74, 40);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">0.7s</text>
+
+  <text x="374" y="305" font-family="'Courier New', monospace" font-size="9" fill="#2a4a24" style="fill:rgb(42, 74, 36);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">═══════════════════════════════════</text>
+
+  <!-- Summary -->
+  <text x="374" y="320" font-family="'Courier New', monospace" font-size="9" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">5 passed</text>
+  <text x="420" y="320" font-family="'Courier New', monospace" font-size="9" fill="#3a5a34" style="fill:rgb(58, 90, 52);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">,</text>
+  <text x="428" y="320" font-family="'Courier New', monospace" font-size="9" fill="#e05252" style="fill:rgb(224, 82, 82);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">1 failed</text>
+  <text x="472" y="320" font-family="'Courier New', monospace" font-size="9" fill="#3a5a34" style="fill:rgb(58, 90, 52);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:9px;font-weight:400;text-anchor:start;dominant-baseline:auto">in 8.00s</text>
+
+  <!-- Blinking cursor -->
+  <rect x="374" y="330" width="6" height="11" rx="1" fill="#4caf78" opacity="0.85" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.85;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- ── CENTER DIVIDER with logo area ── -->
+  <line x1="340" y1="50" x2="340" y2="340" stroke="#1e2030" stroke-width="1" stroke-dasharray="4 4" style="fill:rgb(0, 0, 0);stroke:rgb(30, 32, 48);color:rgb(255, 255, 255);stroke-width:1px;stroke-dasharray:4px, 4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Central badge -->
+  <rect x="298" y="160" width="84" height="80" rx="12" fill="#0e0f14" stroke="#22252f" stroke-width="1" style="fill:rgb(14, 15, 20);stroke:rgb(34, 37, 47);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <!-- Playwright P logo -->
+  <circle cx="316" cy="188" r="10" fill="none" stroke="#45d483" stroke-width="2" style="fill:none;stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="315" y="193" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="10" font-weight="900" fill="#45d483" style="fill:rgb(69, 212, 131);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:10px;font-weight:900;text-anchor:middle;dominant-baseline:auto">P</text>
+  <!-- Python snake coil simple -->
+  <path d="M326,196 Q340,188 340,200 Q340,212 354,204" fill="none" stroke="#f7c948" stroke-width="2" stroke-linecap="round" style="fill:none;stroke:rgb(247, 201, 72);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:round;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="326" cy="196" r="3" fill="#4b8bbe" style="fill:rgb(75, 139, 190);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="354" cy="204" r="3" fill="#ffd43b" style="fill:rgb(255, 212, 59);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+  <text x="340" y="228" text-anchor="middle" font-family="'Courier New', monospace" font-size="8" fill="#3a4060" style="fill:rgb(58, 64, 96);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:8px;font-weight:400;text-anchor:middle;dominant-baseline:auto">+</text>
+  <text x="340" y="238" text-anchor="middle" font-family="'Courier New', monospace" font-size="7" fill="#2a3050" style="fill:rgb(42, 48, 80);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:7px;font-weight:400;text-anchor:middle;dominant-baseline:auto">E2E</text>
+
+  <!-- ── BOTTOM PILLS ── -->
+  <rect x="46" y="356" width="180" height="24" rx="12" fill="#0d1a10" stroke="#45d483" stroke-width="1.1" style="fill:rgb(13, 26, 16);stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Playwright circle icon -->
+  <circle cx="68" cy="368" r="8" fill="none" stroke="#45d483" stroke-width="1.4" style="fill:none;stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:1.4px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="67" y="372" text-anchor="middle" font-family="'Arial Black', sans-serif" font-size="8" font-weight="900" fill="#45d483" style="fill:rgb(69, 212, 131);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:8px;font-weight:900;text-anchor:middle;dominant-baseline:auto">P</text>
+  <text x="166" y="372" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#45d483" style="fill:rgb(69, 212, 131);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Playwright</text>
+
+  <!-- Python pill -->
+  <rect x="250" y="356" width="180" height="24" rx="12" fill="#0e1018" stroke="#f7c948" stroke-width="1.1" style="fill:rgb(14, 16, 24);stroke:rgb(247, 201, 72);color:rgb(255, 255, 255);stroke-width:1.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <!-- Python two-tone dots -->
+  <circle cx="270" cy="366" r="5" fill="#4b8bbe" style="fill:rgb(75, 139, 190);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="270" cy="374" r="5" fill="#ffd43b" style="fill:rgb(255, 212, 59);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="358" y="372" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#f7c948" style="fill:rgb(247, 201, 72);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Python 3</text>
+
+  <!-- pytest pill -->
+  <rect x="454" y="356" width="180" height="24" rx="12" fill="#0a0f08" stroke="#4caf78" stroke-width="1.1" style="fill:rgb(10, 15, 8);stroke:rgb(76, 175, 120);color:rgb(255, 255, 255);stroke-width:1.1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <text x="474" y="372" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:400;text-anchor:middle;dominant-baseline:auto">⚙</text>
+  <text x="556" y="372" text-anchor="middle" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#4caf78" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Courier New&quot;, monospace;font-size:11px;font-weight:700;text-anchor:middle;dominant-baseline:auto">pytest · E2E</text>
+
+  <!-- Corner pads -->
+  <rect x="18" y="18" width="12" height="12" rx="2" fill="none" stroke="#45d483" stroke-width="0.7" opacity="0.25" style="fill:none;stroke:rgb(69, 212, 131);color:rgb(255, 255, 255);stroke-width:0.7px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="24" cy="24" r="2.5" fill="#45d483" opacity="0.25" style="fill:rgb(69, 212, 131);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="650" y="18" width="12" height="12" rx="2" fill="none" stroke="#f7c948" stroke-width="0.7" opacity="0.25" style="fill:none;stroke:rgb(247, 201, 72);color:rgb(255, 255, 255);stroke-width:0.7px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="656" cy="24" r="2.5" fill="#f7c948" opacity="0.25" style="fill:rgb(247, 201, 72);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="18" y="370" width="12" height="12" rx="2" fill="none" stroke="#4caf78" stroke-width="0.7" opacity="0.25" style="fill:none;stroke:rgb(76, 175, 120);color:rgb(255, 255, 255);stroke-width:0.7px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="24" cy="376" r="2.5" fill="#4caf78" opacity="0.25" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <rect x="650" y="370" width="12" height="12" rx="2" fill="none" stroke="#4caf78" stroke-width="0.7" opacity="0.25" style="fill:none;stroke:rgb(76, 175, 120);color:rgb(255, 255, 255);stroke-width:0.7px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+  <circle cx="656" cy="376" r="2.5" fill="#4caf78" opacity="0.25" style="fill:rgb(76, 175, 120);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.25;font-family:&quot;Anthropic Sans&quot;, -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
 </svg>
