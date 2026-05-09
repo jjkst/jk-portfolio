@@ -1,6 +1,6 @@
 .projects-section {
   .container {
-    max-width: min(1100px, 95vw);
+    max-width: min(1440px, 96vw);
     width: 100%;
   }
 
@@ -26,12 +26,15 @@
   }
 }
 
+.swipe-zone {
+  touch-action: pan-y;
+}
+
 .project-category {
   margin-bottom: 40px;
 
   ::ng-deep {
     .horizontal-card-list-navigation {
-      min-height: 320px;
       align-items: center;
     }
 
@@ -47,21 +50,22 @@
     }
 
     .horizontal-scroll-container {
-      min-height: 300px;
+      align-items: stretch;
     }
 
     .card {
-      min-height: 180px;
-      min-width: 320px;
+      min-width: 420px;
       padding: 0 !important;
       overflow: hidden;
       display: flex !important;
       flex-direction: column !important;
+      background: #0d0d14 !important;
 
       img[mat-card-image] {
         width: 100% !important;
-        flex: 1 !important;
-        object-fit: cover !important;
+        height: auto !important;
+        aspect-ratio: 690 / 410;
+        object-fit: contain !important;
         margin: 0 !important;
       }
 
@@ -123,28 +127,28 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .project-category ::ng-deep {
     .card {
-      min-width: 250px;
-      min-height: 200px;
-    }
-
-    .horizontal-card-list-navigation {
-      min-height: 220px;
-    }
-
-    .horizontal-scroll-container {
-      min-height: 200px;
+      min-width: 360px;
     }
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .project-category ::ng-deep {
+    .horizontal-card-list-navigation {
+      gap: 0.4rem;
+    }
+
+    .horizontal-scroll-container {
+      justify-content: center;
+    }
+
     .card {
+      flex: 0 0 auto !important;
       min-width: 80vw;
-      min-height: 180px;
+      max-width: 80vw;
     }
   }
 }

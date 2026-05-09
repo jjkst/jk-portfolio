@@ -10,16 +10,18 @@
         <h3>Test Automation</h3>
         <p class="category-description">End-to-end UI and API automation frameworks built for reliability</p>
       </div>
-      <app-horizontal-card-list
-        [items]="testprojects"
-        [itemsPerPage]="3"
-        [contentTemplate]="projectContentTemplate"
-        [getImageUrl]="getProjectImageUrl"
-        [getTitle]="getProjectTitle"
-        [showImage]="true"
-        [showTitle]="false"
-      >
-      </app-horizontal-card-list>
+      <div class="swipe-zone" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event, 0)">
+        <app-horizontal-card-list
+          [items]="testprojects"
+          [itemsPerPage]="itemsPerPage"
+          [contentTemplate]="projectContentTemplate"
+          [getImageUrl]="getProjectImageUrl"
+          [getTitle]="getProjectTitle"
+          [showImage]="true"
+          [showTitle]="false"
+        >
+        </app-horizontal-card-list>
+      </div>
     </div>
 
     <div class="project-category">
@@ -27,16 +29,18 @@
         <h3>Development</h3>
         <p class="category-description">Full-stack applications built with modern frameworks and best practices</p>
       </div>
-      <app-horizontal-card-list
-        [items]="developmentprojects"
-        [itemsPerPage]="3"
-        [contentTemplate]="projectContentTemplate"
-        [getImageUrl]="getProjectImageUrl"
-        [getTitle]="getProjectTitle"
-        [showImage]="true"
-        [showTitle]="false"
-      >
-      </app-horizontal-card-list>
+      <div class="swipe-zone" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event, 1)">
+        <app-horizontal-card-list
+          [items]="developmentprojects"
+          [itemsPerPage]="itemsPerPage"
+          [contentTemplate]="projectContentTemplate"
+          [getImageUrl]="getProjectImageUrl"
+          [getTitle]="getProjectTitle"
+          [showImage]="true"
+          [showTitle]="false"
+        >
+        </app-horizontal-card-list>
+      </div>
     </div>
 
     <div class="projects-cta">
