@@ -10,7 +10,7 @@
         <h3>Development</h3>
         <p class="category-description">Full-stack applications built with modern frameworks and best practices</p>
       </div>
-      <div class="swipe-zone" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event, 1)">
+      <div class="swipe-zone" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event, 0)">
         <app-horizontal-card-list
           [items]="developmentprojects"
           [itemsPerPage]="itemsPerPage"
@@ -29,7 +29,7 @@
         <h3>Test Automation</h3>
         <p class="category-description">End-to-end UI and API automation frameworks built for reliability</p>
       </div>
-      <div class="swipe-zone" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event, 0)">
+      <div class="swipe-zone" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event, 1)">
         <app-horizontal-card-list
           [items]="testprojects"
           [itemsPerPage]="itemsPerPage"
