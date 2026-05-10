@@ -6,6 +6,7 @@ import { ProjectDetailComponent } from './pages/project-detail/project-detail.co
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProjectService } from './services/project.service';
 import { inject } from '@angular/core';
+import { LoginComponent } from 'ruku-bookings';
 
 export async function getProjectIds(): Promise<string[]> {
   const projectService = inject(ProjectService);
@@ -29,6 +30,7 @@ export const routes: Routes = [
   { path: 'projects', component: ProjectsPageComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'project/:id', component: ProjectDetailComponent,
     data: {
       prerender: true,
