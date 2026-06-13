@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test';
+import { setupAuth } from './helpers/auth';
 
 test.describe('Feature Page', () => {
   test.beforeEach(async ({ page }) => {
+    await setupAuth(page);
     await page.goto('/features');
   });
 

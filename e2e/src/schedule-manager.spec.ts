@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+import { setupAuth } from './helpers/auth';
 
 const API = 'http://localhost:5002/api';
 
@@ -36,6 +37,7 @@ const mockSchedules = [
 ];
 
 async function setupMocks(page: Page) {
+  await setupAuth(page);
   await page.route(`${API}/schedules`, (route) => {
     if (route.request().method() === 'GET') {
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(mockSchedules) });
@@ -193,7 +195,7 @@ test.describe('Schedule Manager - CRUD', () => {
     const submitButton = page.locator('button[type="submit"]');
     await submitButton.click();
 
-    await expect(page.locator('mat-snack-bar-container')).toContainText('Successfully');
+    await expect(page.locator('mat-snack-bar-container.toast-success')).toContainText('Successfully');
   });
 
   test('should delete a schedule after confirm', async ({ page }) => {

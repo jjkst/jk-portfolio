@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+import { setupAuth } from './helpers/auth';
 
 const API = 'http://localhost:5002/api';
 
@@ -25,6 +26,7 @@ const mockServices = [
 ];
 
 async function setupMocks(page: Page) {
+  await setupAuth(page);
   await page.route(`${API}/availabilities`, (route) => {
     if (route.request().method() === 'GET') {
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(mockAvailabilities) });
@@ -134,7 +136,7 @@ test.describe('Availability Manager - CRUD', () => {
     await expect(submitButton).toBeEnabled();
     await submitButton.click();
 
-    await expect(page.locator('mat-snack-bar-container')).toContainText('Successfully');
+    await expect(page.locator('mat-snack-bar-container.toast-success')).toContainText('Added/Updated');
   });
 
   test('should delete an availability after confirm', async ({ page }) => {

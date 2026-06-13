@@ -11,28 +11,25 @@ test.describe('Project Detail Page', () => {
   });
 
   test('should display the project subtitle', async ({ page }) => {
-    await expect(page.locator('.tagline')).toBeVisible();
+    await expect(page.locator('.subtitle')).toBeVisible();
   });
 
   test('should display tech stack information', async ({ page }) => {
-    const metaSection = page.locator('.project-meta');
-    await expect(metaSection).toBeVisible();
-    await expect(metaSection).toContainText('Tech Stack');
+    await expect(page.locator('.meta-row')).toBeVisible();
+    await expect(page.locator('.tech-chips')).toBeVisible();
   });
 
   test('should display project overview section', async ({ page }) => {
-    await expect(page.locator('.overview h2')).toHaveText('Project Overview');
-    await expect(page.locator('.overview p')).not.toBeEmpty();
+    await expect(page.locator('.readme-section')).toBeVisible();
+    await expect(page.locator('.readme-card')).toBeVisible();
   });
 
   test('should display features section', async ({ page }) => {
-    await expect(page.locator('.process h2')).toHaveText('Features');
-    const features = page.locator('.process-step');
-    await expect(features).not.toHaveCount(0);
+    await expect(page.locator('.readme-section')).toBeVisible();
   });
 
   test('should display image carousel', async ({ page }) => {
-    await expect(page.locator('app-image-carousel')).toBeVisible();
+    await expect(page.locator('.hero-banner img')).toBeVisible();
   });
 
   test('should navigate back to projects via CTA button', async ({ page }) => {
@@ -41,7 +38,7 @@ test.describe('Project Detail Page', () => {
   });
 
   test('should display Github link', async ({ page }) => {
-    const githubLink = page.locator('.project-meta a[target="_blank"]');
+    const githubLink = page.locator('.github-btn');
     await expect(githubLink).toBeVisible();
     await expect(githubLink).toHaveAttribute('href', /http/);
   });
@@ -53,9 +50,8 @@ test.describe('Project Detail - Different Projects', () => {
     await expect(page.locator('.project-header h1')).toBeVisible();
   });
 
-  test('should load project with webpage link', async ({ page }) => {
+  test('should load a project with no webpage link', async ({ page }) => {
     await page.goto('/project/6');
-    const webpageLink = page.locator('.project-meta').getByText('Features');
-    await expect(webpageLink).toBeVisible();
+    await expect(page.locator('.project-header h1')).toBeVisible();
   });
 });

@@ -103,15 +103,11 @@ Booking/scheduling components and services are consumed from the `ruku-bookings`
 ### Setup
 
 ```bash
-# 1. Build the library first (in ruku-features workspace)
-cd ../ruku-features
-npm run build
+# Fresh clone — builds ruku-bookings library and installs all dependencies
+cd jk-portfolio
+npm run setup
 
-# 2. Install dependencies (resolves lib/ruku-bookings symlink)
-cd ../jk-portfolio
-npm install --legacy-peer-deps
-
-# 3. Start development server
+# Start development server
 npm start
 ```
 
@@ -122,14 +118,10 @@ Navigate to `http://localhost:4200/`.
 After making changes to the `ruku-bookings` library in the `ruku-features` workspace:
 
 ```bash
-# 1. Rebuild the library
-cd ../ruku-features
-ng build ruku-bookings
-
-# 2. In jk-portfolio, clear Angular cache and restart
-cd ../jk-portfolio
-Remove-Item -Recurse -Force .angular\cache   # PowerShell
-# or: rm -rf .angular/cache                  # Bash/Git Bash
+# Rebuild and copy the library, then clear Angular cache and restart
+cd jk-portfolio
+npm run setup:lib
+rm -rf .angular/cache
 npm start
 ```
 
@@ -144,18 +136,23 @@ Static pages (Home, About, Projects, Contact) work without the backend.
 ## Testing
 
 ```bash
-# Unit tests (watch mode)
+# Unit tests — Chrome headless with coverage
 npm test
 
-# Unit tests (CI)
-npm test -- --watch=false --browsers=ChromeHeadless
-
-# E2E tests
+# E2E tests — all browsers (Chromium + Safari)
 npm run e2e
+
+# E2E tests — Safari only
+npm run e2e:safari
+
+# E2E tests — Chromium only
+npm run e2e:chromium
 
 # E2E with visible browser
 npm run e2e:headed
 ```
+
+Supported browsers for E2E: `chromium` (Desktop Chrome), `safari` (Desktop Safari) — both defined in `e2e/playwright.config.ts`.
 
 ## Docker
 

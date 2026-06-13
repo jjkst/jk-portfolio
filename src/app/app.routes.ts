@@ -6,7 +6,14 @@ import { ProjectDetailComponent } from './pages/project-detail/project-detail.co
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProjectService } from './services/project.service';
 import { inject } from '@angular/core';
-import { LoginComponent } from 'ruku-bookings';
+import {
+  LoginComponent,
+  FeatureComponent,
+  ServiceManagerComponent,
+  AvailabilityManagerComponent,
+  ScheduleManagerComponent,
+  authGuard,
+} from 'ruku-bookings';
 
 export async function getProjectIds(): Promise<string[]> {
   const projectService = inject(ProjectService);
@@ -31,6 +38,17 @@ export const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
+  {
+    path: 'features',
+    component: FeatureComponent,
+    canActivate: [authGuard],
+    children: [
+      { path: '', redirectTo: 'service-manager', pathMatch: 'full' },
+      { path: 'service-manager', component: ServiceManagerComponent },
+      { path: 'availability-manager', component: AvailabilityManagerComponent },
+      { path: 'schedule-manager', component: ScheduleManagerComponent },
+    ],
+  },
   { path: 'project/:id', component: ProjectDetailComponent,
     data: {
       prerender: true,

@@ -1,4 +1,5 @@
 import { test, expect, Page } from '@playwright/test';
+import { setupAuth } from './helpers/auth';
 
 const API = 'http://localhost:5002/api';
 
@@ -24,6 +25,7 @@ const mockServices = [
 ];
 
 async function setupMocks(page: Page, services = mockServices) {
+  await setupAuth(page);
   await page.route(`${API}/publicservices`, (route) => {
     if (route.request().method() === 'GET') {
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(services) });
@@ -129,7 +131,7 @@ test.describe('Service Manager - CRUD', () => {
     await expect(submitButton).toBeEnabled();
     await submitButton.click();
 
-    await expect(page.locator('mat-snack-bar-container')).toContainText('Successfully');
+    await expect(page.locator('mat-snack-bar-container.toast-success')).toContainText('Added/Updated');
   });
 
   test('should delete a service after confirm', async ({ page }) => {

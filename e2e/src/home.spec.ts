@@ -12,11 +12,11 @@ test.describe('Home Page', () => {
 
   test('should display the hero section with heading', async ({ page }) => {
     await expect(page.locator('app-hero')).toBeVisible();
-    await expect(page.locator('app-hero h1')).toContainText('Test Automation and Full-Stack Web Development');
+    await expect(page.locator('app-hero h1')).toContainText('Web apps from sketch to production');
   });
 
   test('should display hero CTA button linking to projects', async ({ page }) => {
-    const ctaButton = page.locator('app-hero .cta-button');
+    const ctaButton = page.locator('app-hero button.cta-button');
     await expect(ctaButton).toHaveText('View My Projects');
     await ctaButton.click();
     await expect(page).toHaveURL(/\/projects/);
