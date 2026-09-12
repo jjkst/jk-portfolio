@@ -8,7 +8,7 @@ export default defineConfig({
   retries: process.env['CI'] ? 2 : 0,
   workers: process.env['CI'] ? 1 : 3,
   reporter: process.env['CI']
-    ? [['junit', { outputFile: './e2e/test-results/junit.xml' }], ['html', { outputFolder: './playwright-report', open: 'never' }]]
+    ? [['junit', { outputFile: './test-results/junit.xml' }], ['html', { outputFolder: './playwright-report', open: 'never' }]]
     : [['html', { outputFolder: './playwright-report' }]],
   use: {
     baseURL: 'http://localhost:4200',
