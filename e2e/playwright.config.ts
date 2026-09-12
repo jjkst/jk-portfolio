@@ -7,7 +7,9 @@ export default defineConfig({
   forbidOnly: !!process.env['CI'],
   retries: process.env['CI'] ? 2 : 0,
   workers: process.env['CI'] ? 1 : 3,
-  reporter: [['html', { outputFolder: './playwright-report' }]],
+  reporter: process.env['CI']
+    ? [['junit', { outputFile: './e2e/test-results/junit.xml' }], ['html', { outputFolder: './playwright-report', open: 'never' }]]
+    : [['html', { outputFolder: './playwright-report' }]],
   use: {
     baseURL: 'http://localhost:4200',
     trace: 'on-first-retry',

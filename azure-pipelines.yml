@@ -1,0 +1,92 @@
+# Feeds QAOrchestrator's Phase 0 run-history ingestion — publishes Playwright
+# e2e results so the ADO Test Results API has data to poll. Volume matters more
+# than coverage here (see qaorchestrator-ai-roadmap.md Phase 0), hence a nightly
+# schedule in addition to push.
+#
+# One-time prerequisite (portal, can't be done from YAML): this pipeline's
+# source is GitHub (jjkst/jk-portfolio). When you create it via ADO's "New
+# pipeline" wizard and pick GitHub, ADO installs the "Azure Pipelines" GitHub
+# App for you — grant it access to BOTH jjkst/jk-portfolio and
+# jjkst/ruku-features (the second checkout below needs it). `endpoint: jjkst`
+# below assumes ADO names the resulting service connection "jjkst" — if it
+# names it something else, update the endpoint value to match.
+
+trigger:
+  branches:
+    include:
+      - main
+
+schedules:
+  - cron: '0 3 * * *'
+    displayName: 'Nightly run'
+    branches:
+      include:
+        - main
+    always: 'true'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+resources:
+  repositories:
+    - repository: rukuFeatures
+      type: github
+      name: jjkst/ruku-features
+      ref: refs/heads/main
+      endpoint: jjkst
+
+steps:
+  # Multiple checkouts land under $(Build.SourcesDirectory)/<repoName>, giving the
+  # sibling layout (`../ruku-features`) that jk-portfolio's own `setup:lib` script expects.
+  - checkout: self
+    path: 's/jk-portfolio'
+  - checkout: rukuFeatures
+    path: 's/ruku-features'
+
+  - task: NodeTool@0
+    displayName: 'Use Node.js 20.x'
+    inputs:
+      versionSpec: '20.x'
+
+  - script: npm run setup
+    displayName: 'Install deps + build ruku-bookings lib'
+    workingDirectory: '$(Build.SourcesDirectory)/jk-portfolio'
+
+  - script: npx playwright install --with-deps
+    displayName: 'Install Playwright browsers'
+    workingDirectory: '$(Build.SourcesDirectory)/jk-portfolio'
+
+  - script: |
+      npm run e2e
+      echo "##vso[task.setvariable variable=E2E_EXIT_CODE]$?"
+    displayName: 'Run e2e tests'
+    workingDirectory: '$(Build.SourcesDirectory)/jk-portfolio'
+    env:
+      CI: 'true'
+    failOnStderr: 'false'   # a failing test writes to stderr; only the exit code below should decide pass/fail
+
+  - task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    condition: succeededOrFailed()
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: 'e2e/test-results/junit.xml'
+      searchFolder: '$(Build.SourcesDirectory)/jk-portfolio'
+      failTaskOnMissingResultsFile: true
+      testRunTitle: 'jk-portfolio e2e'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish HTML report + traces'
+    condition: succeededOrFailed()
+    continueOnError: true
+    inputs:
+      PathtoPublish: '$(Build.SourcesDirectory)/jk-portfolio/e2e/playwright-report'
+      ArtifactName: 'playwright-report'
+
+  - script: |
+      if [ "$E2E_EXIT_CODE" != "0" ]; then
+        echo "##vso[task.logissue type=error]e2e suite failed (exit $E2E_EXIT_CODE) — see the published Test Results and playwright-report artifact."
+        exit 1
+      fi
+    displayName: 'Fail job if e2e tests failed'
+    condition: always()
