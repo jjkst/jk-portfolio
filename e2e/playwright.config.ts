@@ -6,7 +6,10 @@ export default defineConfig({
   fullyParallel: false,
   forbidOnly: !!process.env['CI'],
   retries: process.env['CI'] ? 2 : 0,
-  workers: 11,
+  // ADO's ubuntu-latest hosted agents have 2 vCPUs (confirmed via the
+  // pipeline's "Report agent specs" step) — 11 workers there oversubscribes
+  // the CPU 5.5x and runs slower than fewer workers would.
+  workers: process.env['CI'] ? 2 : 11,
   reporter: process.env['CI']
     ? [['junit', { outputFile: './test-results/junit.xml' }], ['html', { outputFolder: './playwright-report', open: 'never' }]]
     : [['html', { outputFolder: './playwright-report' }]],
