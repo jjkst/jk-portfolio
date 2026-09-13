@@ -50,6 +50,12 @@ steps:
   - checkout: rukuApiService
     path: 's/RukuApiService'
 
+  - script: |
+      echo "CPU cores:"; nproc
+      echo "Memory:"; free -h
+      echo "Full CPU info:"; lscpu
+    displayName: 'Report agent specs'
+
   - task: NodeTool@0
     displayName: 'Use Node.js 20.x'
     inputs:
@@ -85,9 +91,9 @@ steps:
     workingDirectory: '$(Build.SourcesDirectory)/RukuApiService'
 
   - script: |
-      npm run e2e
+      npm run e2e:chromium
       echo "##vso[task.setvariable variable=E2E_EXIT_CODE]$?"
-    displayName: 'Run e2e tests'
+    displayName: 'Run e2e tests (chromium)'
     workingDirectory: '$(Build.SourcesDirectory)/jk-portfolio'
     env:
       CI: 'true'
