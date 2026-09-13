@@ -6,7 +6,7 @@ export default defineConfig({
   fullyParallel: false,
   forbidOnly: !!process.env['CI'],
   retries: process.env['CI'] ? 2 : 0,
-  workers: process.env['CI'] ? 1 : 3,
+  workers: 11,
   reporter: process.env['CI']
     ? [['junit', { outputFile: './test-results/junit.xml' }], ['html', { outputFolder: './playwright-report', open: 'never' }]]
     : [['html', { outputFolder: './playwright-report' }]],
