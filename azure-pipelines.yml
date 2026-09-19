@@ -58,7 +58,9 @@ steps:
     displayName: 'Install deps + build ruku-bookings lib'
     workingDirectory: '$(Build.SourcesDirectory)/jk-portfolio'
 
-  - script: npx playwright install --with-deps
+  # Only chromium: CI runs e2e:chromium exclusively (e2e:safari/webkit is local-only,
+  # see package.json) — installing webkit + firefox here was pure waste.
+  - script: npx playwright install chromium --with-deps
     displayName: 'Install Playwright browsers'
     workingDirectory: '$(Build.SourcesDirectory)/jk-portfolio'
 
