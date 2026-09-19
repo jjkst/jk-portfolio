@@ -6,8 +6,8 @@
 # One-time prerequisite (portal, can't be done from YAML): this pipeline's
 # source is GitHub (jjkst/jk-portfolio). When you create it via ADO's "New
 # pipeline" wizard and pick GitHub, ADO installs the "Azure Pipelines" GitHub
-# App for you — grant it access to jjkst/jk-portfolio, jjkst/ruku-features,
-# and jjkst/RukuApiService (the extra checkouts below need all three).
+# App for you — grant it access to jjkst/jk-portfolio and jjkst/ruku-features
+# (the extra checkout below needs both).
 # `endpoint: jjkst` below assumes ADO names the resulting service connection
 # "jjkst" — if it names it something else, update the endpoint value to match.
 
@@ -34,11 +34,6 @@ resources:
       name: jjkst/ruku-features
       ref: refs/heads/main
       endpoint: jjkst
-    - repository: rukuApiService
-      type: github
-      name: jjkst/RukuApiService
-      ref: refs/heads/main
-      endpoint: jjkst
 
 steps:
   # Multiple checkouts land under $(Build.SourcesDirectory)/<repoName>, giving the
@@ -47,8 +42,6 @@ steps:
     path: 's/jk-portfolio'
   - checkout: rukuFeatures
     path: 's/ruku-features'
-  - checkout: rukuApiService
-    path: 's/RukuApiService'
 
   - script: |
       echo "CPU cores:"; nproc
@@ -69,27 +62,11 @@ steps:
     displayName: 'Install Playwright browsers'
     workingDirectory: '$(Build.SourcesDirectory)/jk-portfolio'
 
-  # e2e tests hit http://localhost:5002/api/* directly (see environment.ts) — the Angular
-  # dev server started by playwright.config.ts's webServer never starts this backend on its
-  # own, so without this the whole suite fails at status 0 (connection refused).
-  - script: |
-      docker compose -f docker-compose.test.yml up --build -d
-
-      echo "Waiting for API to be ready..."
-      elapsed=0
-      until curl -sf http://localhost:5002/health/live > /dev/null 2>&1; do
-        if [ "$elapsed" -ge 120 ]; then
-          echo "##vso[task.logissue type=error]API did not become healthy after 120s."
-          docker compose -f docker-compose.test.yml logs api-test
-          exit 1
-        fi
-        sleep 3
-        elapsed=$((elapsed + 3))
-      done
-      echo "API is ready."
-    displayName: 'Start RukuApiService (Docker)'
-    workingDirectory: '$(Build.SourcesDirectory)/RukuApiService'
-
+  # environment.ts points apiBaseUrl at http://localhost:5002/api, but every spec
+  # that touches it mocks the calls via page.route() — nothing in this suite
+  # actually needs a live backend (verified: identical pass/fail results with
+  # RukuApiService not running at all). Don't reintroduce a live API step here
+  # without first checking whether a new spec genuinely needs one.
   - script: |
       npm run e2e:chromium
       echo "##vso[task.setvariable variable=E2E_EXIT_CODE]$?"
@@ -98,11 +75,6 @@ steps:
     env:
       CI: 'true'
     failOnStderr: 'false'   # a failing test writes to stderr; only the exit code below should decide pass/fail
-
-  - script: docker compose -f docker-compose.test.yml down --remove-orphans
-    displayName: 'Stop RukuApiService (Docker)'
-    workingDirectory: '$(Build.SourcesDirectory)/RukuApiService'
-    condition: always()
 
   - task: PublishTestResults@2
     displayName: 'Publish Test Results'

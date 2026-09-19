@@ -1,9 +1,26 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import { setupAuth } from './helpers/auth';
+
+const API = 'http://localhost:5002/api';
+
+// Only tab navigation is under test here — each manager's own spec covers its
+// data. These mocks exist so a tab's ngOnInit fetch (e.g. schedule-manager's
+// getSchedules()/getAvailableDates(), schedule-manager.component.ts:85,109)
+// doesn't hit the real API with the fake e2e token, get a 401, and trigger
+// auth.interceptor.ts's logout-redirect to /login mid-navigation.
+async function setupMocks(page: Page) {
+  await setupAuth(page);
+  const empty = { status: 200, contentType: 'application/json', body: '[]' };
+  await page.route(`${API}/publicservices`, (route) => route.fulfill(empty));
+  await page.route(`${API}/services`, (route) => route.fulfill(empty));
+  await page.route(`${API}/availabilities`, (route) => route.fulfill(empty));
+  await page.route(`${API}/availabilities/dates`, (route) => route.fulfill(empty));
+  await page.route(`${API}/schedules`, (route) => route.fulfill(empty));
+}
 
 test.describe('Feature Page', () => {
   test.beforeEach(async ({ page }) => {
-    await setupAuth(page);
+    await setupMocks(page);
     await page.goto('/features');
   });
 
