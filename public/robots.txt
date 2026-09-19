@@ -3,4 +3,4 @@ Allow: /
 Disallow: /features
 Disallow: /login
 
-Sitemap: https://jk-dev.site/sitemap.xml
+Sitemap: https://jk-devsite.com/sitemap.xml
