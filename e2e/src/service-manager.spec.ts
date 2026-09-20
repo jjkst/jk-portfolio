@@ -26,14 +26,17 @@ const mockServices = [
 
 async function setupMocks(page: Page, services = mockServices) {
   await setupAuth(page);
-  await page.route(`${API}/publicservices`, (route) => {
+
+  // ProductService.getPublicServices() is misleadingly named — it actually calls
+  // GET /services (product.service.ts:16-18), not /publicservices. Mocking the
+  // literal "publicservices" path here never matched real app traffic; GET
+  // requests to /services fell through to route.continue() and hit the real
+  // (unmocked) backend, which is what produced the "Error loading existing
+  // services" toast intermittently in CI.
+  await page.route(`${API}/services`, (route) => {
     if (route.request().method() === 'GET') {
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(services) });
     }
-    return route.continue();
-  });
-
-  await page.route(`${API}/services`, (route) => {
     if (route.request().method() === 'POST') {
       const body = route.request().postDataJSON();
       return route.fulfill({
@@ -63,8 +66,24 @@ async function setupMocks(page: Page, services = mockServices) {
 test.describe('Service Manager - CRUD', () => {
   test.beforeEach(async ({ page }) => {
     await setupMocks(page);
+
+    // This app is SSR (angular.json: outputMode 'server'), so loadServices() runs
+    // FIRST in Node during the server render — where page.route() cannot reach it.
+    // That server-side call hits the real API, fails ECONNREFUSED, and ships HTML
+    // with zero cards. The mocked services only appear once hydration re-runs
+    // ngOnInit in the browser and that GET *is* intercepted.
+    //
+    // So '.service-manager-card' (part of the static Add form) is NOT a signal that
+    // the data is in: it renders server-side regardless. Waiting on the browser-side
+    // GET is the deterministic signal. Without it every assertion races hydration on
+    // a 5s timeout — which passes locally and failed 11/11 on ADO's 2-vCPU pool.
+    // Form-interaction tests need hydration too, so this gate belongs in beforeEach.
+    const servicesLoaded = page.waitForResponse(
+      (r) => r.url() === `${API}/services` && r.request().method() === 'GET'
+    );
     await page.goto('/features/service-manager');
     await page.waitForSelector('.service-manager-card');
+    await servicesLoaded;
   });
 
   test('should display existing services in card list', async ({ page }) => {
