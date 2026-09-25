@@ -1,6 +1,7 @@
 {
   "name": "jk-portfolio",
   "version": "0.0.0",
+  "author": "Karthik Jayaraman",
   "scripts": {
     "ng": "ng",
     "setup:lib": "cd ../ruku-features && npm ci && npm run build && rm -rf ../jk-portfolio/lib/ruku-bookings && mkdir -p ../jk-portfolio/lib && cp -r dist/ruku-bookings ../jk-portfolio/lib/ruku-bookings",

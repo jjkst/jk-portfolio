@@ -97,37 +97,6 @@ a {
   margin-bottom: 20px;
 }
 
-/* Availability Note */
-.availability-note {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  background: var(--color-primary-50);
-  border-left: 4px solid var(--color-primary);
-  border-radius: var(--radius-md);
-  padding: 20px 24px;
-  margin: 0 auto 8px;
-  max-width: 700px;
-
-  .material-icons {
-    color: var(--color-primary);
-    font-size: 1.4rem;
-    margin-top: 2px;
-    flex-shrink: 0;
-  }
-
-  p {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--color-text-secondary);
-
-    strong {
-      color: var(--color-text);
-    }
-  }
-}
-
 /* Sections & Dividers */
 .divider {
   border: 0;
