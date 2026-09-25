@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   OnInit,
-  signal,
 } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
@@ -12,8 +12,6 @@ import { Profile } from '../../models/profile.model';
 import { NgFor } from '@angular/common';
 import { FileDownloadService } from '../../services/file-download.service';
 import saveAs from 'file-saver';
-import { filter, Subscription } from 'rxjs';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-about',
@@ -24,28 +22,15 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
   profile: Profile | undefined;
-  routerSub: Subscription | undefined;
 
   constructor(
     private profileService: ProfileService,
     private downloadService: FileDownloadService,
-    private route: ActivatedRoute,
-    private router: Router
+    private cdr: ChangeDetectorRef
   ) {}
 
-ngOnInit(): void {
-  this.loadprofile();
-
-  this.routerSub = this.router.events.pipe(
-    filter(event => event instanceof NavigationEnd),
-    filter(() => this.router.url === '/about')
-  ).subscribe(() => {
+  ngOnInit(): void {
     this.loadprofile();
-  });
-}
-
-  ngOnDestroy(): void {
-    this.routerSub?.unsubscribe();
   }
 
   async loadprofile(): Promise<void> {
@@ -53,6 +38,9 @@ ngOnInit(): void {
       const response = await this.profileService.getProfile();
       if (response.status === 200 && response.body) {
         this.profile = response.body;
+        // OnPush: an assignment from an async callback does not mark the view
+        // dirty on its own, so the template would never pick this up.
+        this.cdr.markForCheck();
       }
     } catch (error) {
       console.error('Error loading profile:', error);
