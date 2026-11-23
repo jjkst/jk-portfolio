@@ -44,7 +44,9 @@ Thumbs.db
 
 setup.txt
 
-# Playwright
-/e2e/test-results/
-/e2e/playwright-report/
+# Playwright (screenshots, trace.zip, html reports from any suite, incl. e2e/live)
+**/test-results/
+**/playwright-report/
+**/blob-report/
 /e2e/.playwright/
+/playwright/.cache/
