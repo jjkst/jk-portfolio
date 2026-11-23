@@ -25,7 +25,13 @@ schedules:
     always: 'true'
 
 pool:
-  vmImage: 'ubuntu-latest'
+  # Pinned, not 'ubuntu-latest': the hosted latest image rolled to Ubuntu 26.04,
+  # which Playwright 1.58.2 has no dependency recipe for — `playwright install
+  # --with-deps` fails with "Playwright does not support chromium on
+  # ubuntu26.04-x64", and the job then dies with no browsers and no test results.
+  # 1.58.2 supports ubuntu 18.04/20.04/22.04/24.04. Revisit when Playwright is
+  # upgraded to a version that lists 26.04.
+  vmImage: 'ubuntu-24.04'
 
 resources:
   repositories:
