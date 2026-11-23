@@ -1,14 +1,127 @@
 <app-header></app-header>
 <div class="spacer"></div>
+
 <div class="home-page">
-  <app-hero></app-hero>
+
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="pipeline-hero">
+    <div class="pipeline-hero-content">
+      <p class="hero-eyebrow">Requirements &rarr; Use-case flow &rarr; Test cases</p>
+      <h1>Your spec and your code<br/>disagree. Find out where.</h1>
+      <p class="hero-description">
+        Point it at a repository and the documents that are supposed to describe it. It mines both,
+        writes the use-case flow as Markdown you can actually read, and shows you every place the two
+        disagree &mdash; before a single test case is written.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">Azure DevOps</span>
+        <span class="tag">Gherkin</span>
+        <span class="tag">Reqnroll</span>
+        <span class="tag">Playwright</span>
+        <span class="tag">Markdown</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#demo" class="cta-button">Try the demo</a>
+        <a routerLink="/contact" class="cta-button cta-secondary">Talk about your project</a>
+      </div>
+      <p class="hero-trust">
+        Built on 23 years of QA automation and 10+ years of full-stack delivery.
+        <a routerLink="/about">See the background</a>
+      </p>
+    </div>
+  </section>
+
   <div class="spacer"></div>
+
+  <!-- ── The interactive demo ─────────────────────────── -->
+  <div appAnimateOnScroll>
+    <app-qa-pipeline></app-qa-pipeline>
+  </div>
+
+  <div class="spacer"></div>
+
+  <!-- ── Why the middle step exists ───────────────────── -->
+  <section class="why-gate" appAnimateOnScroll>
+    <h2>Why the Markdown step is the whole point</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="material-icons">rule</span>
+        <h3>Every rule is cited</h3>
+        <p>
+          A rule points at the artifact it came from &mdash; <code>Spec.pdf p.14</code>, a source file,
+          a sheet. Anything the pipeline had to guess is tagged <code>(inferred)</code> so you know
+          exactly what you are vouching for.
+        </p>
+      </div>
+      <div class="why-card">
+        <span class="material-icons">compare_arrows</span>
+        <h3>Conflicts surface early</h3>
+        <p>
+          When the documents say 5 attempts and the code says 3, that row goes in a conflict table and
+          waits for a named human. It is not silently resolved, and it is not turned into a test.
+        </p>
+      </div>
+      <div class="why-card">
+        <span class="material-icons">edit_note</span>
+        <h3>You edit the file, not a prompt</h3>
+        <p>
+          Download it, change it, re-upload it. Test cases are generated from your reviewed copy,
+          so corrections land once and flow through to every scenario and feature file.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <!-- ── Plans ────────────────────────────────────────── -->
+  <section class="plans" id="plans" appAnimateOnScroll>
+    <h2>Plans</h2>
+    <p class="plans-sub">The demo is free and fake. The product runs on your code &mdash; once, with your permission.</p>
+
+    <div class="plans-grid">
+      <div class="plan">
+        <h3>Demo</h3>
+        <p class="plan-price">Free</p>
+        <ul>
+          <li><span class="material-icons">check</span> Fixed sample repository and specs</li>
+          <li><span class="material-icons">check</span> Runs entirely in your browser</li>
+          <li><span class="material-icons">check</span> Nothing is uploaded anywhere</li>
+          <li><span class="material-icons">check</span> Download the Markdown and the CSV</li>
+        </ul>
+        <a href="#demo" class="cta-button cta-outline">Try it now</a>
+      </div>
+
+      <div class="plan plan-featured">
+        <span class="plan-badge">Coming soon</span>
+        <h3>Pro</h3>
+        <p class="plan-price">Subscription</p>
+        <ul>
+          <li><span class="material-icons">check</span> Your repository and your requirement documents</li>
+          <li><span class="material-icons">check</span> Access requested explicitly, per run</li>
+          <li><span class="material-icons">check</span> Processed once, in memory &mdash; never stored</li>
+          <li><span class="material-icons">check</span> Push straight to Azure DevOps Test Plans</li>
+          <li><span class="material-icons">check</span> Feature files and step definitions generated</li>
+        </ul>
+        <a routerLink="/contact" class="cta-button">Join the waitlist</a>
+      </div>
+    </div>
+
+    <p class="plans-note">
+      <span class="material-icons">lock</span>
+      Your source and documents are read for the length of a single run and discarded when it ends.
+      No copies are retained, and nothing is used to train anything.
+    </p>
+  </section>
+
+  <div class="spacer"></div>
+
+  <!-- ── Existing portfolio proof ─────────────────────── -->
   <div appAnimateOnScroll>
     <app-projects></app-projects>
   </div>
   <div class="spacer"></div>
 
-  <!-- About Me blurb -->
   <section class="about-blurb" appAnimateOnScroll>
     <h2>A Bit About Me</h2>
     <p>
@@ -28,7 +141,6 @@
   </div>
   <div class="spacer"></div>
 
-  <!-- Final CTA strip -->
   <section class="home-cta-strip" appAnimateOnScroll>
     <h2>Let's Connect</h2>
     <p>Questions about my experience, my projects, or how I work? I'm happy to talk.</p>

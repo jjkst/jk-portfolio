@@ -5,14 +5,14 @@ import { SkillsComponent } from '../../components/skills/skills.component';
 import { ProjectsComponent } from '../../components/projects/projects.component';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { HeroComponent } from '../../components/hero/hero.component';
+import { QaPipelineComponent } from '../../components/qa-pipeline/qa-pipeline.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     RouterLink,
-    HeroComponent,
+    QaPipelineComponent,
     SkillsComponent,
     ProjectsComponent,
     HeaderComponent,

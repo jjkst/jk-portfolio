@@ -1,0 +1,183 @@
+<section class="pipeline" id="demo">
+  <header class="pipeline-head">
+    <p class="pipeline-eyebrow">Interactive demo &bull; runs entirely in your browser</p>
+    <h2>From a repo and a spec to ADO test cases &mdash; with a human in the middle.</h2>
+    <p class="pipeline-sub">
+      Requirements rot, code drifts, and the gap between them becomes a defect no one wrote a test for.
+      This pipeline mines both, puts the difference in front of a human, and only then writes the tests.
+    </p>
+  </header>
+
+  <!-- Stepper -->
+  <ol class="stepper" aria-label="Pipeline stages">
+    <li [class.active]="stage() === 1" [class.done]="stage() > 1">
+      <span class="step-num">1</span>
+      <span class="step-label">Input</span>
+      <span class="step-detail">Repo + requirement docs</span>
+    </li>
+    <li [class.active]="stage() === 2" [class.done]="stage() > 2">
+      <span class="step-num">2</span>
+      <span class="step-label">Review gate</span>
+      <span class="step-detail">Use-case flow as Markdown</span>
+    </li>
+    <li [class.active]="stage() === 3">
+      <span class="step-num">3</span>
+      <span class="step-label">Test cases</span>
+      <span class="step-detail">CSV + Gherkin</span>
+    </li>
+  </ol>
+
+  <div class="stage-panel">
+
+    <!-- ── Stage 1 ─────────────────────────────────────── -->
+    @if (stage() === 1) {
+      <div class="stage">
+        <h3>1 &middot; Point it at a codebase and the documents that describe it</h3>
+        <p class="stage-note">
+          The demo uses a fixed sample so nothing you own leaves your machine.
+        </p>
+
+        <div class="input-grid">
+          <div class="input-card">
+            <span class="material-icons">folder_open</span>
+            <div>
+              <strong>Repository</strong>
+              <code>ruku-bookings</code>
+              <small>Angular &bull; 1 form in scope: <code>Login</code></small>
+            </div>
+          </div>
+          <div class="input-card">
+            <span class="material-icons">description</span>
+            <div>
+              <strong>Requirement documents</strong>
+              <code>Booking_Spec.pdf</code><code>Access_Matrix.xlsx</code>
+              <small>Mined for rules, with page and sheet locators kept</small>
+            </div>
+          </div>
+        </div>
+
+        <button class="cta-button" (click)="mineBusinessLogic()" [disabled]="mining()">
+          {{ mining() ? 'Mining source and documents…' : 'Generate the use-case flow' }}
+        </button>
+
+        @if (parseError()) {
+          <p class="error">{{ parseError() }}</p>
+        }
+      </div>
+    }
+
+    <!-- ── Stage 2 ─────────────────────────────────────── -->
+    @if (stage() === 2) {
+      <div class="stage">
+        <h3>2 &middot; Read it, fix it, and only then move on</h3>
+        <p class="stage-note">
+          This is the review gate. Every rule is cited to an artifact or tagged
+          <code>(inferred)</code>, and the conflict table holds each place the documents and
+          the shipped code disagree. <strong>A wrong rule costs minutes here and days downstream.</strong>
+        </p>
+
+        <div class="doc-meta">
+          <span class="chip chip-warn">2 open conflicts</span>
+          <span class="chip">7 cited / 2 inferred</span>
+          <span class="chip">5 proposed scenarios</span>
+        </div>
+
+        <pre class="doc-preview"><code>{{ doc() }}</code></pre>
+
+        <div class="gate">
+          <div class="gate-step">
+            <strong>Download it</strong>
+            <p>Edit the file in your own editor &mdash; settle the conflicts, drop or add scenarios.</p>
+            <button class="cta-button cta-outline" (click)="downloadDoc()">
+              <span class="material-icons">download</span>
+              BusinessLogic_Login.md
+            </button>
+          </div>
+
+          <div class="gate-arrow" aria-hidden="true">
+            <span class="material-icons">arrow_forward</span>
+          </div>
+
+          <div class="gate-step">
+            <strong>Re-upload the reviewed file</strong>
+            <p>The test cases are built from <em>your</em> edited copy, not the original.</p>
+            <label class="file-drop">
+              <input type="file" accept=".md,text/markdown" (change)="onFileSelected($event)" />
+              <span class="material-icons">upload_file</span>
+              <span>Choose the edited .md</span>
+            </label>
+          </div>
+        </div>
+
+        @if (parseError()) {
+          <p class="error">{{ parseError() }}</p>
+        }
+
+        <button class="link-button" (click)="reset()">Start over</button>
+      </div>
+    }
+
+    <!-- ── Stage 3 ─────────────────────────────────────── -->
+    @if (stage() === 3) {
+      <div class="stage">
+        <h3>3 &middot; Test cases, generated from the file you reviewed</h3>
+        <p class="stage-note">
+          Parsed from <code>{{ uploadedName() }}</code> &mdash;
+          <strong>{{ testCases().length }}</strong> test cases,
+          <strong>{{ stepCount() }}</strong> steps. Each carries its scenario as Gherkin in the
+          Description column, so the same row seeds an Azure DevOps test case
+          <em>and</em> a <code>.feature</code> file.
+        </p>
+
+        @for (tc of testCases(); track tc.title) {
+          <article class="case">
+            <header>
+              <h4>{{ tc.title }}</h4>
+              <span class="chip" [class.chip-p1]="tc.priority === 1">Priority {{ tc.priority }}</span>
+            </header>
+
+            <div class="case-body">
+              <div class="case-gherkin">
+                <span class="case-label">Description &mdash; Gherkin</span>
+                <pre><code>{{ tc.gherkin }}</code></pre>
+              </div>
+
+              <div class="case-steps">
+                <span class="case-label">Steps</span>
+                <table>
+                  <thead>
+                    <tr><th>#</th><th>Step Action</th><th>Step Expected</th></tr>
+                  </thead>
+                  <tbody>
+                    @for (step of tc.steps; track $index) {
+                      <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ step.action }}</td>
+                        <td>{{ step.expected }}</td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+        }
+
+        <div class="stage-actions">
+          <button class="cta-button" (click)="downloadCsv()">
+            <span class="material-icons">download</span>
+            TestCases_Login.csv
+          </button>
+          <button class="link-button" (click)="reset()">Run it again</button>
+        </div>
+
+        <p class="stage-footnote">
+          The CSV matches the Azure DevOps import layout &mdash; parent row plus numbered step
+          rows, <code>Tags</code> left for the feature file to fill. In the full pipeline the next
+          command turns the Gherkin into a Reqnroll <code>.feature</code> and its step definitions.
+        </p>
+      </div>
+    }
+
+  </div>
+</section>
