@@ -43,7 +43,7 @@
             <div>
               <strong>Repository</strong>
               <code>ruku-bookings</code>
-              <small>Angular &bull; 1 form in scope: <code>Login</code></small>
+              <small>Angular + .NET API &bull; 1 feature in scope: <code>Booking</code></small>
             </div>
           </div>
           <div class="input-card">
@@ -56,7 +56,7 @@
           </div>
         </div>
 
-        <button class="cta-button" (click)="mineBusinessLogic()" [disabled]="mining()">
+        <button class="cta-button" (click)="mineUseCaseFlow()" [disabled]="mining()">
           {{ mining() ? 'Mining source and documents…' : 'Generate the use-case flow' }}
         </button>
 
@@ -71,15 +71,15 @@
       <div class="stage">
         <h3>2 &middot; Read it, fix it, and only then move on</h3>
         <p class="stage-note">
-          This is the review gate. Every rule is cited to an artifact or tagged
-          <code>(inferred)</code>, and the conflict table holds each place the documents and
-          the shipped code disagree. <strong>A wrong rule costs minutes here and days downstream.</strong>
+          This is the review gate. Each use case names its actors, goal and step-by-step flow,
+          with diagrams; every rule is cited to an artifact or tagged <code>(inferred)</code>, and
+          the conflict table holds each place the documents and the shipped code disagree. <strong>A wrong rule costs minutes here and days downstream.</strong>
         </p>
 
         <div class="doc-meta">
-          <span class="chip chip-warn">2 open conflicts</span>
-          <span class="chip">7 cited / 2 inferred</span>
-          <span class="chip">5 proposed scenarios</span>
+          <span class="chip chip-warn">{{ conflictCount() }} open conflicts</span>
+          <span class="chip">{{ useCaseCount() }} use cases</span>
+          <span class="chip">{{ scenarioCount() }} proposed scenarios</span>
         </div>
 
         <pre class="doc-preview"><code>{{ doc() }}</code></pre>
@@ -90,7 +90,7 @@
             <p>Edit the file in your own editor &mdash; settle the conflicts, drop or add scenarios.</p>
             <button class="cta-button cta-outline" (click)="downloadDoc()">
               <span class="material-icons">download</span>
-              BusinessLogic_Login.md
+              {{ docName }}
             </button>
           </div>
 
@@ -166,7 +166,7 @@
         <div class="stage-actions">
           <button class="cta-button" (click)="downloadCsv()">
             <span class="material-icons">download</span>
-            TestCases_Login.csv
+            {{ csvName }}
           </button>
           <button class="link-button" (click)="reset()">Run it again</button>
         </div>

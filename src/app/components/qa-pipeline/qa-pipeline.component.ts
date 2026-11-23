@@ -22,7 +22,9 @@ interface TestCase {
   steps: TestStep[];
 }
 
-const SAMPLE_DOC = '/samples/BusinessLogic_Login.md';
+const SAMPLE_DOC = '/samples/UseCaseFlow_Booking.md';
+const DOC_NAME = 'UseCaseFlow_Booking.md';
+const CSV_NAME = 'TestCases_Booking.csv';
 
 @Component({
   selector: 'app-qa-pipeline',
@@ -40,6 +42,15 @@ export class QaPipelineComponent {
   readonly testCases = signal<TestCase[]>([]);
 
   readonly csv = computed(() => this.toCsv(this.testCases()));
+
+  // Review-gate counts, read from the document itself so the chips can't drift from it.
+  readonly docName = DOC_NAME;
+  readonly csvName = CSV_NAME;
+  readonly useCaseCount = computed(() => (this.doc().match(/^##\s+UC\d+/gm) ?? []).length);
+  readonly conflictCount = computed(() =>
+    this.doc().split(/\r?\n/).filter(l => l.trim().startsWith('|') && l.includes('⚠ CONFLICT')).length
+  );
+  readonly scenarioCount = computed(() => this.parseScenarios(this.doc()).length);
   readonly stepCount = computed(() =>
     this.testCases().reduce((n, tc) => n + tc.steps.length, 0)
   );
@@ -51,7 +62,7 @@ export class QaPipelineComponent {
   }
 
   // ── Step 1 → 2 ───────────────────────────────────────────
-  async mineBusinessLogic(): Promise<void> {
+  async mineUseCaseFlow(): Promise<void> {
     if (!this.isBrowser || this.mining()) return;
 
     this.mining.set(true);
@@ -68,7 +79,7 @@ export class QaPipelineComponent {
   }
 
   downloadDoc(): void {
-    this.download(this.doc(), 'BusinessLogic_Login.md', 'text/markdown');
+    this.download(this.doc(), DOC_NAME, 'text/markdown');
   }
 
   // ── Step 2 → 3 ───────────────────────────────────────────
@@ -98,7 +109,7 @@ export class QaPipelineComponent {
   }
 
   downloadCsv(): void {
-    this.download(this.csv(), 'TestCases_Login.csv', 'text/csv');
+    this.download(this.csv(), CSV_NAME, 'text/csv');
   }
 
   reset(): void {

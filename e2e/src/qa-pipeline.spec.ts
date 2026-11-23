@@ -24,9 +24,13 @@ test.describe('QA Pipeline Demo', () => {
     await page.getByRole('button', { name: 'Generate the use-case flow' }).click();
 
     await expect(page.locator('.doc-preview')).toBeVisible();
-    await expect(page.locator('.doc-preview')).toContainText('Business Logic Reference');
+    await expect(page.locator('.doc-preview')).toContainText('Booking — Use-Case Flow');
     await expect(page.locator('.doc-preview')).toContainText('Documents vs. Implementation');
+    await expect(page.locator('.doc-preview')).toContainText('## Actors');
+    await expect(page.locator('.doc-preview')).toContainText('```mermaid');
     await expect(page.locator('.chip-warn')).toContainText('2 open conflicts');
+    await expect(page.locator('.doc-meta')).toContainText('5 use cases');
+    await expect(page.locator('.doc-meta')).toContainText('6 proposed scenarios');
     await expect(page.locator('.stepper li').nth(1)).toHaveClass(/active/);
   });
 
@@ -36,19 +40,19 @@ test.describe('QA Pipeline Demo', () => {
     // Download the markdown the way a reviewer would.
     const mdDownload = await Promise.all([
       page.waitForEvent('download'),
-      page.getByRole('button', { name: /BusinessLogic_Login\.md/ }).click(),
+      page.getByRole('button', { name: /UseCaseFlow_Booking\.md/ }).click(),
     ]).then(([download]) => download);
 
-    const mdPath = path.join(os.tmpdir(), `pw-${testInfo.workerIndex}-BusinessLogic_Login.md`);
+    const mdPath = path.join(os.tmpdir(), `pw-${testInfo.workerIndex}-UseCaseFlow_Booking.md`);
     await mdDownload.saveAs(mdPath);
     expect(fs.readFileSync(mdPath, 'utf8')).toContain('Proposed scenarios');
 
     // Re-upload it as the reviewed copy.
     await page.locator('.file-drop input[type="file"]').setInputFiles(mdPath);
 
-    // The sample doc holds 5 proposed scenarios.
-    await expect(page.locator('.case')).toHaveCount(5);
-    await expect(page.locator('.stage-note')).toContainText('5');
+    // The sample doc holds 6 proposed scenarios, one or more per use case.
+    await expect(page.locator('.case')).toHaveCount(6);
+    await expect(page.locator('.stage-note')).toContainText('6');
 
     // Smoke scenario must come out as Priority 1, the rest as Priority 2.
     await expect(page.locator('.case').first().locator('.chip')).toHaveText('Priority 1');
@@ -56,7 +60,7 @@ test.describe('QA Pipeline Demo', () => {
 
     // Gherkin is present and tag-free (tags belong to the .feature file).
     const gherkin = await page.locator('.case').first().locator('.case-gherkin pre').innerText();
-    expect(gherkin).toContain('Scenario: Valid credentials sign the user in');
+    expect(gherkin).toContain('Scenario: UC1: Customer books a published slot');
     expect(gherkin).toContain('Given ');
     expect(gherkin).toContain('When ');
     expect(gherkin).toContain('Then ');
@@ -65,10 +69,10 @@ test.describe('QA Pipeline Demo', () => {
     // The CSV itself.
     const csvDownload = await Promise.all([
       page.waitForEvent('download'),
-      page.getByRole('button', { name: /TestCases_Login\.csv/ }).click(),
+      page.getByRole('button', { name: /TestCases_Booking\.csv/ }).click(),
     ]).then(([download]) => download);
 
-    const csvPath = path.join(os.tmpdir(), `pw-${testInfo.workerIndex}-TestCases_Login.csv`);
+    const csvPath = path.join(os.tmpdir(), `pw-${testInfo.workerIndex}-TestCases_Booking.csv`);
     await csvDownload.saveAs(csvPath);
     const csv = fs.readFileSync(csvPath, 'utf8');
     const lines = csv.split('\n');
@@ -78,15 +82,15 @@ test.describe('QA Pipeline Demo', () => {
     );
 
     // Parent row: empty ID, Work Item Type, Title, empty D-G, Priority, quoted Gherkin.
-    expect(lines[1]).toMatch(/^,Test Case,Valid credentials sign the user in,,,,,1,"Scenario:/);
+    expect(lines[1]).toMatch(/^,Test Case,UC1: Customer books a published slot,,,,,1,"Scenario:/);
 
     // Step rows carry only Test Step / Step Action / Step Expected.
     const stepRow = lines.find(l => /^,,,1,/.test(l));
     expect(stepRow).toBeDefined();
     expect(stepRow!.endsWith(',,,')).toBe(true);
 
-    // Five parent rows, one per scenario.
-    expect(lines.filter(l => l.startsWith(',Test Case,')).length).toBe(5);
+    // Six parent rows, one per scenario.
+    expect(lines.filter(l => l.startsWith(',Test Case,')).length).toBe(6);
 
     // No em dashes — Excel renders them as mojibake in its default encoding.
     expect(csv).not.toContain('—');
@@ -96,7 +100,7 @@ test.describe('QA Pipeline Demo', () => {
     await page.getByRole('button', { name: 'Generate the use-case flow' }).click();
 
     const emptyPath = path.join(os.tmpdir(), 'pw-empty-doc.md');
-    fs.writeFileSync(emptyPath, '# Login\n\nNothing useful here.\n');
+    fs.writeFileSync(emptyPath, '# Booking\n\nNothing useful here.\n');
 
     await page.locator('.file-drop input[type="file"]').setInputFiles(emptyPath);
 
