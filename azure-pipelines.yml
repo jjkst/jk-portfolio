@@ -55,10 +55,12 @@ steps:
       echo "Full CPU info:"; lscpu
     displayName: 'Report agent specs'
 
-  - task: NodeTool@0
+  # UseNode@1, not the deprecated NodeTool@0 (which no longer receives updates).
+  # Note the input rename: versionSpec -> version.
+  - task: UseNode@1
     displayName: 'Use Node.js 20.x'
     inputs:
-      versionSpec: '20.x'
+      version: '20.x'
 
   - script: npm run setup
     displayName: 'Install deps + build ruku-bookings lib'
